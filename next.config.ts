@@ -20,6 +20,10 @@ const cspHeader = `
 
 const securityHeaders = [
   {
+    key: "Cache-Control",
+    value: "public, max-age=0, s-maxage=86400, stale-while-revalidate=59",
+  },
+  {
     key: "Content-Security-Policy",
     value: cspHeader.replace(/\s{2,}/g, " ").trim(),
   },
