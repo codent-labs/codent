@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section className="flex flex-col items-center justify-center text-center relative min-h-[calc(100vh-84px)] px-5 pt-10 pb-[60px]">
       <div className="max-w-[700px] w-full flex flex-col items-center">
-        <p className="text-[15px] text-[#888] font-normal mb-[14px]">
+        <p className="text-[15px] text-[#666] font-normal mb-[14px]">
           A lab for curious teams · est. 2019
         </p>
 
@@ -41,7 +41,7 @@ export default function Hero() {
           </h1>
         </div>
 
-        <p className="text-[14px] text-[#888] leading-[1.7] max-w-[470px] mx-auto mb-7">
+        <p className="text-[14px] text-[#666] leading-[1.7] max-w-[470px] mx-auto mb-7">
           We partner with founders and product teams on{" "}
           <span className="inline-flex items-center bg-[#E0E2E7] text-[12.5px] font-semibold px-3 py-[2px] rounded-[6px] text-[#3a3a3a]">
             brand
@@ -87,7 +87,7 @@ export default function Hero() {
             <strong className="text-[12.5px] font-semibold text-[#0f0f0f]">
               86 projects shipped
             </strong>
-            <span className="text-[11.5px] text-[#888]">
+            <span className="text-[11.5px] text-[#666]">
               for teams like Halcyon, Sundae &amp; Folio.
             </span>
           </div>

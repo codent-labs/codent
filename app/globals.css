@@ -2,7 +2,7 @@
 
 :root {
   --text-main: #1a1a1a;
-  --text-secondary: #888888;
+  --text-secondary: #666666;
   --bg-page: #f5f5f5;
   --card-bg: #ffffff;
   --gradient-pink: #f7b2fb;
@@ -451,7 +451,7 @@
 .codent-process-meta {
   font-size: 11.5px;
   font-weight: 600;
-  color: #bbb;
+  color: #757575;
   letter-spacing: 0.04em;
   margin-top: auto;
   padding-top: 16px;

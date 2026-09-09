@@ -18,7 +18,7 @@ export default function Footer() {
         >
           <div>
             <Logo/>
-            <p className="text-[13.5px] text-[#888] leading-[1.6] max-w-[300px] mt-[18px]">
+            <p className="text-[13.5px] text-[#666] leading-[1.6] max-w-[300px] mt-[18px]">
               A small lab for curious teams. Brand, product and engineering —
               under one roof, since 2019.
             </p>
@@ -60,7 +60,7 @@ export default function Footer() {
 
         <div className="codent-dashed" />
 
-        <div className="flex items-center justify-between pt-6 text-[12.5px] text-[#888] gap-4 flex-wrap">
+        <div className="flex items-center justify-between pt-6 text-[12.5px] text-[#666] gap-4 flex-wrap">
           <span>© 2026 Codent lab — All rights reserved.</span>
           <div className="flex gap-2">
             {socials.map((s) => (

@@ -68,7 +68,7 @@ export default function Process() {
                 <h4 className="text-[17px] font-semibold tracking-[-0.3px] text-[#0f0f0f] mt-3">
                   {s.title}
                 </h4>
-                <p className="text-[13px] text-[#888] leading-[1.55] mt-2">{s.body}</p>
+                <p className="text-[13px] text-[#666] leading-[1.55] mt-2">{s.body}</p>
                 <span className="codent-process-meta">{s.meta}</span>
               </div>
             </div>

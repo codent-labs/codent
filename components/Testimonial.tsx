@@ -30,7 +30,7 @@ export default function Testimonial() {
                 <div className="text-[14px] font-semibold text-[#0f0f0f]">
                   Rosa Madrigal
                 </div>
-                <div className="text-[12.5px] text-[#888]">
+                <div className="text-[12.5px] text-[#666]">
                   Head of Product · Halcyon
                 </div>
               </div>
@@ -40,26 +40,26 @@ export default function Testimonial() {
           {/* Side card */}
           <div className="bg-[#F5F5F5] rounded-[18px] p-6 flex flex-col gap-[14px]">
             <div className="flex items-center justify-between">
-              <span className="text-[12px] text-[#888]">Project</span>
-              <span className="text-[11px] font-semibold text-[#0d7f3a] bg-[#dff5e6] px-[10px] py-[3px] rounded-[40px]">
+              <span className="text-[12px] text-[#666]">Project</span>
+              <span className="text-[11px] font-semibold text-[#0b7536] bg-[#dff5e6] px-[10px] py-[3px] rounded-[40px]">
                 Live
               </span>
             </div>
             <div className="text-[#0f0f0f] text-[36px] font-medium tracking-[-1.2px]">
               Halcyon 3.0
             </div>
-            <div className="text-[12px] text-[#888]">
+            <div className="text-[12px] text-[#666]">
               Banking app · 9 months · Brand, product, engineering.
             </div>
 
             <div className="codent-dashed my-[6px]" />
 
             <div className="flex items-center justify-between mt-1">
-              <span className="text-[12px] text-[#888]">NPS lift</span>
+              <span className="text-[12px] text-[#666]">NPS lift</span>
               <span className="font-semibold text-[14px]">+34 pts</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-[12px] text-[#888]">Activation</span>
+              <span className="text-[12px] text-[#666]">Activation</span>
               <span className="font-semibold text-[14px]">×2.1</span>
             </div>
           </div>

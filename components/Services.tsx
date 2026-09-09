@@ -99,7 +99,7 @@ export default function Services() {
               <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-[#0f0f0f]">
                 {s.title}
               </h3>
-              <p className="text-[14px] text-[#888] leading-[1.6] mt-2">{s.body}</p>
+              <p className="text-[14px] text-[#666] leading-[1.6] mt-2">{s.body}</p>
             </div>
 
             {/* Footer */}
@@ -126,7 +126,7 @@ export default function Services() {
             style={{ width: `${progress * 100}%` }}
           />
         </div>
-        <p className="text-[11.5px] text-[#bbb] mt-2 select-none">
+        <p className="text-[11.5px] text-[#757575] mt-2 select-none">
           Scroll to explore →
         </p>
       </div>

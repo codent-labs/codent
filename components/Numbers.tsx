@@ -19,7 +19,7 @@ export default function Numbers() {
                   {s.sup}
                 </sup>
               </div>
-              <div className="text-[13px] text-[#888] mt-[10px] leading-[1.5] max-w-[200px]">
+              <div className="text-[13px] text-[#666] mt-[10px] leading-[1.5] max-w-[200px]">
                 {s.label}
               </div>
             </div>
