@@ -36,11 +36,11 @@ export default function codentLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <AsyncStylesheet href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
+        <AsyncStylesheet href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=optional" />
         <noscript>
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=optional"
           />
         </noscript>
       </head>
