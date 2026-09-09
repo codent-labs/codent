@@ -13,14 +13,16 @@ export default function codentPage() {
   return (
     <>
       <Navbar />
-      <Hero />
-      <LogosStrip />
-      <Services />
-      <Showcase />
-      <Numbers />
-      <Process />
-      <Testimonial />
-      <CTA />
+      <main id="main-content">
+        <Hero />
+        <LogosStrip />
+        <Services />
+        <Showcase />
+        <Numbers />
+        <Process />
+        <Testimonial />
+        <CTA />
+      </main>
       <Footer />
     </>
   );
