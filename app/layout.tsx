@@ -40,7 +40,15 @@ export default function codentLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
         />
       </head>
-      <body className={`${dmSans.variable} min-h-screen`}>{children}</body>
+      <body className={`${dmSans.variable} min-h-screen`}>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-[#111] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm"
+        >
+          Skip to main content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
