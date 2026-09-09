@@ -66,9 +66,9 @@ export default function Showcase() {
               {/* Content */}
               <div className="relative z-10 flex items-end justify-between gap-4 text-white">
                 <div>
-                  <h4 className="text-[22px] font-semibold tracking-[-0.5px]">
+                  <h3 className="text-[22px] font-semibold tracking-[-0.5px]">
                     {w.title}
-                  </h4>
+                  </h3>
                   <div className="flex gap-[6px] mt-[6px]">
                     {w.tags.map((t) => (
                       <span

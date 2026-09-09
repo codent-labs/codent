@@ -42,9 +42,9 @@ export default function Footer() {
             },
           ].map((col) => (
             <div key={col.title}>
-              <h5 className="text-[12px] font-semibold text-[#0f0f0f] uppercase tracking-[0.1em] mb-[14px]">
+              <h3 className="text-[12px] font-semibold text-[#0f0f0f] uppercase tracking-[0.1em] mb-[14px]">
                 {col.title}
-              </h5>
+              </h3>
               {col.links.map((link) => (
                 <a
                   key={link}
