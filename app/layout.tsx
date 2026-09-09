@@ -1,6 +1,5 @@
 import { DM_Sans } from "next/font/google";
 import type { Metadata } from "next";
-import AsyncStylesheet from "@/components/AsyncStylesheet";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -36,13 +35,10 @@ export default function codentLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <AsyncStylesheet href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0" />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
-          />
-        </noscript>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
+        />
       </head>
       <body className={`${dmSans.variable} min-h-screen`}>
         <a
