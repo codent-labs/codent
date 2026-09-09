@@ -38,7 +38,17 @@ export default function codentLayout({
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
+          media="print"
+          onLoad={(e) => {
+            e.currentTarget.media = "all";
+          }}
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
+          />
+        </noscript>
       </head>
       <body className={`${dmSans.variable} min-h-screen`}>
         <a
