@@ -28,9 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-const materialSymbolsHref =
-  "https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=optional&icon_names=air,alternate_email,camera_alt,chat_bubble,cloud,deployed_code,design_services,draw,explore,favorite,format_quote,hexagon,hub,local_fire_department,menu_book,north_east,play_arrow,public,rocket_launch,sports_basketball,sunny,work";
-
 export default function codentLayout({
   children,
 }: {
@@ -39,9 +36,12 @@ export default function codentLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <AsyncStylesheet href={materialSymbolsHref} />
+        <AsyncStylesheet href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=optional" />
         <noscript>
-          <link rel="stylesheet" href={materialSymbolsHref} />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=optional"
+          />
         </noscript>
       </head>
       <body className={`${dmSans.variable} min-h-screen`}>
