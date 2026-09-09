@@ -1,4 +1,5 @@
 import { DM_Sans } from "next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -7,6 +8,24 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   display: "swap",
 });
+
+export const metadata: Metadata = {
+  title: "Codent Labs — Brand, Product & Engineering",
+  description:
+    "Codent Labs partners with founders and product teams on brand, product design, and engineering. 86+ projects shipped for teams like Halcyon, Sundae & Folio. Est. 2019.",
+  openGraph: {
+    title: "Codent Labs — Brand, Product & Engineering",
+    description:
+      "We partner with founders and product teams on brand, product and engineering — turning fuzzy bets into shipped work.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Codent Labs — Brand, Product & Engineering",
+    description:
+      "We partner with founders and product teams on brand, product and engineering.",
+  },
+};
 
 export default function codentLayout({
   children,
