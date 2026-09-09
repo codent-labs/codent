@@ -39,8 +39,6 @@ export default function codentLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <AsyncStylesheet href={materialSymbolsHref} />
         <noscript>
           <link rel="stylesheet" href={materialSymbolsHref} />
