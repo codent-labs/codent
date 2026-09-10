@@ -276,17 +276,34 @@
   gap: 14px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  /* Snap points align tiles with the content edge (the leading pad plus
+     the flex gap before tile 01), not the viewport edge — without this the
+     track auto-scrolls on load so tile 01 sits flush against the screen. */
+  scroll-padding-inline-start: calc((100vw - 1100px) / 2 + 40px + 14px);
   -webkit-overflow-scrolling: touch;
   cursor: grab;
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding-bottom: 4px;
 }
+@media (max-width: 1180px) {
+  .codent-scroll-track { scroll-padding-inline-start: calc(40px + 14px); }
+}
+@media (max-width: 768px) {
+  .codent-scroll-track { scroll-padding-inline-start: calc(24px + 14px); }
+}
+@media (max-width: 480px) {
+  .codent-scroll-track { scroll-padding-inline-start: calc(18px + 14px); }
+}
 .codent-scroll-track::-webkit-scrollbar {
   display: none;
 }
 .codent-scroll-grabbing {
   cursor: grabbing;
+  /* Disable snapping while drag-scrolling so tiles follow the pointer
+     instead of fighting it; snapping resumes (and re-applies) on release. */
+  scroll-snap-type: none;
+  user-select: none;
 }
 
 .codent-scroll-pad {
@@ -480,7 +497,6 @@
   background: #0f0f0f;
   border-radius: 2px;
   transition: width 0.1s linear;
-  min-width: 24px;
 }
 
 @media (max-width: 768px) {

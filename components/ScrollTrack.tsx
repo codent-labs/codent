@@ -37,6 +37,11 @@ export default function ScrollTrack() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [grabbing, setGrabbing] = useState(false);
+  // Drag-to-scroll state (mouse): where the pointer went down and what the
+  // scroll position was at that moment. Null when not dragging.
+  const drag = useRef<{ pointerX: number; scrollLeft: number; moved: boolean } | null>(
+    null,
+  );
 
   const onScroll = () => {
     const el = trackRef.current;
@@ -45,15 +50,40 @@ export default function ScrollTrack() {
     setProgress(max > 0 ? el.scrollLeft / max : 0);
   };
 
+  const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = trackRef.current;
+    if (!el) return;
+    // Only the primary button; don't hijack middle-click autoscroll etc.
+    if (e.button !== 0) return;
+    drag.current = { pointerX: e.clientX, scrollLeft: el.scrollLeft, moved: false };
+    setGrabbing(true);
+  };
+
+  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const el = trackRef.current;
+    const state = drag.current;
+    if (!el || !state) return;
+    const dx = e.clientX - state.pointerX;
+    if (!state.moved && Math.abs(dx) < 5) return; // dead zone so clicks still work
+    state.moved = true;
+    el.scrollLeft = state.scrollLeft - dx;
+  };
+
+  const endDrag = () => {
+    drag.current = null;
+    setGrabbing(false);
+  };
+
   return (
     <>
       {/* Scroll track — bleeds past codent-wrap padding */}
       <div
         ref={trackRef}
         onScroll={onScroll}
-        onMouseDown={() => setGrabbing(true)}
-        onMouseUp={() => setGrabbing(false)}
-        onMouseLeave={() => setGrabbing(false)}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={endDrag}
+        onMouseLeave={endDrag}
         className={`codent-scroll-track ${grabbing ? "codent-scroll-grabbing" : ""}`}
       >
         {/* Left pad to align with content */}

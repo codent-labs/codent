@@ -10,7 +10,7 @@ export function Logo({ className, ...props }: CodentLabsLogoProps) {
       className={className}
       {...props}
     >
-      <span className="font-bold tracking-[1.px] leading-[1.08] text-[#0f0f0f]">
+      <span className="font-bold tracking-[1px] leading-[1.08] text-[#0f0f0f]">
         Codent labs.
       </span>
     </div>
