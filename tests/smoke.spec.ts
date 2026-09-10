@@ -86,7 +86,8 @@ test.describe("Homepage", () => {
   });
 
   test("Testimonial section renders quote", async ({ page }) => {
-    await expect(page.getByText("smartest")).toBeVisible();
+    const quote = page.locator("blockquote");
+    await expect(quote.getByText("smartest", { exact: true })).toBeVisible();
     await expect(page.getByText("Rosa Madrigal")).toBeVisible();
     await expect(page.getByText("Head of Product · Halcyon")).toBeVisible();
   });

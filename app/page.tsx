@@ -6,6 +6,7 @@ import Showcase from "@/components/Showcase";
 import Numbers from "@/components/Numbers";
 import Process from "@/components/Process";
 import Testimonial from "@/components/Testimonial";
+import FAQ from "@/components/FAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -21,6 +22,7 @@ export default function codentPage() {
         <Numbers />
         <Process />
         <Testimonial />
+        <FAQ />
         <CTA />
       </main>
       <Footer />
