@@ -58,7 +58,7 @@ export default function Hero() {
         </p>
 
         <div className="flex items-center gap-[18px] flex-wrap justify-center mb-8">
-          <a href="#contact" className="codent-pill-dark lg">
+          <a href="/contact" className="codent-pill-dark lg">
             <span className="codent-arrow-circ lg">
               <ChevronArrow />
             </span>

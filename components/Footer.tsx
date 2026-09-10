@@ -37,7 +37,7 @@ export default function Footer() {
             {
               title: "Say hi",
               links: [
-                "soctoit@gmail.com",
+                "hello@codentlabs.com",
                 "+91 8376045365",
               ],
             },

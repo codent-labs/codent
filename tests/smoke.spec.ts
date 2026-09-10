@@ -95,7 +95,7 @@ test.describe("Homepage", () => {
   test("CTA section renders contact area", async ({ page }) => {
     const cta = page.locator("#contact");
     await expect(cta.getByText("Got an idea")).toBeVisible();
-    await expect(cta.getByRole("link", { name: "Book a 30-min chat" })).toBeVisible();
+    await expect(cta.getByRole("link", { name: "Tell us where you're stuck" })).toBeVisible();
   });
 
   test("Footer renders with copyright and links", async ({ page }) => {
@@ -105,12 +105,13 @@ test.describe("Homepage", () => {
     await expect(footer.getByRole("link", { name: "LinkedIn" })).toBeVisible();
   });
 
-  // Regression for issue #25: footer contact links must be actionable.
+  // Regression for issues #25/#40: footer contact links must be actionable and
+  // use the domain inbox, never a public Gmail address.
   test("Footer email and phone links use mailto:/tel: hrefs", async ({ page }) => {
     const footer = page.locator("footer");
-    await expect(footer.getByRole("link", { name: "soctoit@gmail.com" })).toHaveAttribute(
+    await expect(footer.getByRole("link", { name: "hello@codentlabs.com" })).toHaveAttribute(
       "href",
-      "mailto:soctoit@gmail.com",
+      "mailto:hello@codentlabs.com",
     );
     await expect(footer.getByRole("link", { name: "+91 8376045365" })).toHaveAttribute(
       "href",
