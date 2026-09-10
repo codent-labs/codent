@@ -73,8 +73,8 @@ test.describe("Homepage", () => {
   test("Numbers section renders stats", async ({ page }) => {
     const stats = page.locator("section").filter({ has: page.locator("sup") });
     await expect(stats.first()).toBeVisible();
-    await expect(stats.getByText("Shipped projects across 14 industries.")).toBeVisible();
-    await expect(stats.getByText("Average client rating since 2019.")).toBeVisible();
+    await expect(stats.getByText("Projects shipped across 14 industries since 2019.")).toBeVisible();
+    await expect(stats.getByText("Average client rating across 86 projects, 2019–2026.")).toBeVisible();
   });
 
   test("Process section renders all four steps", async ({ page }) => {

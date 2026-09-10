@@ -37,7 +37,7 @@ export default function Testimonial() {
             </div>
           </div>
 
-          {/* Side card */}
+          {/* Side card — featured Halcyon case metrics as a compact stat strip */}
           <div className="bg-[#F5F5F5] rounded-[18px] p-6 flex flex-col gap-[14px]">
             <div className="flex items-center justify-between">
               <span className="text-[12px] text-[#666]">Project</span>
@@ -45,22 +45,26 @@ export default function Testimonial() {
                 Live
               </span>
             </div>
-            <div className="text-[#0f0f0f] text-[36px] font-medium tracking-[-1.2px]">
+            <div className="text-[#0f0f0f] text-[32px] font-medium tracking-[-1.2px]">
               Halcyon 3.0
             </div>
             <div className="text-[12px] text-[#666]">
               Banking app · 9 months · Brand, product, engineering.
             </div>
 
-            <div className="codent-dashed my-[6px]" />
-
-            <div className="flex items-center justify-between mt-1">
-              <span className="text-[12px] text-[#666]">NPS lift</span>
-              <span className="font-semibold text-[14px]">+34 pts</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-[12px] text-[#666]">Activation</span>
-              <span className="font-semibold text-[14px]">×2.1</span>
+            <div className="grid grid-cols-2 gap-[10px] mt-1">
+              <div className="bg-white border border-black/5 rounded-[14px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
+                <div className="text-[#0f0f0f] text-[30px] font-semibold tracking-[-1px] leading-none">
+                  +34
+                </div>
+                <div className="text-[11.5px] text-[#666] mt-2">NPS lift</div>
+              </div>
+              <div className="bg-white border border-black/5 rounded-[14px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
+                <div className="text-[#0f0f0f] text-[30px] font-semibold tracking-[-1px] leading-none">
+                  ×2.1
+                </div>
+                <div className="text-[11.5px] text-[#666] mt-2">Activation</div>
+              </div>
             </div>
           </div>
         </div>

@@ -57,7 +57,7 @@ export default function Hero() {
           , not quarters.
         </p>
 
-        <div className="flex items-center gap-[18px] flex-wrap justify-center mb-9">
+        <div className="flex items-center gap-[18px] flex-wrap justify-center mb-8">
           <a href="#contact" className="codent-pill-dark lg">
             <span className="codent-arrow-circ lg">
               <ChevronArrow />
@@ -76,7 +76,26 @@ export default function Hero() {
           </a>
         </div>
 
-        <div className="inline-flex items-center gap-[14px] rounded-[40px] px-[18px] py-[6px] ps-[6px] bg-white/55 border border-black/5 backdrop-blur-[8px]">
+        {/* Persistent proof bar (issue #39): every metric carries its
+            denominator and timespan so none of them float. */}
+        <div
+          role="list"
+          className="codent-proofbar w-full mt-0"
+        >
+          {[
+            { value: "86+", label: "projects shipped since 2019" },
+            { value: "14", label: "industries served" },
+            { value: "4.9/5", label: "avg rating across 86 projects" },
+            { value: "100%", label: "clients return within a year" },
+          ].map((s) => (
+            <div key={s.value} role="listitem" className="codent-proofbar-item">
+              <strong className="codent-proofbar-value">{s.value}</strong>
+              <span className="codent-proofbar-label">{s.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-8 inline-flex items-center gap-[14px] rounded-[40px] px-[18px] py-[6px] ps-[6px] bg-white/55 border border-black/5 backdrop-blur-[8px]">
           <div className="flex">
             {avatars.map((a, i) => (
               <span
