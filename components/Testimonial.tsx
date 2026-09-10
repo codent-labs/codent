@@ -1,3 +1,5 @@
+import { Icon } from "./icon";
+
 export default function Testimonial() {
   return (
     <section className="codent-section">
@@ -5,9 +7,7 @@ export default function Testimonial() {
         <div
           className="bg-white rounded-[24px] p-[54px] border border-black/5 shadow-[0_4px_24px_rgba(0,0,0,0.05)] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-center relative overflow-hidden"
         >
-          <span className="codent-icon codent-gradient-text absolute top-6 end-9 text-[90px] opacity-70 leading-none">
-            format_quote
-          </span>
+          <Icon name="format_quote" className="codent-gradient-text absolute top-6 end-9 text-[90px] opacity-70 leading-none" />
 
           <div>
             <blockquote className="text-[clamp(22px,2.4vw,30px)] font-medium tracking-[-0.6px] leading-[1.25] text-[#0f0f0f]">

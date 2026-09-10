@@ -216,9 +216,9 @@
   line-height: 1.6;
 }
 
-/* Material Symbols Rounded icon font helper */
+/* Material Symbols Rounded icon font helper (self-hosted, issue #41) */
 .codent-icon {
-  font-family: "Material Symbols Rounded";
+  font-family: var(--font-material-symbols);
   font-variation-settings: "'FILL' 1";
   line-height: 1;
   user-select: none;

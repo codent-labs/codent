@@ -1,3 +1,5 @@
+import { Icon } from "./icon";
+
 const works = [
   {
     title: "Maru — banking, softened.",
@@ -80,11 +82,10 @@ export default function Showcase() {
                     ))}
                   </div>
                 </div>
-                <span
-                  className="codent-icon w-[38px] h-[38px] rounded-full bg-white text-[#111] inline-flex items-center justify-center text-[20px] transition-transform duration-300 group-hover:translate-x-[3px] rtl:group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] flex-shrink-0"
-                >
-                  north_east
-                </span>
+                <Icon
+                  name="north_east"
+                  className="w-[38px] h-[38px] rounded-full bg-white text-[#111] inline-flex items-center justify-center text-[20px] transition-transform duration-300 group-hover:translate-x-[3px] rtl:group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] flex-shrink-0"
+                />
               </div>
             </a>
           ))}

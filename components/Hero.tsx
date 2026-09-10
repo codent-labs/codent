@@ -1,3 +1,5 @@
+import { Icon } from "./icon";
+
 function ChevronArrow() {
   return (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
@@ -28,12 +30,14 @@ export default function Hero() {
         </p>
 
         <div className="relative inline-block mb-[18px]">
-          <span className="codent-gradient-text codent-icon codent-float-cloud absolute">
-            cloud
-          </span>
-          <span className="codent-gradient-text codent-icon codent-float-star absolute">
-            favorite
-          </span>
+          <Icon
+            name="cloud"
+            className="codent-gradient-text codent-float-cloud absolute"
+          />
+          <Icon
+            name="favorite"
+            className="codent-gradient-text codent-float-star absolute"
+          />
           <h1 className="text-[clamp(34px,5vw,52px)] font-medium tracking-[-1.5px] leading-[1.08] text-[#0f0f0f]">
             Big ideas, made
             <br />
@@ -64,9 +68,10 @@ export default function Hero() {
             href="#showcase"
             className="inline-flex items-center gap-[10px] text-[14px] font-medium text-[#1a1a1a] hover:opacity-70 transition-opacity"
           >
-            <span className="codent-icon w-[30px] h-[30px] rounded-full bg-white border border-black/8 inline-flex items-center justify-center text-[18px] text-[#111] shadow-[0_2px_10px_rgba(0,0,0,0.05)]">
-              play_arrow
-            </span>
+            <Icon
+              name="play_arrow"
+              className="w-[30px] h-[30px] rounded-full bg-white border border-black/8 inline-flex items-center justify-center text-[18px] text-[#111] shadow-[0_2px_10px_rgba(0,0,0,0.05)]"
+            />
             See our work
           </a>
         </div>

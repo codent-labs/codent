@@ -1,3 +1,5 @@
+import { Icon } from "./icon";
+
 const steps = [
   {
     icon: "chat_bubble",
@@ -62,9 +64,7 @@ export default function Process() {
 
               {/* Card */}
               <div className="codent-card codent-process-card">
-                <span className="codent-icon codent-gradient-text text-[34px] leading-none">
-                  {s.icon}
-                </span>
+                <Icon name={s.icon} className="codent-gradient-text text-[34px] leading-none" />
                 <h3 className="text-[17px] font-semibold tracking-[-0.3px] text-[#0f0f0f] mt-3">
                   {s.title}
                 </h3>
