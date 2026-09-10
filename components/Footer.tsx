@@ -1,13 +1,5 @@
 import { Logo } from "./logo"
-import { Icon } from "./icon"
 import { NewsletterForm } from "./NewsletterForm"
-
-const socials = [
-  { label: "Twitter", icon: "alternate_email" },
-  { label: "Instagram", icon: "camera" },
-  { label: "LinkedIn", icon: "work" },
-  { label: "Dribbble", icon: "sports_basketball" },
-];
 
 export default function Footer() {
   return (
@@ -30,18 +22,19 @@ export default function Footer() {
             {
               title: "lab",
               links: [
-                { label: "Our Team", href: "#" },
-                { label: "Process", href: "#" },
+                { label: "About us", href: "/about" },
+                { label: "Process", href: "/process" },
                 { label: "Journal", href: "/journal" },
-                { label: "Careers", href: "#" },
+                { label: "Services", href: "/services" },
               ],
             },
             {
               title: "Work",
               links: [
-                { label: "Case studies", href: "#" },
-                { label: "Showcase", href: "#" },
-                { label: "Newsletter", href: "#" },
+                { label: "Case studies", href: "/work" },
+                { label: "Maru", href: "/work/maru" },
+                { label: "Folio", href: "/work/folio" },
+                { label: "Sundae", href: "/work/sundae" },
               ],
             },
             {
@@ -88,17 +81,19 @@ export default function Footer() {
 
         <div className="flex items-center justify-between pt-6 text-[12.5px] text-[#666] gap-4 flex-wrap">
           <span>© 2026 Codent lab — All rights reserved.</span>
-          <div className="flex gap-2">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href="#"
-                aria-label={s.label}
-                className="w-[34px] h-[34px] rounded-full bg-white border border-black/6 inline-flex items-center justify-center text-[#111] transition-all hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.08)]"
-              >
-                <Icon name={s.icon} className="text-[18px]" />
-              </a>
-            ))}
+          <div className="flex items-center gap-5">
+            <a
+              href="/feed.xml"
+              className="inline-flex items-center gap-2 hover:text-[#0f0f0f] transition-colors"
+            >
+              RSS feed
+            </a>
+            <a
+              href="mailto:hello@codentlabs.com"
+              className="inline-flex items-center gap-2 hover:text-[#0f0f0f] transition-colors"
+            >
+              hello@codentlabs.com
+            </a>
           </div>
         </div>
       </div>

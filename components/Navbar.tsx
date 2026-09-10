@@ -17,13 +17,11 @@ function ChevronArrow() {
   );
 }
 
-// Nav items must point at sections that actually exist on the page
-// (ids: #solutions in Services, #showcase in Showcase, #process in Process) or
-// at real routes (Contact -> /contact). See issues #24 and #40.
+// Every nav item resolves to a crawlable URL (issue #36) — no bare anchors.
 const NAV_ITEMS = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Showcase", href: "#showcase" },
-  { label: "Process", href: "#process" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Process", href: "/process" },
   { label: "Journal", href: "/journal" },
   { label: "Contact", href: "/contact" },
 ];

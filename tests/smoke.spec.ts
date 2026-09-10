@@ -14,27 +14,29 @@ test.describe("Homepage", () => {
     await expect(nav).toBeVisible();
 
     const navLinks = nav.getByRole("link");
-    await expect(navLinks.filter({ hasText: "Solutions" })).toBeVisible();
-    await expect(navLinks.filter({ hasText: "Showcase" })).toBeVisible();
+    await expect(navLinks.filter({ hasText: "Work" })).toBeVisible();
+    await expect(navLinks.filter({ hasText: "Services" })).toBeVisible();
     await expect(navLinks.filter({ hasText: "Process" })).toBeVisible();
+    await expect(navLinks.filter({ hasText: "Journal" })).toBeVisible();
     await expect(navLinks.filter({ hasText: "Contact" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "Let's Connect" })).toBeVisible();
   });
 
-  // Regression for issue #24: every nav anchor must point at an element that
-  // actually exists on the page (previously #our-team / #news were dead).
-  test("Navbar anchors all resolve to existing sections", async ({ page }) => {
+  // Regression for issues #24/#36: every nav link must resolve to a real
+  // crawlable URL (previously #our-team / #news were dead anchors).
+  test("Navbar links all resolve to real routes", async ({ page }) => {
     const nav = page.getByRole("navigation");
     const hrefs = await nav.getByRole("link").evaluateAll((links) =>
       links
         .map((a) => (a as HTMLAnchorElement).getAttribute("href"))
-        .filter((href): href is string => !!href?.startsWith("#")),
+        .filter((href): href is string => !!href),
     );
     expect(hrefs.length).toBeGreaterThan(0);
 
     for (const href of hrefs) {
-      const target = page.locator(href);
-      await expect(target, `anchor ${href} has no matching element`).toHaveCount(1);
+      expect(href.startsWith("#")).toBe(false);
+      const res = await page.request.get(href);
+      expect(res.status(), `route ${href} loads`).toBe(200);
     }
   });
 
@@ -101,15 +103,16 @@ test.describe("Homepage", () => {
   test("Footer renders with copyright and links", async ({ page }) => {
     const footer = page.locator("footer");
     await expect(footer.getByText("© 2026 Codent lab")).toBeVisible();
-    await expect(footer.getByRole("link", { name: "Twitter" })).toBeVisible();
-    await expect(footer.getByRole("link", { name: "LinkedIn" })).toBeVisible();
+    await expect(footer.getByRole("link", { name: "About us" })).toBeVisible();
+    await expect(footer.getByRole("link", { name: "RSS feed" })).toBeVisible();
+    await expect(footer.getByRole("link", { name: "Case studies" })).toBeVisible();
   });
 
   // Regression for issues #25/#40: footer contact links must be actionable and
   // use the domain inbox, never a public Gmail address.
   test("Footer email and phone links use mailto:/tel: hrefs", async ({ page }) => {
     const footer = page.locator("footer");
-    await expect(footer.getByRole("link", { name: "hello@codentlabs.com" })).toHaveAttribute(
+    await expect(footer.getByRole("link", { name: "hello@codentlabs.com" }).first()).toHaveAttribute(
       "href",
       "mailto:hello@codentlabs.com",
     );
