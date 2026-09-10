@@ -17,6 +17,16 @@ function ChevronArrow() {
   );
 }
 
+// Nav items must point at sections that actually exist on the page
+// (ids: #solutions in Services, #showcase in Showcase, #process in Process,
+// #contact in CTA). See issue #24.
+const NAV_ITEMS = [
+  { label: "Solutions", href: "#solutions" },
+  { label: "Showcase", href: "#showcase" },
+  { label: "Process", href: "#process" },
+  { label: "Contact", href: "#contact" },
+];
+
 // function Logo() {
 //   return (
 //     <Link href="#" className="flex items-center gap-[9px]" aria-label="codent home">
@@ -46,13 +56,13 @@ export default function Navbar() {
           <Logo/>
 
           <ul className="hidden md:flex items-center gap-9 list-none">
-            {["Our Team", "Solutions", "Showcase", "News"].map((item) => (
-              <li key={item}>
+            {NAV_ITEMS.map((item) => (
+              <li key={item.label}>
                 <a
-                  href={`#${item.toLowerCase().replace(/\s/g, "-")}`}
+                  href={item.href}
                   className="text-[14px] font-normal text-[#1a1a1a] opacity-65 hover:opacity-100 transition-opacity"
                 >
-                  {item}
+                  {item.label}
                 </a>
               </li>
             ))}
@@ -93,14 +103,14 @@ export default function Navbar() {
         aria-hidden={!menuOpen}
         className={`fixed inset-0 bg-[#F5F5F5] z-[60] flex flex-col px-8 pt-[90px] pb-10 transition-[transform,visibility] duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] ${menuOpen ? "translate-x-0 visible" : "translate-x-full invisible"}`}
       >
-        {["Our Team", "Solutions", "Showcase", "News"].map((item) => (
+        {NAV_ITEMS.map((item) => (
           <a
-            key={item}
-            href={`#${item.toLowerCase().replace(/\s/g, "-")}`}
+            key={item.label}
+            href={item.href}
             className="text-[38px] font-black tracking-[-1.5px] text-[#0f0f0f] py-6 border-b border-dashed border-black/15"
             onClick={() => setMenuOpen(false)}
           >
-            {item}
+            {item.label}
           </a>
         ))}
         <a

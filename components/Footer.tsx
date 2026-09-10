@@ -45,15 +45,23 @@ export default function Footer() {
               <h3 className="text-[12px] font-semibold text-[#0f0f0f] uppercase tracking-[0.1em] mb-[14px]">
                 {col.title}
               </h3>
-              {col.links.map((link) => (
-                <a
-                  key={link}
-                  href={link.includes("@") ? `mailto:${link}` : "#"}
-                  className="block text-[13.5px] text-[#1a1a1a] opacity-65 py-[5px] hover:opacity-100 transition-opacity"
-                >
-                  {link}
-                </a>
-              ))}
+              {col.links.map((link) => {
+                // Email → mailto:, phone number → tel: (see issue #25).
+                const href = link.includes("@")
+                  ? `mailto:${link}`
+                  : /^\+?[\d\s-]+$/.test(link)
+                    ? `tel:${link.replace(/[^+\d]/g, "")}`
+                    : "#";
+                return (
+                  <a
+                    key={link}
+                    href={href}
+                    className="block text-[13.5px] text-[#1a1a1a] opacity-65 py-[5px] hover:opacity-100 transition-opacity"
+                  >
+                    {link}
+                  </a>
+                );
+              })}
             </div>
           ))}
         </div>

@@ -10,15 +10,32 @@ test.describe("Homepage", () => {
   });
 
   test("Navbar renders with navigation links", async ({ page }) => {
-    const nav = page.locator("nav");
+    const nav = page.getByRole("navigation");
     await expect(nav).toBeVisible();
 
     const navLinks = nav.getByRole("link");
-    await expect(navLinks.filter({ hasText: "Our Team" })).toBeVisible();
     await expect(navLinks.filter({ hasText: "Solutions" })).toBeVisible();
     await expect(navLinks.filter({ hasText: "Showcase" })).toBeVisible();
-    await expect(navLinks.filter({ hasText: "News" })).toBeVisible();
+    await expect(navLinks.filter({ hasText: "Process" })).toBeVisible();
+    await expect(navLinks.filter({ hasText: "Contact" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "Let's Connect" })).toBeVisible();
+  });
+
+  // Regression for issue #24: every nav anchor must point at an element that
+  // actually exists on the page (previously #our-team / #news were dead).
+  test("Navbar anchors all resolve to existing sections", async ({ page }) => {
+    const nav = page.getByRole("navigation");
+    const hrefs = await nav.getByRole("link").evaluateAll((links) =>
+      links
+        .map((a) => (a as HTMLAnchorElement).getAttribute("href"))
+        .filter((href): href is string => !!href?.startsWith("#")),
+    );
+    expect(hrefs.length).toBeGreaterThan(0);
+
+    for (const href of hrefs) {
+      const target = page.locator(href);
+      await expect(target, `anchor ${href} has no matching element`).toHaveCount(1);
+    }
   });
 
   test("Hero section renders with headline and CTAs", async ({ page }) => {
@@ -85,5 +102,18 @@ test.describe("Homepage", () => {
     await expect(footer.getByText("© 2026 Codent lab")).toBeVisible();
     await expect(footer.getByRole("link", { name: "Twitter" })).toBeVisible();
     await expect(footer.getByRole("link", { name: "LinkedIn" })).toBeVisible();
+  });
+
+  // Regression for issue #25: footer contact links must be actionable.
+  test("Footer email and phone links use mailto:/tel: hrefs", async ({ page }) => {
+    const footer = page.locator("footer");
+    await expect(footer.getByRole("link", { name: "soctoit@gmail.com" })).toHaveAttribute(
+      "href",
+      "mailto:soctoit@gmail.com",
+    );
+    await expect(footer.getByRole("link", { name: "+91 8376045365" })).toHaveAttribute(
+      "href",
+      "tel:+918376045365",
+    );
   });
 });
