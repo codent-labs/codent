@@ -2,11 +2,19 @@ import type { NextConfig } from "next"
 
 const isDev = process.env.NODE_ENV === "development"
 
+// Trusted Types: enforced in production only, allowing the policy Next.js
+// itself creates (`nextjs`). `trusted-types 'none'` forbids every policy —
+// including Next's own — so the Turbopack HMR client's script-injection sink
+// and React's dev eval() sink both throw (see issue #26). In dev, TT is
+// omitted entirely because the dev toolchain relies on those sinks.
+const trustedTypesHeader = isDev
+  ? ""
+  : "require-trusted-types-for 'script'; trusted-types nextjs;"
+
 const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""};
-    require-trusted-types-for 'script';
-    trusted-types 'none';
+    ${trustedTypesHeader}
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' blob: data:;
     font-src 'self' data: https://fonts.gstatic.com;
