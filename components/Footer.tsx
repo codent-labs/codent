@@ -1,5 +1,6 @@
 import { Logo } from "./logo"
 import { Icon } from "./icon"
+import { NewsletterForm } from "./NewsletterForm"
 
 const socials = [
   { label: "Twitter", icon: "alternate_email" },
@@ -28,17 +29,27 @@ export default function Footer() {
           {[
             {
               title: "lab",
-              links: ["Our Team", "Process", "Careers", "News"],
+              links: [
+                { label: "Our Team", href: "#" },
+                { label: "Process", href: "#" },
+                { label: "Journal", href: "/journal" },
+                { label: "Careers", href: "#" },
+              ],
             },
             {
               title: "Work",
-              links: ["Case studies", "Showcase", "Lab", "Press"],
+              links: [
+                { label: "Case studies", href: "#" },
+                { label: "Showcase", href: "#" },
+                { label: "Newsletter", href: "#" },
+              ],
             },
             {
               title: "Say hi",
               links: [
-                "hello@codentlabs.com",
-                "+91 8376045365",
+                { label: "hello@codentlabs.com", href: "mailto:hello@codentlabs.com" },
+                { label: "+91 8376045365", href: "tel:+918376045365" },
+                { label: "Contact", href: "/contact" },
               ],
             },
           ].map((col) => (
@@ -46,25 +57,31 @@ export default function Footer() {
               <h3 className="text-[12px] font-semibold text-[#0f0f0f] uppercase tracking-[0.1em] mb-[14px]">
                 {col.title}
               </h3>
-              {col.links.map((link) => {
-                // Email → mailto:, phone number → tel: (see issue #25).
-                const href = link.includes("@")
-                  ? `mailto:${link}`
-                  : /^\+?[\d\s-]+$/.test(link)
-                    ? `tel:${link.replace(/[^+\d]/g, "")}`
-                    : "#";
-                return (
-                  <a
-                    key={link}
-                    href={href}
-                    className="block text-[13.5px] text-[#1a1a1a] opacity-65 py-[5px] hover:opacity-100 transition-opacity"
-                  >
-                    {link}
-                  </a>
-                );
-              })}
+              {col.links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="block text-[13.5px] text-[#1a1a1a] opacity-65 py-[5px] hover:opacity-100 transition-opacity"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           ))}
+        </div>
+
+        {/* Newsletter capture (issue #38) */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 items-center pb-11">
+          <div>
+            <h3 className="text-[15px] font-semibold text-[#0f0f0f] tracking-[-0.3px]">
+              Notes from the lab, roughly monthly.
+            </h3>
+            <p className="text-[13px] text-[#666] mt-[6px] leading-[1.6]">
+              Scope, pricing and hand-offs — the stuff we learn by shipping
+              for 86+ clients. No spam, unsubscribe anytime.
+            </p>
+          </div>
+          <NewsletterForm />
         </div>
 
         <div className="codent-dashed" />

@@ -24,6 +24,7 @@ const NAV_ITEMS = [
   { label: "Solutions", href: "#solutions" },
   { label: "Showcase", href: "#showcase" },
   { label: "Process", href: "#process" },
+  { label: "Journal", href: "/journal" },
   { label: "Contact", href: "/contact" },
 ];
 

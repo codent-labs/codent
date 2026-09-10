@@ -1,0 +1,140 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import {
+  getAllPosts,
+  getPostBySlug,
+  hasPost,
+  SITE,
+  type Post,
+} from "@/lib/posts";
+
+type Props = {
+  params: Promise<{ slug: string }>;
+};
+
+function formatDate(iso: string) {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+export function generateStaticParams() {
+  return getAllPosts().map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  if (!hasPost(slug)) return {};
+  const post = getPostBySlug(slug) as Post;
+  return {
+    title: post.title,
+    description: post.description,
+    alternates: { canonical: `/journal/${post.slug}` },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.description,
+      url: `${SITE.url}/journal/${post.slug}`,
+      siteName: SITE.name,
+      publishedTime: post.date,
+      images: [
+        {
+          url: `/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+  };
+}
+
+export default async function JournalPostPage({ params }: Props) {
+  const { slug } = await params;
+  if (!hasPost(slug)) notFound();
+  const post = getPostBySlug(slug) as Post;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    datePublished: post.date,
+    dateModified: post.date,
+    image: `${SITE.url}/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`,
+    author: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      logo: { "@type": "ImageObject", url: `${SITE.url}/logo.png` },
+    },
+    mainEntityOfPage: `${SITE.url}/journal/${post.slug}`,
+  };
+
+  return (
+    <article className="codent-section">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
+      <div className="codent-wrap">
+        <Link
+          href="/journal"
+          className="inline-flex items-center gap-2 text-[13px] font-medium text-[#1a1a1a] opacity-60 hover:opacity-100 transition-opacity mb-10"
+        >
+          ← Back to journal
+        </Link>
+
+        <div className="max-w-[680px]">
+          <div className="flex items-center gap-3 text-[12px] text-[#757575] tabular-nums">
+            <span>{formatDate(post.date)}</span>
+            <span className="codent-dashed !w-[24px]" aria-hidden />
+            <span>{post.readingMinutes} min read</span>
+          </div>
+          <h1 className="mt-[16px] text-[clamp(30px,3.8vw,46px)] font-medium tracking-[-1.3px] leading-[1.08] text-[#0f0f0f]">
+            {post.title}
+          </h1>
+          <p className="mt-[16px] text-[15px] text-[#666] leading-[1.7]">
+            {post.description}
+          </p>
+        </div>
+
+        <div className="codent-dashed my-10" />
+
+        <div className="max-w-[640px] flex flex-col gap-5">
+          {post.content.map((paragraph, i) => (
+            <p
+              key={i}
+              className="text-[15.5px] text-[#2a2a2a] leading-[1.8]"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <div className="codent-dashed my-10" />
+
+        <div className="bg-white rounded-[20px] border border-black/5 shadow-[0_2px_12px_rgba(0,0,0,0.04)] p-[28px] max-w-[680px]">
+          <p className="text-[14.5px] text-[#555] leading-[1.7]">
+            Like this? We write about scope, pricing and hand-offs whenever we
+            learn something — roughly monthly. Tell us where{" "}
+            <Link href="/contact" className="font-semibold text-[#0f0f0f] underline underline-offset-2">
+              you&apos;re stuck
+            </Link>{" "}
+            and we&apos;ll reply with a one-pager within 48 hours.
+          </p>
+        </div>
+      </div>
+    </article>
+  );
+}
