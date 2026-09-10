@@ -38,7 +38,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 backdrop-saturate-[180%] backdrop-blur-[10px] bg-[rgba(245,245,245,0.7)]">
+      <nav className="sticky top-0 z-[70] backdrop-saturate-[180%] backdrop-blur-[10px] bg-[rgba(245,245,245,0.7)]">
         <div className="max-w-[1100px] mx-auto px-10 py-6 flex items-center justify-between relative">
           {/* Dashed bottom border */}
           <div className="codent-dashed absolute start-10 end-10 bottom-0" />
@@ -71,7 +71,7 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button
-            className="flex md:hidden flex-col gap-[6px] w-6 h-6 justify-center items-center cursor-pointer z-[61] relative"
+            className="flex md:hidden flex-col gap-[6px] w-6 h-6 justify-center items-center cursor-pointer relative"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((o) => !o)}
           >
@@ -90,7 +90,8 @@ export default function Navbar() {
 
       {/* Mobile nav */}
       <div
-        className={`fixed inset-0 bg-[#F5F5F5] z-[60] flex flex-col px-8 pt-[90px] pb-10 transition-transform duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+        aria-hidden={!menuOpen}
+        className={`fixed inset-0 bg-[#F5F5F5] z-[60] flex flex-col px-8 pt-[90px] pb-10 transition-[transform,visibility] duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] ${menuOpen ? "translate-x-0 visible" : "translate-x-full invisible"}`}
       >
         {["Our Team", "Solutions", "Showcase", "News"].map((item) => (
           <a
