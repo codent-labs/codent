@@ -65,7 +65,7 @@ export default function Hero() {
             Start a project
           </a>
           <a
-            href="#showcase"
+            href="/work"
             className="inline-flex items-center gap-[10px] text-[14px] font-medium text-[#1a1a1a] hover:opacity-70 transition-opacity"
           >
             <Icon

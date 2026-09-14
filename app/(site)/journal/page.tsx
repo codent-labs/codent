@@ -27,10 +27,10 @@ export default function JournalPage() {
         <div className="codent-section-head">
           <div>
             <span className="codent-eyebrow">journal</span>
-            <h2 className="mt-[18px]">
+            <h1 className="mt-[18px]">
               Notes from{" "}
               <em className="italic font-light">the lab.</em>
-            </h2>
+            </h1>
           </div>
           <div className="flex flex-col gap-3 items-start">
             <p className="codent-section-lede">
@@ -58,9 +58,9 @@ export default function JournalPage() {
                 <span className="codent-dashed !w-[24px]" aria-hidden />
                 <span>{post.readingMinutes} min read</span>
               </div>
-              <h3 className="mt-[12px] text-[22px] font-semibold tracking-[-0.5px] text-[#0f0f0f] leading-[1.25] max-w-[640px] group-hover:opacity-80 transition-opacity">
+              <h2 className="mt-[12px] text-[22px] font-semibold tracking-[-0.5px] text-[#0f0f0f] leading-[1.25] max-w-[640px] group-hover:opacity-80 transition-opacity">
                 {post.title}
-              </h3>
+              </h2>
               <p className="mt-[8px] text-[14px] text-[#666] leading-[1.6] max-w-[640px]">
                 {post.description}
               </p>
