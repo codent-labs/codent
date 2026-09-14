@@ -1,32 +1,36 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Icon } from "./icon";
+import { ChevronRight, Palette, Blocks, Code2, Rocket } from "lucide-react";
 
 const services = [
   {
-    icon: "design_services",
+    icon: Palette,
+    iconClass: "text-[#786ef1]",
     title: "Brand & Identity",
     body: "Logo systems, type, voice and the visual instincts that travel across every surface your product lives on.",
     meta: "6 weeks · 2 sprints",
     accent: "codent-tile-accent-pink",
   },
   {
-    icon: "hub",
+    icon: Blocks,
+    iconClass: "text-[#786ef1]",
     title: "Product Design",
     body: "From a fuzzy idea to a working interface — research, wireframes and hi-fi prototypes you can actually ship.",
     meta: "8–12 weeks",
     accent: "codent-tile-accent-purple",
   },
   {
-    icon: "deployed_code",
+    icon: Code2,
+    iconClass: "text-[#5588fb]",
     title: "Engineering",
     body: "Fast, friendly front-ends and back-ends. We hand off code your team will be glad to inherit on Monday.",
     meta: "Continuous",
     accent: "codent-tile-accent-blue",
   },
   {
-    icon: "rocket_launch",
+    icon: Rocket,
+    iconClass: "text-[#34d399]",
     title: "Growth & Launch",
     body: "Strategy, positioning and the first 90 days — we help you find the audience that needs what you built.",
     meta: "4–6 weeks",
@@ -91,10 +95,10 @@ export default function ScrollTrack() {
         <div className="codent-scroll-pad" aria-hidden />
 
         {services.map((s, i) => (
-          <div key={i} className={`codent-scroll-tile codent-card ${s.accent}`}>
+          <div key={i} className={`codent-scroll-tile codent-card`}>
             {/* Top accent area */}
             <div className="codent-tile-top">
-              <Icon name={s.icon} className="codent-gradient-text text-[38px] leading-none" />
+              <s.icon className={`size-[38px]`} strokeWidth={1.75} />
               <span className="codent-tile-num text-[12px] font-semibold text-[#aaa] tabular-nums">
                 0{i + 1}
               </span>
@@ -112,9 +116,7 @@ export default function ScrollTrack() {
             <div className="codent-tile-footer">
               <span className="text-[12.5px] text-[#555] font-medium">{s.meta}</span>
               <span className="w-[30px] h-[30px] rounded-full bg-[#111] text-white inline-flex items-center justify-center">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <ChevronRight className="size-3" />
               </span>
             </div>
           </div>

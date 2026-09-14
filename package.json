@@ -14,9 +14,15 @@
     "test:ui": "playwright test --ui"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "cn": "^0.3.0",
+    "lucide-react": "^1.46.0",
     "next": "16.2.6",
+    "radix-ui": "^1.6.7",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "shadcn": "^4.21.0",
+    "tw-animate-css": "^1.4.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",

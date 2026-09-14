@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Icon } from "@/components/icon";
+import { ArrowUpRight, Blocks, Code2, Palette, Rocket } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const practices = [
   {
-    icon: "design_services",
+    icon: Palette,
     title: "Brand & Identity",
     body: "Logo systems, type, voice and the visual instincts that travel across every surface your product lives on.",
     meta: "6 weeks · 2 sprints",
@@ -25,7 +25,7 @@ const practices = [
     ],
   },
   {
-    icon: "hub",
+    icon: Blocks,
     title: "Product Design",
     body: "From a fuzzy idea to a working interface — research, wireframes and hi-fi prototypes you can actually ship.",
     meta: "8–12 weeks",
@@ -39,7 +39,7 @@ const practices = [
     ],
   },
   {
-    icon: "deployed_code",
+    icon: Code2,
     title: "Engineering",
     body: "Fast, friendly front-ends and back-ends. We hand off code your team will be glad to inherit on Monday.",
     meta: "Continuous",
@@ -53,7 +53,7 @@ const practices = [
     ],
   },
   {
-    icon: "rocket_launch",
+    icon: Rocket,
     title: "Growth & Launch",
     body: "Strategy, positioning and the first 90 days — we help you find the audience that needs what you built.",
     meta: "4–6 weeks",
@@ -88,9 +88,9 @@ export default function ServicesPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
           {practices.map((p) => (
-            <div key={p.title} className={`codent-card ${p.accent} p-[26px] relative overflow-hidden`}>
+            <div key={p.title} className={`codent-card p-[26px] relative overflow-hidden`}>
               <div className="flex items-start justify-between">
-                <Icon name={p.icon} className="codent-gradient-text text-[34px] leading-none" />
+                <p.icon className={`size-[34px]`} strokeWidth={1.75} />
                 <span className="text-[12px] font-semibold text-[#aaa] tabular-nums uppercase tracking-[0.05em]">
                   {p.meta}
                 </span>
@@ -121,7 +121,7 @@ export default function ServicesPage() {
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Link href="/contact" className="codent-pill-dark lg">
             <span className="codent-arrow-circ lg">
-              <Icon name="north_east" className="text-[13px]" />
+              <ArrowUpRight className="size-[13px]" />
             </span>
             Which one fits?
           </Link>

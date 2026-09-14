@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Icon } from "./icon";
 
 function ChevronArrow() {
@@ -58,13 +59,13 @@ export default function Hero() {
         </p>
 
         <div className="flex items-center gap-[18px] flex-wrap justify-center mb-8">
-          <a href="/contact" className="codent-pill-dark lg">
+          <Link href="/contact" className="codent-pill-dark lg">
             <span className="codent-arrow-circ lg">
               <ChevronArrow />
             </span>
             Start a project
-          </a>
-          <a
+          </Link>
+          <Link
             href="/work"
             className="inline-flex items-center gap-[10px] text-[14px] font-medium text-[#1a1a1a] hover:opacity-70 transition-opacity"
           >
@@ -73,7 +74,7 @@ export default function Hero() {
               className="w-[30px] h-[30px] rounded-full bg-white border border-black/8 inline-flex items-center justify-center text-[18px] text-[#111] shadow-[0_2px_10px_rgba(0,0,0,0.05)]"
             />
             See our work
-          </a>
+          </Link>
         </div>
 
         <div className="mt-8 inline-flex items-center gap-[14px] rounded-[40px] px-[18px] py-[6px] ps-[6px] bg-white/55 border border-black/5 backdrop-blur-[8px]">

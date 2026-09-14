@@ -1,4 +1,5 @@
 import { Icon } from "./icon";
+import { Marquee } from "@/components/ui/marquee";
 
 const logos = [
   { name: "Halcyon", icon: "hexagon" },
@@ -12,19 +13,21 @@ const logos = [
 export default function LogosStrip() {
   return (
     <div className="py-[34px] bg-white/55 border-y border-dashed border-black/[0.12] backdrop-blur-[6px]">
-      <div className="codent-wrap flex items-center justify-between gap-8 flex-wrap">
-        <span className="text-[12px] text-[#666] tracking-[0.04em] uppercase">
+      <div className="codent-wrap flex items-center gap-8">
+        <span className="text-[12px] text-[#666] tracking-[0.04em] uppercase shrink-0">
           Trusted by curious teams
         </span>
-        {logos.map((l) => (
-          <span
-            key={l.name}
-            className="font-bold text-[18px] tracking-[-0.3px] opacity-70 inline-flex items-center gap-2"
-          >
-            <Icon name={l.icon} className="text-[22px]" />
-            {l.name}
-          </span>
-        ))}
+        <Marquee pauseOnHover repeat={3} className="min-w-0 flex-1">
+          {logos.map((l) => (
+            <span
+              key={l.name}
+              className="font-bold text-[18px] tracking-[-0.3px] opacity-70 inline-flex items-center gap-2"
+            >
+              <Icon name={l.icon} className="text-[22px]" />
+              {l.name}
+            </span>
+          ))}
+        </Marquee>
       </div>
     </div>
   );
