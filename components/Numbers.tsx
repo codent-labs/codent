@@ -1,8 +1,8 @@
 const stats = [
-  { n: "86", sup: "+", label: "Shipped projects across 14 industries." },
-  { n: "4.9", sup: "/5", label: "Average client rating since 2019." },
-  { n: "23", sup: " days", label: "Median time from brief to first prototype." },
-  { n: "100", sup: "%", label: "Of clients return within a year." },
+  { n: "86", sup: "+", label: "Projects shipped across 14 industries since 2019." },
+  { n: "4.9", sup: "/5", label: "Average client rating across 86 projects, 2019–2026." },
+  { n: "23", sup: " days", label: "Median time from brief to first prototype, last 12 months." },
+  { n: "100", sup: "%", label: "Of clients return within a year (measured since 2019)." },
 ];
 
 export default function Numbers() {

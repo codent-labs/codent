@@ -1,17 +1,23 @@
+import Link from "next/link";
+import { Icon } from "./icon";
+
 const works = [
   {
     title: "Maru — banking, softened.",
+    href: "/work/maru",
     tags: ["fintech", "app"],
     bg: "linear-gradient(135deg,#FFE9D6 0%,#F7B2FB 60%,#786EF1 100%)",
     tall: true,
   },
   {
     title: "Folio — a library that reads you.",
+    href: "/work/folio",
     tags: ["product", "brand"],
     bg: "linear-gradient(135deg,#DDF3FF 0%,#5588FB 100%)",
   },
   {
     title: "Sundae — DTC ice cream.",
+    href: "/work/sundae",
     tags: ["brand", "ecomm"],
     bg: "linear-gradient(135deg,#FFF1B6 0%,#FF9A5E 100%)",
   },
@@ -46,18 +52,18 @@ export default function Showcase() {
               of.
             </h2>
           </div>
-          <a href="#" className="codent-pill-light">
+          <Link href="/work" className="codent-pill-light">
             All case studies <ChevronArrow />
-          </a>
+          </Link>
         </div>
 
         <div
           className="grid gap-[14px] grid-cols-1 md:grid-cols-[1.4fr_1fr]"
         >
           {works.map((w, i) => (
-            <a
+            <Link
               key={i}
-              href="#"
+              href={w.href}
               className={`relative rounded-[22px] overflow-hidden min-h-[340px] flex flex-col justify-end p-[22px] border border-black/5 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)] group ${w.tall ? "row-span-2" : ""}`}
               style={{ background: w.bg }}
             >
@@ -80,13 +86,12 @@ export default function Showcase() {
                     ))}
                   </div>
                 </div>
-                <span
-                  className="codent-icon w-[38px] h-[38px] rounded-full bg-white text-[#111] inline-flex items-center justify-center text-[20px] transition-transform duration-300 group-hover:translate-x-[3px] rtl:group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] flex-shrink-0"
-                >
-                  north_east
-                </span>
+                <Icon
+                  name="north_east"
+                  className="w-[38px] h-[38px] rounded-full bg-white text-[#111] inline-flex items-center justify-center text-[20px] transition-transform duration-300 group-hover:translate-x-[3px] rtl:group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] flex-shrink-0"
+                />
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 function ChevronArrow() {
   return (
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
@@ -45,8 +47,8 @@ export default function CTA() {
             </div>
 
             <div className="flex flex-col gap-[14px] items-start">
-              <a
-                href="#"
+              <Link
+                href="/contact"
                 className="inline-flex items-center gap-[12px] bg-white text-[#111] text-[15px] font-medium rounded-[40px] py-[7px] pe-[22px] ps-[7px] transition-all hover:bg-[#f0f0f0]"
               >
                 <span
@@ -54,13 +56,13 @@ export default function CTA() {
                 >
                   <ChevronArrow />
                 </span>
-                Book a 30-min chat
-              </a>
+                Tell us where you&apos;re stuck
+              </Link>
               <a
-                href="mailto:soctoit@gmail.com"
+                href="mailto:hello@codentlabs.com"
                 className="inline-flex items-center gap-2 text-[13.5px] opacity-70 hover:opacity-100 transition-opacity text-white"
               >
-                or write to soctoit@gmail.com
+                or write to hello@codentlabs.com
                 <ChevronArrow />
               </a>
             </div>

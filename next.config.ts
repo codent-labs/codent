@@ -15,9 +15,9 @@ const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""};
     ${trustedTypesHeader}
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
-    font-src 'self' data: https://fonts.gstatic.com;
+    font-src 'self' data:;
     object-src 'none';
     base-uri 'self';
     form-action 'self';

@@ -1,11 +1,5 @@
 import { Logo } from "./logo"
-
-const socials = [
-  { label: "Twitter", icon: "alternate_email" },
-  { label: "Instagram", icon: "camera_alt" },
-  { label: "LinkedIn", icon: "work" },
-  { label: "Dribbble", icon: "sports_basketball" },
-];
+import { NewsletterForm } from "./NewsletterForm"
 
 export default function Footer() {
   return (
@@ -27,17 +21,28 @@ export default function Footer() {
           {[
             {
               title: "lab",
-              links: ["Our Team", "Process", "Careers", "News"],
+              links: [
+                { label: "About us", href: "/about" },
+                { label: "Process", href: "/process" },
+                { label: "Journal", href: "/journal" },
+                { label: "Services", href: "/services" },
+              ],
             },
             {
               title: "Work",
-              links: ["Case studies", "Showcase", "Lab", "Press"],
+              links: [
+                { label: "Case studies", href: "/work" },
+                { label: "Maru", href: "/work/maru" },
+                { label: "Folio", href: "/work/folio" },
+                { label: "Sundae", href: "/work/sundae" },
+              ],
             },
             {
               title: "Say hi",
               links: [
-                "soctoit@gmail.com",
-                "+91 8376045365",
+                { label: "hello@codentlabs.com", href: "mailto:hello@codentlabs.com" },
+                { label: "+91 8376045365", href: "tel:+918376045365" },
+                { label: "Contact", href: "/contact" },
               ],
             },
           ].map((col) => (
@@ -45,42 +50,50 @@ export default function Footer() {
               <h3 className="text-[12px] font-semibold text-[#0f0f0f] uppercase tracking-[0.1em] mb-[14px]">
                 {col.title}
               </h3>
-              {col.links.map((link) => {
-                // Email → mailto:, phone number → tel: (see issue #25).
-                const href = link.includes("@")
-                  ? `mailto:${link}`
-                  : /^\+?[\d\s-]+$/.test(link)
-                    ? `tel:${link.replace(/[^+\d]/g, "")}`
-                    : "#";
-                return (
-                  <a
-                    key={link}
-                    href={href}
-                    className="block text-[13.5px] text-[#1a1a1a] opacity-65 py-[5px] hover:opacity-100 transition-opacity"
-                  >
-                    {link}
-                  </a>
-                );
-              })}
+              {col.links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="block text-[13.5px] text-[#1a1a1a] opacity-65 py-[5px] hover:opacity-100 transition-opacity"
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
           ))}
+        </div>
+
+        {/* Newsletter capture (issue #38) */}
+        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 items-center pb-11">
+          <div>
+            <h3 className="text-[15px] font-semibold text-[#0f0f0f] tracking-[-0.3px]">
+              Notes from the lab, roughly monthly.
+            </h3>
+            <p className="text-[13px] text-[#666] mt-[6px] leading-[1.6]">
+              Scope, pricing and hand-offs — the stuff we learn by shipping
+              for 86+ clients. No spam, unsubscribe anytime.
+            </p>
+          </div>
+          <NewsletterForm />
         </div>
 
         <div className="codent-dashed" />
 
         <div className="flex items-center justify-between pt-6 text-[12.5px] text-[#666] gap-4 flex-wrap">
           <span>© 2026 Codent lab — All rights reserved.</span>
-          <div className="flex gap-2">
-            {socials.map((s) => (
-              <a
-                key={s.label}
-                href="#"
-                aria-label={s.label}
-                className="codent-icon w-[34px] h-[34px] rounded-full bg-white border border-black/6 inline-flex items-center justify-center text-[18px] text-[#111] transition-all hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.08)]"
-              >
-                {s.icon}
-              </a>
-            ))}
+          <div className="flex items-center gap-5">
+            <a
+              href="/feed.xml"
+              className="inline-flex items-center gap-2 hover:text-[#0f0f0f] transition-colors"
+            >
+              RSS feed
+            </a>
+            <a
+              href="mailto:hello@codentlabs.com"
+              className="inline-flex items-center gap-2 hover:text-[#0f0f0f] transition-colors"
+            >
+              hello@codentlabs.com
+            </a>
           </div>
         </div>
       </div>

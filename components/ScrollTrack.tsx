@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { Icon } from "./icon";
 
 const services = [
   {
@@ -93,9 +94,7 @@ export default function ScrollTrack() {
           <div key={i} className={`codent-scroll-tile codent-card ${s.accent}`}>
             {/* Top accent area */}
             <div className="codent-tile-top">
-              <span className="codent-icon codent-gradient-text text-[38px] leading-none">
-                {s.icon}
-              </span>
+              <Icon name={s.icon} className="codent-gradient-text text-[38px] leading-none" />
               <span className="codent-tile-num text-[12px] font-semibold text-[#aaa] tabular-nums">
                 0{i + 1}
               </span>

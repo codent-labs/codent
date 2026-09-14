@@ -17,14 +17,13 @@ function ChevronArrow() {
   );
 }
 
-// Nav items must point at sections that actually exist on the page
-// (ids: #solutions in Services, #showcase in Showcase, #process in Process,
-// #contact in CTA). See issue #24.
+// Every nav item resolves to a crawlable URL (issue #36) — no bare anchors.
 const NAV_ITEMS = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Showcase", href: "#showcase" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Process", href: "/process" },
+  { label: "Journal", href: "/journal" },
+  { label: "Contact", href: "/contact" },
 ];
 
 // function Logo() {
@@ -69,7 +68,7 @@ export default function Navbar() {
           </ul>
 
           <a
-            href="#contact"
+            href="/contact"
             className="codent-pill-dark hidden md:inline-flex"
             aria-label="Let's Connect"
           >
@@ -114,7 +113,7 @@ export default function Navbar() {
           </a>
         ))}
         <a
-          href="#contact"
+          href="/contact"
           className="codent-pill-dark lg mt-6 self-start"
           onClick={() => setMenuOpen(false)}
         >

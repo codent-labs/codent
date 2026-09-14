@@ -1,4 +1,5 @@
 import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -7,6 +8,14 @@ const dmSans = DM_Sans({
   axes: ["opsz"],
   variable: "--font-dm-sans",
   display: "swap",
+});
+
+// Material Symbols Rounded, subset to exactly the ~22 glyphs the site uses
+// (see issue #41) and served from this domain instead of fonts.googleapis.com.
+const materialSymbols = localFont({
+  src: "./fonts/material-symbols-rounded.woff2",
+  display: "swap",
+  variable: "--font-material-symbols",
 });
 
 export const metadata: Metadata = {
@@ -53,13 +62,7 @@ export default function codentLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0"
-        />
-      </head>
-      <body className={`${dmSans.variable} min-h-screen`}>
+      <body className={`${dmSans.variable} ${materialSymbols.variable} min-h-screen`}>
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-[#111] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm"

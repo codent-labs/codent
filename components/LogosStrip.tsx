@@ -1,3 +1,5 @@
+import { Icon } from "./icon";
+
 const logos = [
   { name: "Halcyon", icon: "hexagon" },
   { name: "Northwind", icon: "air" },
@@ -19,7 +21,7 @@ export default function LogosStrip() {
             key={l.name}
             className="font-bold text-[18px] tracking-[-0.3px] opacity-70 inline-flex items-center gap-2"
           >
-            <span className="codent-icon text-[22px]">{l.icon}</span>
+            <Icon name={l.icon} className="text-[22px]" />
             {l.name}
           </span>
         ))}
