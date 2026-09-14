@@ -306,6 +306,13 @@
   }
 }
 
+/* Hero: dynamic viewport height with 100vh fallback (issue #46 — iOS Safari
+   URL-bar collapse resizes 100vh, causing the hero to jump during scroll). */
+.codent-hero {
+  min-height: calc(100vh - 84px);
+  min-height: calc(100dvh - 84px);
+}
+
 /* Hero floating icon decorations */
 .codent-float-cloud {
   font-size: 42px;
