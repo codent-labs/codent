@@ -1,21 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Palette, LayoutPanelTop, Code2, Rocket } from "lucide-react";
 import { Logo } from "./logo"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
-const SERVICE_ITEMS = [
-  { label: "Brand & Identity", icon: Palette },
-  { label: "Product Design", icon: LayoutPanelTop },
-  { label: "Engineering", icon: Code2 },
-  { label: "Growth & Launch", icon: Rocket },
-];
 
 function ChevronArrow() {
   return (
@@ -71,39 +57,12 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center gap-9 list-none">
             {NAV_ITEMS.map((item) => (
               <li key={item.label}>
-                {item.label === "Services" ? (
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <button className="text-[14px] font-normal text-[#1a1a1a] opacity-65 hover:opacity-100 transition-opacity inline-flex items-center gap-1">
-                        {item.label}
-                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" className="opacity-60">
-                          <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="start" sideOffset={16} className="w-[220px] rounded-[14px] p-1.5">
-                      {SERVICE_ITEMS.map((s) => (
-                        <DropdownMenuItem
-                          key={s.label}
-                          asChild
-                          className="gap-2.5 py-2 rounded-[10px] cursor-pointer"
-                        >
-                          <a href="/services">
-                            <s.icon className="size-4 opacity-60" />
-                            {s.label}
-                          </a>
-                        </DropdownMenuItem>
-                      ))}
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                ) : (
-                  <a
-                    href={item.href}
-                    className="text-[14px] font-normal text-[#1a1a1a] opacity-65 hover:opacity-100 transition-opacity"
-                  >
-                    {item.label}
-                  </a>
-                )}
+                <a
+                  href={item.href}
+                  className="text-[14px] font-normal text-[#1a1a1a] opacity-65 hover:opacity-100 transition-opacity"
+                >
+                  {item.label}
+                </a>
               </li>
             ))}
           </ul>
