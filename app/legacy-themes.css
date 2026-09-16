@@ -1,0 +1,615 @@
+
+:root {
+  --text-main: #1a1a1a;
+  --text-secondary: #666666;
+  --bg-page: #f5f5f5;
+  --card-bg: #ffffff;
+  --gradient-pink: #f7b2fb;
+  --gradient-purple: #786ef1;
+  --gradient-blue: #5588fb;
+}
+
+@theme inline {
+  --color-page: var(--bg-page);
+  --color-card: var(--card-bg);
+  --color-main: var(--text-main);
+  --color-secondary: var(--text-secondary);
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --radius-card: 22px;
+  --radius-pill: 40px;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html,
+  body {
+    background: var(--bg-page);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--text-main);
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  /* Keyboard focus ring (issue #45): one consistent focus-visible style for
+     every interactive element. Inputs keep their own outline-none + ring
+     treatment — utilities layer outranks this base rule. */
+  :focus-visible {
+    outline: 2px solid #786ef1;
+    outline-offset: 3px;
+  }
+  button {
+    font: inherit;
+    cursor: pointer;
+    border: 0;
+    background: none;
+    color: inherit;
+  }
+  img {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+/* Shared utilities */
+.codent-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.codent-dashed {
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.1) 2px,
+    transparent 2px
+  );
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+}
+
+.codent-dashed-v {
+  position: absolute;
+  left: 0;
+  top: 18px;
+  bottom: 18px;
+  width: 1px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.12) 2px,
+    transparent 2px
+  );
+  background-size: 1px 6px;
+}
+
+.codent-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #555;
+  background: #e0e2e7;
+  border-radius: 6px;
+  padding: 3px 12px;
+  letter-spacing: 0.01em;
+}
+
+.codent-gradient-text {
+  background: linear-gradient(
+    to bottom,
+    var(--gradient-pink) 50%,
+    var(--gradient-purple) 80%,
+    var(--gradient-blue) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff);
+}
+
+.codent-pill-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(180deg, #2c2c2c 0%, #111111 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 40px;
+  padding: 5px 16px 5px 5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+  white-space: nowrap;
+}
+
+.codent-pill-dark:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+  filter: brightness(1.1);
+}
+
+.codent-pill-dark.lg {
+  font-size: 15px;
+  padding: 7px 22px 7px 7px;
+  gap: 12px;
+}
+
+.codent-arrow-circ {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.codent-arrow-circ.lg {
+  width: 32px;
+  height: 32px;
+}
+
+.codent-pill-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: #111;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 40px;
+  padding: 8px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.codent-pill-light:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.codent-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 22px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Section base */
+.codent-section {
+  padding: 90px 0;
+  position: relative;
+  background: transparent;
+}
+
+.codent-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 46px;
+  flex-wrap: wrap;
+}
+
+.codent-section-head h2 {
+  font-size: clamp(30px, 3.6vw, 46px);
+  font-weight: 500;
+  letter-spacing: -1.3px;
+  line-height: 1.05;
+  color: #0f0f0f;
+  max-width: 680px;
+}
+
+/* Page-level h1 inside a section head (journal list, issue #49): sized to
+   match the CTA headline clamp so standalone pages open with a true h1. */
+.codent-section-head h1 {
+  font-size: clamp(34px, 4vw, 54px);
+  font-weight: 500;
+  letter-spacing: -1.6px;
+  line-height: 1.05;
+  color: #0f0f0f;
+  max-width: 680px;
+}
+
+.codent-section-lede {
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 340px;
+  line-height: 1.6;
+}
+
+/* Material Symbols Rounded icon font helper (self-hosted, issue #41) */
+.codent-icon {
+  font-family: var(--font-material-symbols);
+  font-variation-settings: "'FILL' 1";
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* CTA section glow blobs */
+.codent-glow-purple {
+  inset: -30% -10% auto auto;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle at 30% 30%, #786ef1, transparent 60%);
+  filter: blur(60px);
+  opacity: 0.8;
+}
+
+.codent-glow-pink {
+  inset: auto auto -40% -10%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle at 70% 70%, #f7b2fb, transparent 60%);
+  filter: blur(60px);
+  opacity: 0.7;
+}
+
+/* Hero proof bar (issue #39) */
+.codent-proofbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+  padding: 14px 10px;
+}
+
+.codent-proofbar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 26px;
+  position: relative;
+}
+
+.codent-proofbar-item + .codent-proofbar-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.12) 2px,
+    transparent 2px
+  );
+  background-size: 1px 6px;
+}
+
+.codent-proofbar-value {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  color: #0f0f0f;
+  line-height: 1;
+}
+
+.codent-proofbar-label {
+  font-size: 11.5px;
+  color: #666;
+  line-height: 1.3;
+  max-width: 150px;
+}
+
+@media (max-width: 640px) {
+  .codent-proofbar-item {
+    padding: 6px 16px;
+  }
+  .codent-proofbar-item + .codent-proofbar-item::before {
+    display: none;
+  }
+}
+
+/* Hero: dynamic viewport height with 100vh fallback (issue #46 — iOS Safari
+   URL-bar collapse resizes 100vh, causing the hero to jump during scroll). */
+.codent-hero {
+  min-height: calc(100vh - 84px);
+  min-height: calc(100dvh - 84px);
+}
+
+/* Hero floating icon decorations */
+.codent-float-cloud {
+  font-size: 42px;
+  top: -18px;
+  left: -24px;
+  animation: codentFloat 5s ease-in-out 0.3s infinite;
+}
+
+.codent-float-star {
+  font-size: 32px;
+  bottom: -15px;
+  right: 20px;
+  animation: codentFloat 4.5s ease-in-out 1s infinite;
+}
+
+/* Float animation */
+@keyframes codentFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+/* Reduced motion (issue #44, WCAG 2.3.3): collapse all animations and
+   transitions — the infinite float glyphs, entry animations and smooth
+   scrolling all become no-ops for users who opt out of motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===== Services horizontal scroll ===== */
+.codent-scroll-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* Snap points align tiles with the content edge (the leading pad plus
+     the flex gap before tile 01), not the viewport edge — without this the
+     track auto-scrolls on load so tile 01 sits flush against the screen. */
+  scroll-padding-inline-start: calc((100vw - 1100px) / 2 + 40px + 14px);
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: 4px;
+}
+@media (max-width: 1180px) {
+  .codent-scroll-track { scroll-padding-inline-start: calc(40px + 14px); }
+}
+@media (max-width: 768px) {
+  .codent-scroll-track { scroll-padding-inline-start: calc(24px + 14px); }
+}
+@media (max-width: 480px) {
+  .codent-scroll-track { scroll-padding-inline-start: calc(18px + 14px); }
+}
+.codent-scroll-track::-webkit-scrollbar {
+  display: none;
+}
+.codent-scroll-grabbing {
+  cursor: grabbing;
+  /* Disable snapping while drag-scrolling so tiles follow the pointer
+     instead of fighting it; snapping resumes (and re-applies) on release. */
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.codent-scroll-pad {
+  /* matches codent-wrap side padding (40px desktop, 24px tablet) */
+  min-width: calc((100vw - 1100px) / 2 + 40px);
+  flex-shrink: 0;
+}
+@media (max-width: 1180px) {
+  .codent-scroll-pad { min-width: 40px; }
+}
+@media (max-width: 768px) {
+  .codent-scroll-pad { min-width: 24px; }
+}
+@media (max-width: 480px) {
+  .codent-scroll-pad { min-width: 18px; }
+}
+
+.codent-scroll-tile {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 320px;
+  min-height: 380px;
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 480px) {
+  .codent-scroll-tile { width: calc(100vw - 52px); }
+}
+
+.codent-tile-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.codent-tile-body {
+  flex: 1;
+}
+
+.codent-tile-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+}
+
+/* Tile top accent strips */
+.codent-tile-accent-pink::before,
+.codent-tile-accent-purple::before,
+.codent-tile-accent-blue::before,
+.codent-tile-accent-green::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 22px 22px 0 0;
+}
+.codent-tile-accent-pink::before {
+  background: linear-gradient(to right, #f7b2fb, #c084fc);
+}
+.codent-tile-accent-purple::before {
+  background: linear-gradient(to right, #786ef1, #a78bfa);
+}
+.codent-tile-accent-blue::before {
+  background: linear-gradient(to right, #5588fb, #60a5fa);
+}
+.codent-tile-accent-green::before {
+  background: linear-gradient(to right, #34d399, #6ee7b7);
+}
+
+/* ===== Process timeline ===== */
+.codent-process-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+@media (max-width: 900px) {
+  .codent-process-timeline {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+@media (max-width: 520px) {
+  .codent-process-timeline {
+    grid-template-columns: 1fr;
+  }
+}
+
+.codent-process-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.codent-process-node-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  height: 32px;
+}
+
+.codent-process-node {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.codent-process-connector {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0 4px;
+  position: relative;
+}
+
+.codent-process-connector-line {
+  flex: 1;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0,0,0,0.12) 2px, transparent 2px);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+}
+
+.codent-process-connector-arrow {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+
+.codent-process-card {
+  padding: 20px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 14px;
+}
+
+.codent-process-step:last-child .codent-process-card {
+  margin-right: 0;
+}
+
+.codent-process-meta {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #757575;
+  letter-spacing: 0.04em;
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .codent-process-connector {
+    display: none;
+  }
+  .codent-process-card {
+    margin-right: 0;
+  }
+}
+
+/* Progress bar */
+.codent-scroll-progress-track {
+  height: 2px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  max-width: 200px;
+}
+
+.codent-scroll-progress-bar {
+  height: 100%;
+  background: #0f0f0f;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+@media (max-width: 768px) {
+  .codent-wrap {
+    padding: 0 24px;
+  }
+  .codent-section {
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .codent-wrap {
+    padding: 0 18px;
+  }
+}

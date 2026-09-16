@@ -40,9 +40,11 @@ export default function ScrollTrack() {
   const [grabbing, setGrabbing] = useState(false);
   // Drag-to-scroll state (mouse): where the pointer went down and what the
   // scroll position was at that moment. Null when not dragging.
-  const drag = useRef<{ pointerX: number; scrollLeft: number; moved: boolean } | null>(
-    null,
-  );
+  const drag = useRef<{
+    pointerX: number;
+    scrollLeft: number;
+    moved: boolean;
+  } | null>(null);
 
   const onScroll = () => {
     const el = trackRef.current;
@@ -56,7 +58,11 @@ export default function ScrollTrack() {
     if (!el) return;
     // Only the primary button; don't hijack middle-click autoscroll etc.
     if (e.button !== 0) return;
-    drag.current = { pointerX: e.clientX, scrollLeft: el.scrollLeft, moved: false };
+    drag.current = {
+      pointerX: e.clientX,
+      scrollLeft: el.scrollLeft,
+      moved: false,
+    };
     setGrabbing(true);
   };
 
@@ -91,10 +97,13 @@ export default function ScrollTrack() {
         <div className="codent-scroll-pad" aria-hidden />
 
         {services.map((s, i) => (
-          <div key={i} className={`codent-scroll-tile codent-card ${s.accent}`}>
+          <div key={i} className={`codent-scroll-tile codent-card`}>
             {/* Top accent area */}
             <div className="codent-tile-top">
-              <Icon name={s.icon} className="codent-gradient-text text-[38px] leading-none" />
+              <Icon
+                name={s.icon}
+                className="codent-gradient-text text-[38px] leading-none"
+              />
               <span className="codent-tile-num text-[12px] font-semibold text-[#aaa] tabular-nums">
                 0{i + 1}
               </span>
@@ -105,15 +114,25 @@ export default function ScrollTrack() {
               <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-[#0f0f0f]">
                 {s.title}
               </h3>
-              <p className="text-[14px] text-[#666] leading-[1.6] mt-2">{s.body}</p>
+              <p className="text-[14px] text-[#666] leading-[1.6] mt-2">
+                {s.body}
+              </p>
             </div>
 
             {/* Footer */}
             <div className="codent-tile-footer">
-              <span className="text-[12.5px] text-[#555] font-medium">{s.meta}</span>
+              <span className="text-[12.5px] text-[#555] font-medium">
+                {s.meta}
+              </span>
               <span className="w-[30px] h-[30px] rounded-full bg-[#111] text-white inline-flex items-center justify-center">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path
+                    d="M5 12h14M13 6l6 6-6 6"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </span>
             </div>

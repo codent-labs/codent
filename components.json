@@ -19,6 +19,7 @@
   },
   "iconLibrary": "lucide",
   "registries": {
-    "@ogimagecn": "https://ogimagecn.com/r/{name}.json"
+    "@ogimagecn": "https://ogimagecn.com/r/{name}.json",
+    "@magicui": "https://magicui.design/r/{name}"
   }
 }
