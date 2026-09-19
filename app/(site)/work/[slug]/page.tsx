@@ -49,13 +49,13 @@ export default async function CaseStudyPage({ params }: Props) {
       <div className="codent-wrap">
         <Link
           href="/work"
-          className="inline-flex items-center gap-2 text-[13px] font-medium text-[#1a1a1a] opacity-60 hover:opacity-100 transition-opacity mb-10"
+          className="inline-flex items-center gap-2 text-[13px] font-medium text-main opacity-60 hover:opacity-100 transition-opacity mb-10"
         >
           ← All case studies
         </Link>
 
         <div
-          className="rounded-[24px] border border-black/5 overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)]"
+          className="rounded-[24px] border border-border overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)]"
           style={{ background: study.bg }}
         >
           <div className="bg-gradient-to-t from-black/60 to-transparent p-[26px] md:p-[34px] text-white">
@@ -63,7 +63,7 @@ export default async function CaseStudyPage({ params }: Props) {
               {study.tags.map((t) => (
                 <span
                   key={t}
-                  className="text-[11.5px] font-medium px-[10px] py-[3px] rounded-[40px] backdrop-blur-md bg-white/[0.18]"
+                  className="text-[11.5px] font-medium px-[10px] py-[3px] rounded-[40px] backdrop-blur-md bg-card/[0.18]"
                 >
                   {t}
                 </span>
@@ -87,12 +87,12 @@ export default async function CaseStudyPage({ params }: Props) {
           ].map((cell) => (
             <div
               key={cell.label}
-              className="bg-white rounded-[16px] border border-black/5 p-[16px]"
+              className="bg-card rounded-[16px] border border-border p-[16px]"
             >
-              <div className="text-[11px] text-[#757575] uppercase tracking-[0.06em]">
+              <div className="text-[11px] text-[var(--text-secondary)] uppercase tracking-[0.06em]">
                 {cell.label}
               </div>
-              <div className="text-[13.5px] font-medium text-[#0f0f0f] mt-[6px] leading-[1.4]">
+              <div className="text-[13.5px] font-medium text-main mt-[6px] leading-[1.4]">
                 {cell.value}
               </div>
             </div>
@@ -103,7 +103,7 @@ export default async function CaseStudyPage({ params }: Props) {
           {study.metrics.map((m) => (
             <div
               key={m.label}
-              className="bg-[#0f0f0f] text-white rounded-[16px] p-[18px] text-center"
+              className="bg-[#0f0f0f] dark:bg-card text-white rounded-[16px] p-[18px] text-center"
             >
               <div className="text-[26px] font-semibold tracking-[-1px] leading-none">
                 {m.value}
@@ -114,23 +114,23 @@ export default async function CaseStudyPage({ params }: Props) {
         </div>
 
         <div className="max-w-[680px] mt-[54px] flex flex-col gap-4">
-          <h2 className="text-[24px] font-medium tracking-[-0.7px] text-[#0f0f0f]">
+          <h2 className="text-[24px] font-medium tracking-[-0.7px] text-main">
             The brief
           </h2>
-          <p className="text-[15.5px] text-[#2a2a2a] leading-[1.8]">
+          <p className="text-[15.5px] text-main leading-[1.8]">
             {study.challenge}
           </p>
 
-          <h2 className="text-[24px] font-medium tracking-[-0.7px] text-[#0f0f0f] mt-[18px]">
+          <h2 className="text-[24px] font-medium tracking-[-0.7px] text-main mt-[18px]">
             What we did
           </h2>
           <ol className="flex flex-col gap-3">
             {study.approach.map((step, i) => (
               <li
                 key={i}
-                className="flex gap-3 text-[15px] text-[#333] leading-[1.75]"
+                className="flex gap-3 text-[15px] text-main leading-[1.75]"
               >
-                <span className="w-6 h-6 rounded-full bg-[#e0e2e7] text-[12px] font-bold inline-flex items-center justify-center flex-shrink-0 mt-[2px]">
+                <span className="w-6 h-6 rounded-full bg-muted text-[12px] font-bold inline-flex items-center justify-center flex-shrink-0 mt-[2px]">
                   {i + 1}
                 </span>
                 {step}
@@ -138,10 +138,10 @@ export default async function CaseStudyPage({ params }: Props) {
             ))}
           </ol>
 
-          <h2 className="text-[24px] font-medium tracking-[-0.7px] text-[#0f0f0f] mt-[18px]">
+          <h2 className="text-[24px] font-medium tracking-[-0.7px] text-main mt-[18px]">
             The outcome
           </h2>
-          <p className="text-[15.5px] text-[#2a2a2a] leading-[1.8]">
+          <p className="text-[15.5px] text-main leading-[1.8]">
             {study.outcome}
           </p>
         </div>

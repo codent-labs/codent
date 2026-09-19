@@ -116,15 +116,15 @@ export default function ServicesPage() {
             <div key={p.title} className={`codent-card p-[26px] relative overflow-hidden`}>
               <div className="flex items-start justify-between">
                 <p.icon className={`size-[34px]`} strokeWidth={1.75} />
-                <span className="text-[12px] font-semibold text-[#aaa] tabular-nums uppercase tracking-[0.05em]">
+                <span className="text-[12px] font-semibold text-[var(--text-secondary)] tabular-nums uppercase tracking-[0.05em]">
                   {p.meta}
                 </span>
               </div>
 
-              <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-[#0f0f0f] mt-5">
+              <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-main mt-5">
                 {p.title}
               </h3>
-              <p className="text-[14px] text-[#666] leading-[1.6] mt-2">
+              <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6] mt-2">
                 {p.body}
               </p>
 
@@ -132,7 +132,7 @@ export default function ServicesPage() {
                 {p.includes.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2 text-[13.5px] text-[#333] leading-[1.5]"
+                    className="flex items-start gap-2 text-[13.5px] text-main leading-[1.5]"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-[#786ef1] inline-block mt-[6px] flex-shrink-0" />
                     {item}
@@ -150,7 +150,7 @@ export default function ServicesPage() {
             </span>
             Which one fits?
           </Link>
-          <span className="text-[13px] text-[#757575]">
+          <span className="text-[13px] text-[var(--text-secondary)]">
             The 48-hour one-pager will tell you — no commitment.
           </span>
         </div>

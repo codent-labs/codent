@@ -12,7 +12,7 @@ export default function Footer() {
         >
           <div>
             <Logo/>
-            <p className="text-[13.5px] text-[#666] leading-[1.6] max-w-[300px] mt-[18px]">
+            <p className="text-[13.5px] text-[var(--text-secondary)] leading-[1.6] max-w-[300px] mt-[18px]">
               A small lab for curious teams. Brand, product and engineering —
               under one roof, since 2019.
             </p>
@@ -47,14 +47,14 @@ export default function Footer() {
             },
           ].map((col) => (
             <div key={col.title}>
-              <h3 className="text-[12px] font-semibold text-[#0f0f0f] uppercase tracking-[0.1em] mb-[14px]">
+              <h3 className="text-[12px] font-semibold text-main uppercase tracking-[0.1em] mb-[14px]">
                 {col.title}
               </h3>
               {col.links.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="block text-[13.5px] text-[#1a1a1a] opacity-65 py-[5px] hover:opacity-100 transition-opacity"
+                  className="block text-[13.5px] text-main opacity-65 py-[5px] hover:opacity-100 transition-opacity"
                 >
                   {link.label}
                 </a>
@@ -66,10 +66,10 @@ export default function Footer() {
         {/* Newsletter capture (issue #38) */}
         <div className="grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-6 items-center pb-11">
           <div>
-            <h3 className="text-[15px] font-semibold text-[#0f0f0f] tracking-[-0.3px]">
+            <h3 className="text-[15px] font-semibold text-main tracking-[-0.3px]">
               Notes from the lab, roughly monthly.
             </h3>
-            <p className="text-[13px] text-[#666] mt-[6px] leading-[1.6]">
+            <p className="text-[13px] text-[var(--text-secondary)] mt-[6px] leading-[1.6]">
               Scope, pricing and hand-offs — the stuff we learn by shipping
               for 86+ clients. No spam, unsubscribe anytime.
             </p>
@@ -79,18 +79,18 @@ export default function Footer() {
 
         <div className="codent-dashed" />
 
-        <div className="flex items-center justify-between pt-6 text-[12.5px] text-[#666] gap-4 flex-wrap">
+        <div className="flex items-center justify-between pt-6 text-[12.5px] text-[var(--text-secondary)] gap-4 flex-wrap">
           <span>© 2026 Codent lab — All rights reserved.</span>
           <div className="flex items-center gap-5">
             <a
               href="/feed.xml"
-              className="inline-flex items-center gap-2 hover:text-[#0f0f0f] transition-colors"
+              className="inline-flex items-center gap-2 hover:text-main transition-colors"
             >
               RSS feed
             </a>
             <a
               href="mailto:hello@codentlabs.com"
-              className="inline-flex items-center gap-2 py-[3px] hover:text-[#0f0f0f] transition-colors"
+              className="inline-flex items-center gap-2 py-[3px] hover:text-main transition-colors"
             >
               hello@codentlabs.com
             </a>

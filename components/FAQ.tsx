@@ -67,14 +67,14 @@ export default function FAQ() {
               className={`codent-card group p-[22px] ${i === faqs.length - 1 ? "md:col-span-2" : ""}`}
             >
               <summary className="list-none cursor-pointer flex items-start justify-between gap-4 [&::-webkit-details-marker]:hidden">
-                <span className="text-[16.5px] font-semibold tracking-[-0.3px] text-[#0f0f0f] leading-[1.35]">
+                <span className="text-[16.5px] font-semibold tracking-[-0.3px] text-main leading-[1.35]">
                   {f.q}
                 </span>
-                <span className="w-[30px] h-[30px] rounded-full bg-[#111] text-white inline-flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-open:rotate-45">
+                <span className="w-[30px] h-[30px] rounded-full bg-foreground text-background inline-flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-open:rotate-45">
                   <PlusIcon />
                 </span>
               </summary>
-              <p className="text-[14px] text-[#555] leading-[1.6] mt-4 max-w-[620px]">
+              <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6] mt-4 max-w-[620px]">
                 {f.a}
               </p>
             </details>

@@ -50,7 +50,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-[14px] items-start">
           <ContactForm />
 
-          <aside className="bg-[#0f0f0f] text-white rounded-[22px] p-[26px] flex flex-col gap-[22px]">
+          <aside className="bg-[#0f0f0f] dark:bg-card text-white rounded-[22px] p-[26px] flex flex-col gap-[22px]">
             <div>
               <h3 className="text-[15px] font-semibold">What happens next</h3>
               <ol className="mt-[14px] flex flex-col gap-[14px]">

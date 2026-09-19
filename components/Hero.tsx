@@ -1,34 +1,31 @@
-import Link from "next/link";
-import { Icon } from "./icon";
+"use client";
 
-function ChevronArrow() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M5 12h14M13 6l6 6-6 6"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
+import { useRouter } from "next/navigation";
+
+import { Icon } from "./icon";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
+import { AvatarCircles } from "@/components/ui/avatar-circles";
+import { DiaTextReveal } from "@/components/ui/dia-text-reveal";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
 
 const avatars = [
-  { initials: "RM", style: { background: "linear-gradient(135deg,#F7B2FB,#786EF1)" } },
-  { initials: "JK", style: { background: "linear-gradient(135deg,#FFE9D6,#FF9A5E)" } },
-  { initials: "AT", style: { background: "linear-gradient(135deg,#DDF3FF,#5588FB)" } },
-  { initials: "+24", style: { background: "#0f0f0f", color: "#fff", fontSize: 11 } },
+  { initial: "RM", initialsStyle: { background: "linear-gradient(135deg,#F7B2FB,#786EF1)" } },
+  { initial: "JK", initialsStyle: { background: "linear-gradient(135deg,#FFE9D6,#FF9A5E)" } },
+  { initial: "AT", initialsStyle: { background: "linear-gradient(135deg,#DDF3FF,#5588FB)" } },
 ];
 
 export default function Hero() {
+  const router = useRouter();
+
   return (
     <section className="codent-hero flex flex-col items-center justify-center text-center relative px-5 pt-10 pb-[60px]">
       <div className="max-w-[700px] w-full flex flex-col items-center">
-        <p className="text-[15px] text-[#666] font-normal mb-[14px]">
-          A lab for curious teams · est. 2019
-        </p>
+        <div className="group mb-[18px] rounded-full border border-border bg-muted px-4 py-1.5 transition-colors hover:bg-accent">
+          <AnimatedShinyText shimmerWidth={120}>
+            A lab for curious teams · est. 2019
+          </AnimatedShinyText>
+        </div>
 
         <div className="relative inline-block mb-[18px]">
           <Icon
@@ -39,61 +36,49 @@ export default function Hero() {
             name="favorite"
             className="codent-gradient-text codent-float-star absolute"
           />
-          <h1 className="text-[clamp(34px,5vw,52px)] font-medium tracking-[-1.5px] leading-[1.08] text-[#0f0f0f]">
-            Big ideas, made
-            <br />
-            small enough to ship.
+          <h1 className="text-[clamp(34px,5vw,52px)] font-medium tracking-[-1.5px] leading-[1.08] text-main">
+            <DiaTextReveal
+              text="Big ideas, made small enough to ship."
+              textColor="var(--text-main)"
+              duration={1.6}
+            />
           </h1>
         </div>
 
-        <p className="text-[14px] text-[#666] leading-[1.7] max-w-[470px] mx-auto mb-7">
+        <p className="text-[14px] text-[var(--text-secondary)] leading-[1.7] max-w-[470px] mx-auto mb-7">
           We partner with founders and product teams on{" "}
-          <span className="inline-flex items-center bg-[#E0E2E7] text-[12.5px] font-semibold px-3 py-[2px] rounded-[6px] text-[#3a3a3a]">
+          <span className="inline-flex items-center bg-muted text-[12.5px] font-semibold px-3 py-[2px] rounded-[6px] text-main">
             brand
           </span>
           , product and engineering — turning fuzzy bets into shipped work that earns its keep, in{" "}
-          <span className="inline-flex items-center bg-[#E0E2E7] text-[12.5px] font-semibold px-3 py-[2px] rounded-[6px] text-[#3a3a3a]">
+          <span className="inline-flex items-center bg-muted text-[12.5px] font-semibold px-3 py-[2px] rounded-[6px] text-main">
             weeks
           </span>
           , not quarters.
         </p>
 
         <div className="flex items-center gap-[18px] flex-wrap justify-center mb-8">
-          <Link href="/contact" className="codent-pill-dark lg">
-            <span className="codent-arrow-circ lg">
-              <ChevronArrow />
-            </span>
-            Start a project
-          </Link>
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-[10px] text-[14px] font-medium text-[#1a1a1a] hover:opacity-70 transition-opacity"
+          <ShimmerButton
+            onClick={() => router.push("/contact")}
+            className="text-[14px] font-medium px-7 py-3"
           >
-            <Icon
-              name="play_arrow"
-              className="w-[30px] h-[30px] rounded-full bg-white border border-black/8 inline-flex items-center justify-center text-[18px] text-[#111] shadow-[0_2px_10px_rgba(0,0,0,0.05)]"
-            />
+            Start a project
+          </ShimmerButton>
+          <InteractiveHoverButton
+            onClick={() => router.push("/work")}
+            className="text-[14px] font-medium border-border"
+          >
             See our work
-          </Link>
+          </InteractiveHoverButton>
         </div>
 
-        <div className="mt-8 inline-flex items-center gap-[14px] rounded-[40px] px-[18px] py-[6px] ps-[6px] bg-white/55 border border-black/5 backdrop-blur-[8px]">
-          <div className="flex">
-            {avatars.map((a, i) => (
-              <span
-                key={i}
-                className={`w-7 h-7 rounded-full inline-flex items-center justify-center text-white text-[11px] font-bold border-2 border-[#F5F5F5] ${i > 0 ? "-ml-2" : ""}`}
-                style={a.style}
-              >
-                {a.initials}
-              </span>
-            ))}
-          </div>
+        <div className="mt-8 inline-flex items-center gap-[14px] rounded-[40px] px-[18px] py-[6px] ps-[6px] bg-card/55 border border-border backdrop-blur-[8px]">
+          <AvatarCircles avatarUrls={avatars} numPeople={24} />
           <div className="flex flex-col leading-[1.3]">
-            <strong className="text-[12.5px] font-semibold text-[#0f0f0f]">
+            <strong className="text-[12.5px] font-semibold text-main">
               86 projects shipped
             </strong>
-            <span className="text-[11.5px] text-[#666]">
+            <span className="text-[11.5px] text-[var(--text-secondary)]">
               for teams like Halcyon, Sundae &amp; Folio.
             </span>
           </div>
