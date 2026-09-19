@@ -86,6 +86,9 @@ export default function ScrollTrack() {
       {/* Scroll track — bleeds past codent-wrap padding */}
       <div
         ref={trackRef}
+        tabIndex={0}
+        role="region"
+        aria-label="Services"
         onScroll={onScroll}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}

@@ -97,6 +97,7 @@ export const Simple = ({
       }}
     >
       {logo ? (
+        // eslint-disable-next-line @next/next/no-img-element -- ImageResponse renders this to an SVG; the next/image optimizer doesn't run in the og pipeline.
         <img
           alt=""
           height={28}

@@ -1,21 +1,21 @@
 import Link from "next/link";
-import type { ComponentProps } from 'react'
 
-type CodentLabsLogoProps = ComponentProps<'div'>
+type CodentLabsLogoProps = {
+  className?: string;
+};
 
-export function Logo({ className, ...props }: CodentLabsLogoProps) {
+// The wordmark link carries the accessible name (issue #60) and a
+// ≥24px hit area (issue #62); the span inside is styling only.
+export function Logo({ className }: CodentLabsLogoProps) {
   return (
-    <div
-      aria-label="codent labs."
-      role="img"
-      className={className}
-      {...props}
+    <Link
+      href="/"
+      aria-label="Codent labs."
+      className={`inline-block py-[2px] ${className ?? ""}`}
     >
-      <Link href='/'>
       <span className="font-bold tracking-[1px] leading-[1.08] text-[#0f0f0f]">
         Codent labs.
       </span>
-      </Link>
-    </div>
-  )
+    </Link>
+  );
 }

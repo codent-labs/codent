@@ -1,22 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getAllPosts, SITE } from "@/lib/posts";
+import { PostDate } from "@/components/PostDate";
+import { social } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Journal",
   description:
     "Notes from the lab: pricing, scope, hand-offs and the numbers behind 86+ projects. A newsletter about how small teams ship big things.",
   alternates: { canonical: "/journal" },
+  ...social({
+    title: "Journal — Codent Labs",
+    description:
+      "Notes from the lab: pricing, scope, hand-offs and the numbers behind 86+ projects. A newsletter about how small teams ship big things.",
+    path: "/journal",
+  }),
 };
-
-function formatDate(iso: string) {
-  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-    timeZone: "UTC",
-  });
-}
 
 export default function JournalPage() {
   const posts = getAllPosts();
@@ -54,7 +53,9 @@ export default function JournalPage() {
               className="codent-card group p-[26px] block transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)]"
             >
               <div className="flex items-center gap-3 text-[12px] text-[#757575] tabular-nums">
-                <span>{formatDate(post.date)}</span>
+                <span>
+                  <PostDate iso={post.date} />
+                </span>
                 <span className="codent-dashed !w-[24px]" aria-hidden />
                 <span>{post.readingMinutes} min read</span>
               </div>

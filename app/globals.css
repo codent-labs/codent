@@ -45,7 +45,7 @@
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 2000px;
   --font-sans: var(--font-sans);
-  --font-heading: var(--font-heading);
+  --font-heading: var(--font-instrument-serif);
   --font-mono: var(--font-mono);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -205,6 +205,14 @@
   }
   .cn-font-heading {
     @apply font-heading;
+  }
+
+  /* Display serif on the italic headline accents (issue #48) */
+  h1 em,
+  h2 em,
+  .codent-section-head em {
+    font-family: var(--font-heading);
+    font-weight: 400;
   }
 
   [data-slot="layout"] {

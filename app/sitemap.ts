@@ -5,6 +5,9 @@ import { getAllPosts } from "@/lib/posts";
 const BASE = "https://www.codentlabs.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  // Journal posts have a real content date; everything else is a marketing
+  // page or case study with no publish/update date, so we omit lastmod
+  // rather than stamping the build timestamp onto every URL (issue #65).
   const journalPosts = getAllPosts().map((post) => ({
     url: `${BASE}/journal/${post.slug}`,
     lastModified: new Date(`${post.date}T00:00:00Z`),
@@ -14,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const workPages = caseStudies.map((study) => ({
     url: `${BASE}/work/${study.slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }));
@@ -22,51 +24,43 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${BASE}/`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${BASE}/work`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     ...workPages,
     {
       url: `${BASE}/services`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: `${BASE}/process`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${BASE}/about`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${BASE}/contact`,
-      lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.9,
     },
     {
       url: `${BASE}/journal`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     },
     ...journalPosts,
     {
       url: `${BASE}/feed.xml`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.3,
     },

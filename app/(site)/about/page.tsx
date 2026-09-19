@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { social } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About",
   description:
     "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 — 86+ projects, 100% of clients return.",
   alternates: { canonical: "/about" },
+  ...social({
+    title: "About — Codent Labs",
+    description:
+      "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 — 86+ projects, 100% of clients return.",
+    path: "/about",
+  }),
 };
 
 const beliefs = [
