@@ -24,7 +24,7 @@ const NAV_ITEMS = [
   { label: "Services", href: "/services" },
   { label: "Process", href: "/process" },
   { label: "Journal", href: "/journal" },
-  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about" },
 ];
 
 // function Logo() {

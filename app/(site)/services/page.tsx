@@ -129,7 +129,7 @@ export default function ServicesPage() {
             <MagicCard
               key={p.title}
               mode="gradient"
-              className={`rounded-[22px] p-[26px] ${p.accent}`}
+              className={`rounded-[22px] p-[26px]`}
               gradientFrom={p.glowFrom}
               gradientTo={p.glowTo}
               gradientSize={300}
