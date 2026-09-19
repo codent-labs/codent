@@ -5,12 +5,12 @@ import { social } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 — 86+ projects, 100% of clients return.",
+    "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 - 86+ projects, 100% of clients return.",
   alternates: { canonical: "/about" },
   ...social({
-    title: "About — Codent Labs",
+    title: "About - Codent Labs",
     description:
-      "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 — 86+ projects, 100% of clients return.",
+      "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 - 86+ projects, 100% of clients return.",
     path: "/about",
   }),
 };
@@ -22,7 +22,7 @@ const beliefs = [
   },
   {
     title: "Fixed scope, fixed price",
-    body: "We quote fixed engagements, not hourly meters. The estimate is the estimate — the 48-hour one-pager sets expectations before a rupee moves.",
+    body: "We quote fixed engagements, not hourly meters. The estimate is the estimate - the 48-hour one-pager sets expectations before a rupee moves.",
   },
   {
     title: "Stats need denominators",
@@ -47,7 +47,7 @@ export default function AboutPage() {
             </h1>
           </div>
           <p className="codent-section-lede">
-            Two people who&apos;ve shipped 86+ projects since 2019 — brand, product
+            Two people who&apos;ve shipped 86+ projects since 2019 - brand, product
             and engineering under one roof.
           </p>
         </div>
@@ -55,13 +55,13 @@ export default function AboutPage() {
         <div className="bg-card rounded-[24px] border border-border shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-[30px]">
           <p className="text-[clamp(17px,1.8vw,22px)] text-main leading-[1.6] font-medium tracking-[-0.4px] max-w-[760px]">
             Codent Labs started in 2019 as a bet that a two-person studio could
-            out-ship agencies ten times its size — by staying small, quoting
+            out-ship agencies ten times its size - by staying small, quoting
             fixed scope, and shipping work that earns a second project instead
             of a contract renewal.
           </p>
           <p className="text-[15px] text-[var(--text-secondary)] leading-[1.75] mt-[18px] max-w-[760px]">
-            We&apos;ve since shipped 86+ projects across 14 industries — fintech,
-            DTC, SaaS, healthcare and more — for teams like Halcyon, Sundae
+            We&apos;ve since shipped 86+ projects across 14 industries - fintech,
+            DTC, SaaS, healthcare and more - for teams like Halcyon, Sundae
             and Folio. 100% of our clients return within a year, and we&apos;d
             rather quote for the next project than upsell the current one.
           </p>
@@ -87,7 +87,7 @@ export default function AboutPage() {
             </h3>
             <blockquote className="mt-[14px] text-[clamp(16px,1.7vw,21px)] text-main leading-[1.45] font-medium tracking-[-0.3px]">
               They&apos;re less an agency and more the two smartest people on
-              the team — who happen to also design the whole thing.
+              the team - who happen to also design the whole thing.
             </blockquote>
             <div className="mt-4 text-[13px] text-[var(--text-secondary)]">
               Rosa Madrigal · Head of Product, Halcyon

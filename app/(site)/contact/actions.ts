@@ -44,7 +44,7 @@ export async function submitContact(
     return {
       status: "error",
       message:
-        "Tell us a little more about where you're stuck — at least 10 characters.",
+        "Tell us a little more about where you're stuck - at least 10 characters.",
     };
   }
 
@@ -56,7 +56,7 @@ export async function submitContact(
   if (!endpoint) {
     return {
       status: "fallback",
-      message: "Your email draft is open — hit send and it lands at the lab.",
+      message: "Your email draft is open - hit send and it lands at the lab.",
       mailto: buildMailto(payload),
     };
   }
@@ -76,7 +76,7 @@ export async function submitContact(
     return {
       status: "success",
       message:
-        "Got it — we reply with a one-pager within 48 hours. No deck, no follow-ups.",
+        "Got it - we reply with a one-pager within 48 hours. No deck, no follow-ups.",
     };
   } catch {
     return {

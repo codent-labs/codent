@@ -42,7 +42,7 @@ test.describe("Hero social proof and dated metrics", () => {
       .locator("section")
       .filter({ has: page.locator("sup") });
     const text = await numbersSection.evaluate((el) => el.textContent ?? "");
-    expect(text).toContain("2019–2026");
+    expect(text).toContain("2019-2026");
     expect(text).toContain("since 2019");
     expect(text).toContain("last 12 months");
     expect(text).toContain("within a year (measured since 2019)");

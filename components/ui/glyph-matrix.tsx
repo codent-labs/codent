@@ -20,7 +20,7 @@ interface GlyphMatrixProps extends React.HTMLAttributes<HTMLCanvasElement> {
 }
 
 /**
- * GlyphMatrix — an animated grid of subtly shifting glyphs.
+ * GlyphMatrix - an animated grid of subtly shifting glyphs.
  * Pass a `color` prop (e.g. driven by next-themes) to adapt it to
  * light and dark modes.
  */

@@ -113,7 +113,7 @@ export default async function JournalPostPage({ params }: Props) {
         <div className="bg-card rounded-[20px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.04)] p-[28px] max-w-[680px]">
           <p className="text-[14.5px] text-[var(--text-secondary)] leading-[1.7]">
             Like this? We write about scope, pricing and hand-offs whenever we
-            learn something — roughly monthly. Tell us where{" "}
+            learn something - roughly monthly. Tell us where{" "}
             <Link href="/contact" className="font-semibold text-main underline underline-offset-2">
               you&apos;re stuck
             </Link>{" "}

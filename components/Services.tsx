@@ -12,16 +12,14 @@ const services = [
     title: "Brand & Identity",
     body: "Logo systems, type, voice and the visual instincts that travel across every surface your product lives on.",
     meta: "6 weeks · 2 sprints",
-    accent: "codent-tile-accent-pink",
     glowFrom: "#f7b2fb",
     glowTo: "#c084fc",
   },
   {
     icon: BlocksIcon,
     title: "Product Design",
-    body: "From a fuzzy idea to a working interface — research, wireframes and hi-fi prototypes you can actually ship.",
-    meta: "8–12 weeks",
-    accent: "codent-tile-accent-purple",
+    body: "From a fuzzy idea to a working interface - research, wireframes and hi-fi prototypes you can actually ship.",
+    meta: "8-12 weeks",
     glowFrom: "#786ef1",
     glowTo: "#a78bfa",
   },
@@ -30,16 +28,14 @@ const services = [
     title: "Engineering",
     body: "Fast, friendly front-ends and back-ends. We hand off code your team will be glad to inherit on Monday.",
     meta: "Continuous",
-    accent: "codent-tile-accent-blue",
     glowFrom: "#5588fb",
     glowTo: "#60a5fa",
   },
   {
     icon: RocketIcon,
     title: "Growth & Launch",
-    body: "Strategy, positioning and the first 90 days — we help you find the audience that needs what you built.",
-    meta: "4–6 weeks",
-    accent: "codent-tile-accent-green",
+    body: "Strategy, positioning and the first 90 days - we help you find the audience that needs what you built.",
+    meta: "4-6 weeks",
     glowFrom: "#34d399",
     glowTo: "#6ee7b7",
   },
@@ -62,7 +58,7 @@ export default function Services() {
             </h2>
           </div>
           <p className="codent-section-lede">
-            Four practices, one lab — pick the ones that fit.
+            Four practices, one lab - pick the ones that fit.
           </p>
         </div>
       </div>

@@ -35,9 +35,9 @@ export async function GET() {
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
   <channel>
-    <title>Codent Labs — Journal</title>
+    <title>Codent Labs - Journal</title>
     <link>${SITE.url}/journal</link>
-    <description>How we scope, price and hand off work — notes from a two-person lab.</description>
+    <description>How we scope, price and hand off work - notes from a two-person lab.</description>
     <language>en-us</language>
     <lastBuildDate>${rfc822(latest.date)}</lastBuildDate>
     <ttl>2880</ttl>

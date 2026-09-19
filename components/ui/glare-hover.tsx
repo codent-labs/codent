@@ -39,7 +39,7 @@ export interface GlareHoverProps extends ComponentProps<"div"> {
    */
   color?: Color
   /**
-   * Opacity applied to the glare color when converting hex to `rgba` (0–1).
+   * Opacity applied to the glare color when converting hex to `rgba` (0-1).
    * @example
    * ```tsx
    * <GlareHover color="#ffffff" opacity={0.35}>...</GlareHover>

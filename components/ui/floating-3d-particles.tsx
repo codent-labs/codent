@@ -16,7 +16,7 @@ export interface Floating3DParticlesProps extends Omit<
    */
   quantity?: number
   /**
-   * Particle color — 3 or 6 digit hex string.
+   * Particle color - 3 or 6 digit hex string.
    * @default "#8B5CF6"
    */
   color?: string
@@ -27,7 +27,7 @@ export interface Floating3DParticlesProps extends Omit<
    */
   size?: number
   /**
-   * Mean particle opacity (0–1). Each particle randomly varies within
+   * Mean particle opacity (0-1). Each particle randomly varies within
    * ±0.2 of this value, clamped to [0, 1].
    * @default 0.3
    */
@@ -39,7 +39,7 @@ export interface Floating3DParticlesProps extends Omit<
    */
   drift?: number
   /**
-   * 3-D depth intensity on a 0–1 scale. `0` produces a flat 2D plane; `1`
+   * 3-D depth intensity on a 0-1 scale. `0` produces a flat 2D plane; `1`
    * creates strong perspective with pronounced near/far scaling.
    * @default 0.5
    */

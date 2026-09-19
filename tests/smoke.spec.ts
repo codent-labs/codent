@@ -19,7 +19,7 @@ test.describe("Homepage", () => {
     await expect(navLinks.filter({ hasText: "Process" })).toBeVisible();
     await expect(navLinks.filter({ hasText: "Journal" })).toBeVisible();
     await expect(navLinks.filter({ hasText: "About" })).toBeVisible();
-    await expect(nav.getByRole("link", { name: "Let's Connect" })).toBeVisible();
+    await expect(nav.getByRole("link", { name: "Start a project" })).toBeVisible();
   });
 
   // Regression for issues #24/#36: every nav link must resolve to a real
@@ -52,7 +52,7 @@ test.describe("Homepage", () => {
 
   test("LogosStrip renders trusted brands", async ({ page }) => {
     const strip = page.getByText("Trusted by curious teams").locator("..");
-    // Marquee renders each brand repeat={3} times — any one is enough.
+    // Marquee renders each brand repeat={3} times - any one is enough.
     await expect(strip.getByText("Halcyon").first()).toBeVisible();
     await expect(strip.getByText("Sundae").first()).toBeVisible();
     await expect(strip.getByText("Folio").first()).toBeVisible();
@@ -60,7 +60,7 @@ test.describe("Homepage", () => {
 
   test("Services section renders all four services", async ({ page }) => {
     const services = page.locator("#solutions");
-    // Each practice appears once per marquee repeat — assert the first.
+    // Each practice appears once per marquee repeat - assert the first.
     await expect(services.getByRole("heading", { name: "Brand & Identity" }).first()).toBeVisible();
     await expect(services.getByRole("heading", { name: "Product Design" }).first()).toBeVisible();
     await expect(services.getByRole("heading", { name: "Engineering" }).first()).toBeVisible();
@@ -69,16 +69,16 @@ test.describe("Homepage", () => {
 
   test("Showcase section renders work samples", async ({ page }) => {
     const showcase = page.locator("#showcase");
-    await expect(showcase.getByText("Maru — banking, softened.")).toBeVisible();
-    await expect(showcase.getByText("Folio — a library that reads you.")).toBeVisible();
-    await expect(showcase.getByText("Sundae — DTC ice cream.")).toBeVisible();
+    await expect(showcase.getByText("Maru - banking, softened.")).toBeVisible();
+    await expect(showcase.getByText("Folio - a library that reads you.")).toBeVisible();
+    await expect(showcase.getByText("Sundae - DTC ice cream.")).toBeVisible();
   });
 
   test("Numbers section renders stats", async ({ page }) => {
     const stats = page.locator("section").filter({ has: page.locator("sup") });
     await expect(stats.first()).toBeVisible();
     await expect(stats.getByText("Projects shipped across 14 industries since 2019.")).toBeVisible();
-    await expect(stats.getByText("Average client rating across 86 projects, 2019–2026.")).toBeVisible();
+    await expect(stats.getByText("Average client rating across 86 projects, 2019-2026.")).toBeVisible();
   });
 
   test("Process section renders all four steps", async ({ page }) => {
@@ -99,7 +99,7 @@ test.describe("Homepage", () => {
   test("CTA section renders contact area", async ({ page }) => {
     const cta = page.locator("#contact");
     await expect(cta.getByText("Got an idea")).toBeVisible();
-    await expect(cta.getByRole("link", { name: "Tell us where you're stuck" })).toBeVisible();
+    await expect(cta.getByRole("link", { name: "Start a project" })).toBeVisible();
   });
 
   test("Footer renders with copyright and links", async ({ page }) => {

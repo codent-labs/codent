@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Four steps, no mystery: say hi, discover, design, ship. The same playbook every engagement, refined over six years and roughly two hundred coffees.",
   alternates: { canonical: "/process" },
   ...social({
-    title: "Process — Codent Labs",
+    title: "Process - Codent Labs",
     description:
       "Four steps, no mystery: say hi, discover, design, ship. The same playbook every engagement, refined over six years and roughly two hundred coffees.",
     path: "/process",
@@ -27,9 +27,9 @@ const steps = [
     number: "01",
     title: "Say hi",
     meta: "30 min",
-    body: "A 30-minute chat. No deck, no jargon — just figuring out if we're a fit.",
+    body: "A 30-minute chat. No deck, no jargon - just figuring out if we're a fit.",
     detail:
-      "You get the 48-hour one-pager before this call. By the time we talk we already know the shape of what you need — the call is for the things a form can't capture: who's accountable, why now, and what 'done' actually means to the person paying for it.",
+      "You get the 48-hour one-pager before this call. By the time we talk we already know the shape of what you need - the call is for the things a form can't capture: who's accountable, why now, and what 'done' actually means to the person paying for it.",
   },
   {
     icon: CompassIcon,
@@ -44,10 +44,10 @@ const steps = [
     icon: PenToolIcon,
     number: "03",
     title: "Design",
-    meta: "2–3 weeks",
+    meta: "2-3 weeks",
     body: "Two cycles of design, each ending in a working prototype you can click through.",
     detail:
-      "Two cycles, two clickable prototypes — the median is 23 days brief to first click. Each cycle ends with a real decision: ship this, kill that, or change the plan. Prototypes exist to force decisions, not to be beautiful PDFs.",
+      "Two cycles, two clickable prototypes - the median is 23 days brief to first click. Each cycle ends with a real decision: ship this, kill that, or change the plan. Prototypes exist to force decisions, not to be beautiful PDFs.",
   },
   {
     icon: RocketIcon,
@@ -56,7 +56,7 @@ const steps = [
     meta: "Ongoing",
     body: "Engineering, QA, and a hand-off doc that won't make your devs cry.",
     detail:
-      "Engineering and QA under supervision all the way, then the hand-off: intent map, decision log, known-shortcuts list, and a runbook. Your team inherits tools and reasons — not mysteries.",
+      "Engineering and QA under supervision all the way, then the hand-off: intent map, decision log, known-shortcuts list, and a runbook. Your team inherits tools and reasons - not mysteries.",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function ProcessPage() {
             </h1>
           </div>
           <p className="codent-section-lede">
-            Same playbook, every engagement — refined over six years and
+            Same playbook, every engagement - refined over six years and
             roughly two hundred coffees.
           </p>
         </div>
@@ -120,7 +120,7 @@ export default function ProcessPage() {
             <span className="codent-arrow-circ lg">
               <Icon name="north_east" className="text-[13px]" />
             </span>
-            Step one: say hi
+            Start a project
           </Link>
         </div>
       </div>

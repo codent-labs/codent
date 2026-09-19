@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Notes from the lab: pricing, scope, hand-offs and the numbers behind 86+ projects. A newsletter about how small teams ship big things.",
   alternates: { canonical: "/journal" },
   ...social({
-    title: "Journal — Codent Labs",
+    title: "Journal - Codent Labs",
     description:
       "Notes from the lab: pricing, scope, hand-offs and the numbers behind 86+ projects. A newsletter about how small teams ship big things.",
     path: "/journal",
@@ -33,7 +33,7 @@ export default function JournalPage() {
           </div>
           <div className="flex flex-col gap-3 items-start">
             <p className="codent-section-lede">
-              How we price, scope and hand off work — plus the numbers behind
+              How we price, scope and hand off work - plus the numbers behind
               86+ projects, published as we learn them.
             </p>
             <a

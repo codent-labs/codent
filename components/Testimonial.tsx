@@ -18,7 +18,7 @@ export default function Testimonial() {
                   smartest
                 </Highlighter>
               </span>{" "}
-              people on our team — who happened to also{" "}
+              people on our team - who happened to also{" "}
               <span className="font-semibold">
                 <Highlighter color="#786EF1" strokeWidth={1.6} padding={4} iterations={2}>
                   design
@@ -42,7 +42,7 @@ export default function Testimonial() {
             </div>
           </div>
 
-          {/* Side card — featured Halcyon case metrics as a compact stat strip */}
+          {/* Side card - featured Halcyon case metrics as a compact stat strip */}
           <div className="bg-page rounded-[18px] p-6 flex flex-col gap-[14px]">
             <div className="flex items-center justify-between">
               <span className="text-[12px] text-[var(--text-secondary)]">Project</span>

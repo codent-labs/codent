@@ -2,7 +2,7 @@ import { NumberTicker } from "@/components/ui/number-ticker";
 
 const stats = [
   { value: 86, decimals: 0, suffix: "+", label: "Projects shipped across 14 industries since 2019." },
-  { value: 4.9, decimals: 1, suffix: "/5", label: "Average client rating across 86 projects, 2019–2026." },
+  { value: 4.9, decimals: 1, suffix: "/5", label: "Average client rating across 86 projects, 2019-2026." },
   { value: 23, decimals: 0, suffix: " days", label: "Median time from brief to first prototype, last 12 months." },
   { value: 100, decimals: 0, suffix: "%", label: "Of clients return within a year (measured since 2019)." },
 ];

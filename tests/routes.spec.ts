@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-// Issue #36: real routes instead of single-page anchors — /work, /work/<slug>,
+// Issue #36: real routes instead of single-page anchors - /work, /work/<slug>,
 // /services, /process, /about, all in the sitemap, with unique metadata.
 const PAGES = ["/work", "/services", "/process", "/about", "/contact", "/journal"];
 const CASES = ["/work/maru", "/work/folio", "/work/sundae"];
@@ -42,15 +42,15 @@ test.describe("Crawlable routes", () => {
     request,
   }) => {
     const expectedTitles: Record<string, string> = {
-      "/work": "Work — Codent Labs",
-      "/work/maru": "Maru — Codent Labs",
-      "/work/folio": "Folio — Codent Labs",
-      "/work/sundae": "Sundae — Codent Labs",
-      "/services": "Services — Codent Labs",
-      "/process": "Process — Codent Labs",
-      "/about": "About — Codent Labs",
-      "/contact": "Contact — Codent Labs",
-      "/journal": "Journal — Codent Labs",
+      "/work": "Work - Codent Labs",
+      "/work/maru": "Maru - Codent Labs",
+      "/work/folio": "Folio - Codent Labs",
+      "/work/sundae": "Sundae - Codent Labs",
+      "/services": "Services - Codent Labs",
+      "/process": "Process - Codent Labs",
+      "/about": "About - Codent Labs",
+      "/contact": "Contact - Codent Labs",
+      "/journal": "Journal - Codent Labs",
     };
     for (const [path, title] of Object.entries(expectedTitles)) {
       const res = await request.get(path);

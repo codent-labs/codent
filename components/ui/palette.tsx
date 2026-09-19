@@ -58,7 +58,7 @@ const DOT_VARIANTS: Variants = {
   animate: {
     // Two keyframes only: motion rejects 3+ keyframes on a spring.
     // Lower damping (10) = weaker restoring force = bigger, slower overshoot
-    // before it settles — closer to the ~1.25 peak / softer landing we wanted,
+    // before it settles - closer to the ~1.25 peak / softer landing we wanted,
     // versus damping 14 which snapped back to 1 too quickly.
     scale: [0, 1],
     transition: {

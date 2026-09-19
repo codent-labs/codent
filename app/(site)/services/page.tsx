@@ -13,12 +13,12 @@ import { SITE } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Four practices, one lab: brand & identity, product design, engineering, and growth & launch — with fixed timelines and fixed-price engagements.",
+    "Four practices, one lab: brand & identity, product design, engineering, and growth & launch - with fixed timelines and fixed-price engagements.",
   alternates: { canonical: "/services" },
   ...social({
-    title: "Services — Codent Labs",
+    title: "Services - Codent Labs",
     description:
-      "Four practices, one lab: brand & identity, product design, engineering, and growth & launch — with fixed timelines and fixed-price engagements.",
+      "Four practices, one lab: brand & identity, product design, engineering, and growth & launch - with fixed timelines and fixed-price engagements.",
     path: "/services",
   }),
 };
@@ -43,9 +43,8 @@ const practices = [
   {
     icon: BlocksIcon,
     title: "Product Design",
-    body: "From a fuzzy idea to a working interface — research, wireframes and hi-fi prototypes you can actually ship.",
-    meta: "8–12 weeks",
-    accent: "codent-tile-accent-purple",
+    body: "From a fuzzy idea to a working interface - research, wireframes and hi-fi prototypes you can actually ship.",
+    meta: "8-12 weeks",
     glowFrom: "#786ef1",
     glowTo: "#a78bfa",
     includes: [
@@ -61,7 +60,6 @@ const practices = [
     title: "Engineering",
     body: "Fast, friendly front-ends and back-ends. We hand off code your team will be glad to inherit on Monday.",
     meta: "Continuous",
-    accent: "codent-tile-accent-blue",
     glowFrom: "#5588fb",
     glowTo: "#60a5fa",
     includes: [
@@ -75,11 +73,10 @@ const practices = [
   {
     icon: RocketIcon,
     title: "Growth & Launch",
-    body: "Strategy, positioning and the first 90 days — we help you find the audience that needs what you built.",
-    meta: "4–6 weeks",
-    accent: "codent-tile-accent-green",
-    // glowFrom: "#34d399",
-    // glowTo: "#6ee7b7",
+    body: "Strategy, positioning and the first 90 days - we help you find the audience that needs what you built.",
+    meta: "4-6 weeks",
+    glowFrom: "#34d399",
+    glowTo: "#6ee7b7",
     includes: [
       "Positioning and messaging",
       "Launch plan for the first 90 days",
@@ -120,7 +117,7 @@ export default function ServicesPage() {
           </div>
           <p className="codent-section-lede">
             Fixed scope, fixed price, fixed timelines. Pick the practices that
-            fit — or take a couple bundled.
+            fit - or take a couple bundled.
           </p>
         </div>
 
@@ -154,7 +151,7 @@ export default function ServicesPage() {
                     key={item}
                     className="flex items-start gap-2 text-[13.5px] text-main leading-[1.5]"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#786ef1] inline-block mt-[6px] flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-foreground inline-block mt-[6px] flex-shrink-0" />
                     {item}
                   </li>
                 ))}
@@ -168,10 +165,10 @@ export default function ServicesPage() {
             <span className="codent-arrow-circ lg">
               <ArrowUpRight className="size-[13px]" />
             </span>
-            Which one fits?
+            Start a project
           </Link>
           <span className="text-[13px] text-[var(--text-secondary)]">
-            The 48-hour one-pager will tell you — no commitment.
+            The 48-hour one-pager will tell you - no commitment.
           </span>
         </div>
       </div>

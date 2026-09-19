@@ -8,7 +8,7 @@ const steps = [
   {
     icon: MessageCircleIcon,
     title: "Say hi",
-    body: "A 30-minute chat. No deck, no jargon — just figuring out if we're a fit.",
+    body: "A 30-minute chat. No deck, no jargon - just figuring out if we're a fit.",
     meta: "30 min",
   },
   {
@@ -21,7 +21,7 @@ const steps = [
     icon: PenToolIcon,
     title: "Design",
     body: "Two cycles of design, each ending in a working prototype you can click through.",
-    meta: "2–3 weeks",
+    meta: "2-3 weeks",
   },
   {
     icon: RocketIcon,
@@ -44,7 +44,7 @@ export default function Process() {
             </h2>
           </div>
           <p className="codent-section-lede">
-            Same playbook, every engagement — refined over six years and
+            Same playbook, every engagement - refined over six years and
             roughly two hundred coffees.
           </p>
         </div>
