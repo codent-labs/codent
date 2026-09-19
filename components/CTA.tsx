@@ -60,7 +60,7 @@ export default function CTA() {
               </Link>
               <a
                 href="mailto:hello@codentlabs.com"
-                className="inline-flex items-center gap-2 text-[13.5px] opacity-70 hover:opacity-100 transition-opacity text-white"
+                className="inline-flex items-center gap-2 text-[13.5px] opacity-70 hover:opacity-100 transition-opacity text-white py-[3px]"
               >
                 or write to hello@codentlabs.com
                 <ChevronArrow />

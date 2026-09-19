@@ -53,7 +53,6 @@ test.describe("Homepage", () => {
     const strip = page.getByText("Trusted by curious teams").locator("..");
     // Marquee renders each brand repeat={3} times — any one is enough.
     await expect(strip.getByText("Halcyon").first()).toBeVisible();
-    await expect(strip.getByText("Northwind").first()).toBeVisible();
     await expect(strip.getByText("Sundae").first()).toBeVisible();
     await expect(strip.getByText("Folio").first()).toBeVisible();
   });

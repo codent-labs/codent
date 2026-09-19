@@ -1,9 +1,11 @@
 import { Icon } from "./icon";
 import { Marquee } from "@/components/ui/marquee";
 
+// Issue #66: "Northwind" is Microsoft's sample-database company and read as
+// placeholder — removed. Remaining names are clients with case studies or
+// testimonials (Halcyon, Sundae, Folio).
 const logos = [
   { name: "Halcyon", icon: "hexagon" },
-  { name: "Northwind", icon: "air" },
   { name: "Sundae", icon: "sunny" },
   { name: "Kiln & Co.", icon: "local_fire_department" },
   { name: "Atlas", icon: "public" },
