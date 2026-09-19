@@ -18,7 +18,7 @@ test.describe("Homepage", () => {
     await expect(navLinks.filter({ hasText: "Services" })).toBeVisible();
     await expect(navLinks.filter({ hasText: "Process" })).toBeVisible();
     await expect(navLinks.filter({ hasText: "Journal" })).toBeVisible();
-    await expect(navLinks.filter({ hasText: "Contact" })).toBeVisible();
+    await expect(navLinks.filter({ hasText: "About" })).toBeVisible();
     await expect(nav.getByRole("link", { name: "Let's Connect" })).toBeVisible();
   });
 
@@ -44,8 +44,9 @@ test.describe("Homepage", () => {
     const hero = page.locator("section").first();
     await expect(hero.getByText("Big ideas, made")).toBeVisible();
     await expect(hero.getByText("small enough to ship.")).toBeVisible();
-    await expect(hero.getByRole("link", { name: "Start a project" })).toBeVisible();
-    await expect(hero.getByRole("link", { name: "See our work" })).toBeVisible();
+    // CTAs are router-navigating buttons, not links.
+    await expect(hero.getByRole("button", { name: "Start a project" })).toBeVisible();
+    await expect(hero.getByRole("button", { name: "See our work" })).toBeVisible();
     await expect(hero.getByText("86 projects shipped")).toBeVisible();
   });
 
@@ -59,10 +60,11 @@ test.describe("Homepage", () => {
 
   test("Services section renders all four services", async ({ page }) => {
     const services = page.locator("#solutions");
-    await expect(services.getByRole("heading", { name: "Brand & Identity" })).toBeVisible();
-    await expect(services.getByRole("heading", { name: "Product Design" })).toBeVisible();
-    await expect(services.getByRole("heading", { name: "Engineering" })).toBeVisible();
-    await expect(services.getByRole("heading", { name: "Growth & Launch" })).toBeVisible();
+    // Each practice appears once per marquee repeat — assert the first.
+    await expect(services.getByRole("heading", { name: "Brand & Identity" }).first()).toBeVisible();
+    await expect(services.getByRole("heading", { name: "Product Design" }).first()).toBeVisible();
+    await expect(services.getByRole("heading", { name: "Engineering" }).first()).toBeVisible();
+    await expect(services.getByRole("heading", { name: "Growth & Launch" }).first()).toBeVisible();
   });
 
   test("Showcase section renders work samples", async ({ page }) => {

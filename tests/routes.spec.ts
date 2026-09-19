@@ -66,8 +66,12 @@ test.describe("Crawlable routes", () => {
     await page.goto("/");
     const showcase = page.locator("#showcase");
     for (const slug of ["maru", "folio", "sundae"]) {
+      // BentoCard renders a mobile and a desktop CTA; exactly one is
+      // visible per viewport.
       await expect(
-        showcase.locator(`a[href="/work/${slug}"]`),
+        showcase
+          .locator(`a[href="/work/${slug}"]`)
+          .filter({ visible: true }),
       ).toHaveCount(1);
     }
     await expect(
