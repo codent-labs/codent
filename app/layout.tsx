@@ -29,6 +29,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  manifest: "/site.webmanifest",
   openGraph: {
     title: "Codent Labs — Brand, Product & Engineering",
     description:
