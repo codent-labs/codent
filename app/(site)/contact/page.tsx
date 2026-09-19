@@ -28,10 +28,10 @@ export default function ContactPage() {
         <div className="codent-section-head">
           <div>
             <span className="codent-eyebrow">let&apos;s build</span>
-            <h2 className="mt-[18px]">
+            <h1 className="mt-[18px]">
               Tell us where{" "}
               <em className="italic font-light">you&apos;re stuck.</em>
-            </h2>
+            </h1>
           </div>
           <p className="codent-section-lede">
             We&apos;ll send back a one-pager within 48 hours — what we&apos;d

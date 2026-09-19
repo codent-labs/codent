@@ -34,10 +34,10 @@ export default function AboutPage() {
         <div className="codent-section-head">
           <div>
             <span className="codent-eyebrow">about</span>
-            <h2 className="mt-[18px]">
+            <h1 className="mt-[18px]">
               A lab, not{" "}
               <em className="italic font-light">a factory.</em>
-            </h2>
+            </h1>
           </div>
           <p className="codent-section-lede">
             Two people who&apos;ve shipped 86+ projects since 2019 — brand, product

@@ -75,10 +75,10 @@ export default function ServicesPage() {
         <div className="codent-section-head">
           <div>
             <span className="codent-eyebrow">services</span>
-            <h2 className="mt-[18px]">
+            <h1 className="mt-[18px]">
               Four practices,{" "}
               <em className="italic font-light">one lab.</em>
-            </h2>
+            </h1>
           </div>
           <p className="codent-section-lede">
             Fixed scope, fixed price, fixed timelines. Pick the practices that

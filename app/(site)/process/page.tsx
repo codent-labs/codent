@@ -55,10 +55,10 @@ export default function ProcessPage() {
         <div className="codent-section-head">
           <div>
             <span className="codent-eyebrow">process</span>
-            <h2 className="mt-[18px]">
+            <h1 className="mt-[18px]">
               Four steps.{" "}
               <em className="italic font-light">No mystery.</em>
-            </h2>
+            </h1>
           </div>
           <p className="codent-section-lede">
             Same playbook, every engagement — refined over six years and

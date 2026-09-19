@@ -17,10 +17,10 @@ export default function WorkPage() {
         <div className="codent-section-head">
           <div>
             <span className="codent-eyebrow">work</span>
-            <h2 className="mt-[18px]">
+            <h1 className="mt-[18px]">
               Case studies,{" "}
               <em className="italic font-light">in the open.</em>
-            </h2>
+            </h1>
           </div>
           <p className="codent-section-lede">
             A few of the 86+ projects we&apos;ve shipped since 2019 — with the
