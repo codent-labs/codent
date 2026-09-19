@@ -1,12 +1,23 @@
-import { DM_Sans } from "next/font/google";
+import { DM_Sans, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
+import { organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
   axes: ["opsz"],
   variable: "--font-dm-sans",
+  display: "swap",
+});
+
+// Display serif for headline accents (issue #48) — pairs with DM Sans.
+const instrumentSerif = Instrument_Serif({
+  weight: "400",
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -63,7 +74,10 @@ export default function codentLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${dmSans.variable} ${materialSymbols.variable} min-h-screen`}>
+      <body
+        className={`${dmSans.variable} ${materialSymbols.variable} ${instrumentSerif.variable} min-h-screen`}
+      >
+        <JsonLd data={organizationJsonLd} />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-[#111] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm"

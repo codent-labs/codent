@@ -2,12 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
 import { caseStudies } from "@/lib/cases";
+import { social } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Work",
   description:
     "Selected case studies — Maru, Folio and Sundae. Brand, product and engineering for 86+ projects since 2019.",
   alternates: { canonical: "/work" },
+  ...social({
+    title: "Work — Codent Labs",
+    description:
+      "Selected case studies — Maru, Folio and Sundae. Brand, product and engineering for 86+ projects since 2019.",
+    path: "/work",
+  }),
 };
 
 export default function WorkPage() {

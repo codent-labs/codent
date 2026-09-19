@@ -8,19 +8,13 @@ import {
   SITE,
   type Post,
 } from "@/lib/posts";
+import { PostDate } from "@/components/PostDate";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, social } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
-
-function formatDate(iso: string) {
-  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
-  });
-}
 
 export function generateStaticParams() {
   return getAllPosts().map((p) => ({ slug: p.slug }));
@@ -30,26 +24,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   if (!hasPost(slug)) return {};
   const post = getPostBySlug(slug) as Post;
+  const image = `/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`;
+  const meta = social({
+    title: post.title,
+    description: post.description,
+    path: `/journal/${post.slug}`,
+    image,
+    type: "article",
+  });
   return {
     title: post.title,
     description: post.description,
     alternates: { canonical: `/journal/${post.slug}` },
-    openGraph: {
-      type: "article",
-      title: post.title,
-      description: post.description,
-      url: `${SITE.url}/journal/${post.slug}`,
-      siteName: SITE.name,
-      publishedTime: post.date,
-      images: [
-        {
-          url: `/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description)}`,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-    },
+    ...meta,
+    openGraph: { ...meta.openGraph, ...{ url: `${SITE.url}/journal/${post.slug}`, publishedTime: post.date } },
   };
 }
 
@@ -81,12 +69,8 @@ export default async function JournalPostPage({ params }: Props) {
 
   return (
     <article className="codent-section">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={jsonLd} />
+      <JsonLd data={breadcrumbJsonLd(`/journal/${post.slug}`, post.title)} />
       <div className="codent-wrap">
         <Link
           href="/journal"
@@ -97,7 +81,9 @@ export default async function JournalPostPage({ params }: Props) {
 
         <div className="max-w-[680px]">
           <div className="flex items-center gap-3 text-[12px] text-[#757575] tabular-nums">
-            <span>{formatDate(post.date)}</span>
+            <span>
+              <PostDate iso={post.date} />
+            </span>
             <span className="codent-dashed !w-[24px]" aria-hidden />
             <span>{post.readingMinutes} min read</span>
           </div>

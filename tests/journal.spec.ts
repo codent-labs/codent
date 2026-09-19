@@ -36,9 +36,14 @@ test.describe("Journal", () => {
     await expect(page.getByRole("article")).toBeVisible();
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-    const jsonLd = await page
-      .locator('script[type="application/ld+json"]')
-      .evaluate((el) => JSON.parse(el.textContent ?? "{}"));
+    const jsonLd = await page.evaluate(() => {
+      const scripts = Array.from(
+        document.querySelectorAll('script[type="application/ld+json"]'),
+      );
+      return scripts
+        .map((s) => JSON.parse(s.textContent ?? "{}"))
+        .find((j) => j["@type"] === "Article");
+    });
     expect(jsonLd["@type"]).toBe("Article");
     expect(jsonLd.headline.length).toBeGreaterThan(0);
     expect(jsonLd.datePublished).toBeTruthy();

@@ -8,7 +8,8 @@ import {
   hasCaseStudy,
   type CaseStudy,
 } from "@/lib/cases";
-import { SITE } from "@/lib/posts";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, social } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -22,25 +23,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   if (!hasCaseStudy(slug)) return {};
   const study = getCaseStudy(slug) as CaseStudy;
+  const image = `/og?title=${encodeURIComponent(study.title)}&description=${encodeURIComponent(study.summary)}`;
   return {
     title: study.client,
     description: study.summary,
     alternates: { canonical: `/work/${study.slug}` },
-    openGraph: {
-      type: "article",
+    ...social({
       title: study.title,
       description: study.summary,
-      url: `${SITE.url}/work/${study.slug}`,
-      siteName: SITE.name,
-      images: [
-        {
-          url: `/og?title=${encodeURIComponent(study.title)}&description=${encodeURIComponent(study.summary)}`,
-          width: 1200,
-          height: 630,
-          alt: study.title,
-        },
-      ],
-    },
+      path: `/work/${study.slug}`,
+      image,
+      type: "article",
+    }),
   };
 }
 
@@ -51,6 +45,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <article className="codent-section">
+      <JsonLd data={breadcrumbJsonLd(`/work/${study.slug}`, study.title)} />
       <div className="codent-wrap">
         <Link
           href="/work"

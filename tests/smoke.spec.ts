@@ -51,10 +51,11 @@ test.describe("Homepage", () => {
 
   test("LogosStrip renders trusted brands", async ({ page }) => {
     const strip = page.getByText("Trusted by curious teams").locator("..");
-    await expect(strip.getByText("Halcyon")).toBeVisible();
-    await expect(strip.getByText("Northwind")).toBeVisible();
-    await expect(strip.getByText("Sundae")).toBeVisible();
-    await expect(strip.getByText("Folio")).toBeVisible();
+    // Marquee renders each brand repeat={3} times — any one is enough.
+    await expect(strip.getByText("Halcyon").first()).toBeVisible();
+    await expect(strip.getByText("Northwind").first()).toBeVisible();
+    await expect(strip.getByText("Sundae").first()).toBeVisible();
+    await expect(strip.getByText("Folio").first()).toBeVisible();
   });
 
   test("Services section renders all four services", async ({ page }) => {

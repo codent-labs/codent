@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
+import { social } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Process",
   description:
     "Four steps, no mystery: say hi, discover, design, ship. The same playbook every engagement, refined over six years and roughly two hundred coffees.",
   alternates: { canonical: "/process" },
+  ...social({
+    title: "Process — Codent Labs",
+    description:
+      "Four steps, no mystery: say hi, discover, design, ship. The same playbook every engagement, refined over six years and roughly two hundred coffees.",
+    path: "/process",
+  }),
 };
 
 const steps = [

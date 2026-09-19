@@ -1,19 +1,20 @@
 import { test, expect } from "@playwright/test";
 
-// Issue #39: a persistent proof bar directly below the hero CTA, visible in the
-// first viewport, and every metric carries a stated denominator/timespan.
-test.describe("Proof bar and dated metrics", () => {
+// Hero social proof below the CTA (supersedes issue #39's proof bar): the
+// shipped-count pill sits in the first viewport and names the clients. Dated
+// metrics + denominators are asserted on the Numbers section below.
+test.describe("Hero social proof and dated metrics", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto("/");
   });
 
-  test("proof bar is visible without scrolling (first viewport)", async ({
+  test("social proof is visible without scrolling (first viewport)", async ({
     page,
   }) => {
-    const bar = page.locator(".codent-proofbar");
-    await expect(bar).toBeVisible();
+    const pill = page.getByText("86 projects shipped").locator("..");
+    await expect(pill).toBeVisible();
 
-    const inViewport = await bar.evaluate((el) => {
+    const inViewport = await pill.evaluate((el) => {
       const rect = el.getBoundingClientRect();
       return {
         top: rect.top,
@@ -27,23 +28,13 @@ test.describe("Proof bar and dated metrics", () => {
     expect(inViewport.bottom).toBeLessThanOrEqual(inViewport.innerHeight);
   });
 
-  test("proof bar shows all four stats", async ({ page }) => {
-    const bar = page.locator(".codent-proofbar");
-    for (const stat of ["86+", "14", "4.9/5", "100%"]) {
-      await expect(bar.getByText(stat, { exact: true })).toBeVisible();
-    }
-  });
-
-  test("every proof stat carries a denominator or timespan", async ({
+  test("social proof shows shipped count and named clients", async ({
     page,
   }) => {
-    const text = await page
-      .locator(".codent-proofbar")
-      .evaluate((el) => el.textContent ?? "");
-    expect(text).toContain("since 2019");
-    expect(text).toContain("industries served");
-    expect(text).toContain("across 86 projects");
-    expect(text).toContain("within a year");
+    const pill = page.getByText("86 projects shipped").locator("..");
+    for (const client of ["Halcyon", "Sundae", "Folio"]) {
+      await expect(pill.getByText(client)).toBeVisible();
+    }
   });
 
   test("Numbers section statistics are dated", async ({ page }) => {

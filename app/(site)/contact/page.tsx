@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import { ContactForm } from "./ContactForm";
+import { social } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact",
   description:
     "Tell us where you're stuck. We'll send back a one-pager within 48 hours — what we'd do, how long, and what it'd cost.",
   alternates: { canonical: "/contact" },
+  ...social({
+    title: "Contact — Codent Labs",
+    description:
+      "Tell us where you're stuck. We'll send back a one-pager within 48 hours — what we'd do, how long, and what it'd cost.",
+    path: "/contact",
+  }),
 };
 
 const contactDetails = [
