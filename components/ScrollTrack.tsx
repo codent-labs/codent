@@ -1,36 +1,49 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Icon } from "./icon";
+import { ArrowRightIcon } from "@/components/ui/arrow-right";
+import { BlocksIcon } from "@/components/ui/blocks";
+import { GitBranchIcon } from "@/components/ui/git-branch";
+import { PaletteIcon } from "@/components/ui/palette";
+import { RocketIcon } from "@/components/ui/rocket";
+import { MagicCard } from "./ui/magic-card";
 
 const services = [
   {
-    icon: "design_services",
+    icon: PaletteIcon,
     title: "Brand & Identity",
     body: "Logo systems, type, voice and the visual instincts that travel across every surface your product lives on.",
     meta: "6 weeks · 2 sprints",
     accent: "codent-tile-accent-pink",
+    glowFrom: "#f7b2fb",
+    glowTo: "#c084fc",
   },
   {
-    icon: "hub",
+    icon: BlocksIcon,
     title: "Product Design",
     body: "From a fuzzy idea to a working interface — research, wireframes and hi-fi prototypes you can actually ship.",
     meta: "8–12 weeks",
     accent: "codent-tile-accent-purple",
+    glowFrom: "#786ef1",
+    glowTo: "#a78bfa",
   },
   {
-    icon: "deployed_code",
+    icon: GitBranchIcon,
     title: "Engineering",
     body: "Fast, friendly front-ends and back-ends. We hand off code your team will be glad to inherit on Monday.",
     meta: "Continuous",
     accent: "codent-tile-accent-blue",
+    glowFrom: "#5588fb",
+    glowTo: "#60a5fa",
   },
   {
-    icon: "rocket_launch",
+    icon: RocketIcon,
     title: "Growth & Launch",
     body: "Strategy, positioning and the first 90 days — we help you find the audience that needs what you built.",
     meta: "4–6 weeks",
     accent: "codent-tile-accent-green",
+    glowFrom: "#34d399",
+    glowTo: "#6ee7b7",
   },
 ];
 
@@ -100,46 +113,44 @@ export default function ScrollTrack() {
         <div className="codent-scroll-pad" aria-hidden />
 
         {services.map((s, i) => (
-          <div key={i} className={`codent-scroll-tile codent-card`}>
-            {/* Top accent area */}
-            <div className="codent-tile-top">
-              <Icon
-                name={s.icon}
-                className="codent-gradient-text text-[38px] leading-none"
-              />
-              <span className="codent-tile-num text-[12px] font-semibold text-[var(--text-secondary)] tabular-nums">
-                0{i + 1}
-              </span>
-            </div>
+          <MagicCard
+            key={i}
+            mode="gradient"
+            className={`codent-scroll-tile rounded-[22px]`}
+            gradientFrom={s.glowFrom}
+            gradientTo={s.glowTo}
+            gradientSize={280}
+          >
+            <div className="flex flex-1 flex-col">
+              {/* Top accent area */}
+              <div className="codent-tile-top">
+                <s.icon size={38} className="text-main" />
+                <span className="codent-tile-num text-[12px] font-semibold text-[var(--text-secondary)] tabular-nums">
+                  0{i + 1}
+                </span>
+              </div>
 
-            {/* Content */}
-            <div className="codent-tile-body">
-              <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-main">
-                {s.title}
-              </h3>
-              <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6] mt-2">
-                {s.body}
-              </p>
-            </div>
+              {/* Content */}
+              <div className="codent-tile-body">
+                <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-main">
+                  {s.title}
+                </h3>
+                <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6] mt-2">
+                  {s.body}
+                </p>
+              </div>
 
-            {/* Footer */}
-            <div className="codent-tile-footer">
-              <span className="text-[12.5px] text-[var(--text-secondary)] font-medium">
-                {s.meta}
-              </span>
-              <span className="w-[30px] h-[30px] rounded-full bg-foreground text-background inline-flex items-center justify-center">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M5 12h14M13 6l6 6-6 6"
-                    stroke="currentColor"
-                    strokeWidth="2.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+              {/* Footer */}
+              <div className="codent-tile-footer">
+                <span className="text-[12.5px] text-[var(--text-secondary)] font-medium">
+                  {s.meta}
+                </span>
+                <span className="w-[30px] h-[30px] rounded-full bg-foreground text-background inline-flex items-center justify-center">
+                  <ArrowRightIcon size={14} />
+                </span>
+              </div>
             </div>
-          </div>
+          </MagicCard>
         ))}
 
         {/* Right pad */}

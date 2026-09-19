@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowUpRight, Blocks, Code2, Palette, Rocket } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { JsonLd } from "@/components/JsonLd";
+import { BlocksIcon } from "@/components/ui/blocks";
+import { GitBranchIcon } from "@/components/ui/git-branch";
+import { MagicCard } from "@/components/ui/magic-card";
+import { PaletteIcon } from "@/components/ui/palette";
+import { RocketIcon } from "@/components/ui/rocket";
 import { social } from "@/lib/seo";
 import { SITE } from "@/lib/posts";
 
@@ -20,11 +25,13 @@ export const metadata: Metadata = {
 
 const practices = [
   {
-    icon: Palette,
+    icon: PaletteIcon,
     title: "Brand & Identity",
     body: "Logo systems, type, voice and the visual instincts that travel across every surface your product lives on.",
     meta: "6 weeks · 2 sprints",
     accent: "codent-tile-accent-pink",
+    glowFrom: "#f7b2fb",
+    glowTo: "#c084fc",
     includes: [
       "Voice & positioning territory",
       "Logo system + mark variations",
@@ -34,11 +41,13 @@ const practices = [
     ],
   },
   {
-    icon: Blocks,
+    icon: BlocksIcon,
     title: "Product Design",
     body: "From a fuzzy idea to a working interface — research, wireframes and hi-fi prototypes you can actually ship.",
     meta: "8–12 weeks",
     accent: "codent-tile-accent-purple",
+    glowFrom: "#786ef1",
+    glowTo: "#a78bfa",
     includes: [
       "User interviews and audit week",
       "Flows and wireframes",
@@ -48,11 +57,13 @@ const practices = [
     ],
   },
   {
-    icon: Code2,
+    icon: GitBranchIcon,
     title: "Engineering",
     body: "Fast, friendly front-ends and back-ends. We hand off code your team will be glad to inherit on Monday.",
     meta: "Continuous",
     accent: "codent-tile-accent-blue",
+    glowFrom: "#5588fb",
+    glowTo: "#60a5fa",
     includes: [
       "React, Next.js and TypeScript",
       "Node + Postgres services",
@@ -62,11 +73,13 @@ const practices = [
     ],
   },
   {
-    icon: Rocket,
+    icon: RocketIcon,
     title: "Growth & Launch",
     body: "Strategy, positioning and the first 90 days — we help you find the audience that needs what you built.",
     meta: "4–6 weeks",
     accent: "codent-tile-accent-green",
+    // glowFrom: "#34d399",
+    // glowTo: "#6ee7b7",
     includes: [
       "Positioning and messaging",
       "Launch plan for the first 90 days",
@@ -113,9 +126,16 @@ export default function ServicesPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
           {practices.map((p) => (
-            <div key={p.title} className={`codent-card p-[26px] relative overflow-hidden`}>
+            <MagicCard
+              key={p.title}
+              mode="gradient"
+              className={`rounded-[22px] p-[26px] ${p.accent}`}
+              gradientFrom={p.glowFrom}
+              gradientTo={p.glowTo}
+              gradientSize={300}
+            >
               <div className="flex items-start justify-between">
-                <p.icon className={`size-[34px]`} strokeWidth={1.75} />
+                <p.icon size={34} className="text-main" />
                 <span className="text-[12px] font-semibold text-[var(--text-secondary)] tabular-nums uppercase tracking-[0.05em]">
                   {p.meta}
                 </span>
@@ -139,7 +159,7 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </MagicCard>
           ))}
         </div>
 

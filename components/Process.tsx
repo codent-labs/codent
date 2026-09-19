@@ -1,26 +1,30 @@
-import { Icon } from "./icon";
+import { CompassIcon } from "@/components/ui/compass";
+import { MagicCard } from "@/components/ui/magic-card";
+import { MessageCircleIcon } from "@/components/ui/message-circle";
+import { PenToolIcon } from "@/components/ui/pen-tool";
+import { RocketIcon } from "@/components/ui/rocket";
 
 const steps = [
   {
-    icon: "chat_bubble",
+    icon: MessageCircleIcon,
     title: "Say hi",
     body: "A 30-minute chat. No deck, no jargon — just figuring out if we're a fit.",
     meta: "30 min",
   },
   {
-    icon: "explore",
+    icon: CompassIcon,
     title: "Discover",
     body: "We pair with your team for a week of interviews, audits and rough sketches.",
     meta: "1 week",
   },
   {
-    icon: "draw",
+    icon: PenToolIcon,
     title: "Design",
     body: "Two cycles of design, each ending in a working prototype you can click through.",
     meta: "2–3 weeks",
   },
   {
-    icon: "rocket_launch",
+    icon: RocketIcon,
     title: "Ship",
     body: "Engineering, QA, and a hand-off doc that won't make your devs cry.",
     meta: "Ongoing",
@@ -63,14 +67,20 @@ export default function Process() {
               </div>
 
               {/* Card */}
-              <div className="codent-card codent-process-card">
-                <Icon name={s.icon} className="codent-gradient-text text-[34px] leading-none" />
-                <h3 className="text-[17px] font-semibold tracking-[-0.3px] text-main mt-3">
-                  {s.title}
-                </h3>
-                <p className="text-[13px] text-[var(--text-secondary)] leading-[1.55] mt-2">{s.body}</p>
-                <span className="codent-process-meta">{s.meta}</span>
-              </div>
+              <MagicCard
+                mode="gradient"
+                className="codent-process-card rounded-[22px]"
+                gradientSize={220}
+              >
+                <div className="flex flex-1 flex-col">
+                  <s.icon size={34} className="text-main" />
+                  <h3 className="text-[17px] font-semibold tracking-[-0.3px] text-main mt-3">
+                    {s.title}
+                  </h3>
+                  <p className="text-[13px] text-[var(--text-secondary)] leading-[1.55] mt-2">{s.body}</p>
+                  <span className="codent-process-meta">{s.meta}</span>
+                </div>
+              </MagicCard>
             </div>
           ))}
         </div>

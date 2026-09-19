@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
+import { CompassIcon } from "@/components/ui/compass";
+import { MagicCard } from "@/components/ui/magic-card";
+import { MessageCircleIcon } from "@/components/ui/message-circle";
+import { PenToolIcon } from "@/components/ui/pen-tool";
+import { RocketIcon } from "@/components/ui/rocket";
 import { social } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -18,7 +23,7 @@ export const metadata: Metadata = {
 
 const steps = [
   {
-    icon: "chat_bubble",
+    icon: MessageCircleIcon,
     number: "01",
     title: "Say hi",
     meta: "30 min",
@@ -27,7 +32,7 @@ const steps = [
       "You get the 48-hour one-pager before this call. By the time we talk we already know the shape of what you need — the call is for the things a form can't capture: who's accountable, why now, and what 'done' actually means to the person paying for it.",
   },
   {
-    icon: "explore",
+    icon: CompassIcon,
     number: "02",
     title: "Discover",
     meta: "1 week",
@@ -36,7 +41,7 @@ const steps = [
       "The most important week of the engagement. We interview the people your product already talks to, audit what exists, and kill ideas on paper so they never ride along into build. The output is a short scope you can actually argue with.",
   },
   {
-    icon: "draw",
+    icon: PenToolIcon,
     number: "03",
     title: "Design",
     meta: "2–3 weeks",
@@ -45,7 +50,7 @@ const steps = [
       "Two cycles, two clickable prototypes — the median is 23 days brief to first click. Each cycle ends with a real decision: ship this, kill that, or change the plan. Prototypes exist to force decisions, not to be beautiful PDFs.",
   },
   {
-    icon: "rocket_launch",
+    icon: RocketIcon,
     number: "04",
     title: "Ship",
     meta: "Ongoing",
@@ -75,35 +80,38 @@ export default function ProcessPage() {
 
         <div className="flex flex-col gap-[14px]">
           {steps.map((s) => (
-            <div
+            <MagicCard
               key={s.title}
-              className="codent-card p-[26px] grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4"
+              mode="gradient"
+              className="rounded-[22px] p-[26px]"
+              gradientFrom="#737373"
+              gradientTo="#d4d4d4"
+              gradientSize={280}
             >
-              <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-2">
-                <span className="text-[13px] font-semibold text-[var(--text-secondary)] tabular-nums order-1 md:order-none">
-                  {s.number}
-                </span>
-                <Icon
-                  name={s.icon}
-                  className="codent-gradient-text text-[30px] leading-none"
-                />
-                <span className="codent-process-meta !pt-0 order-2 md:order-none">
-                  {s.meta}
-                </span>
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4">
+                <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-2">
+                  <span className="text-[13px] font-semibold text-[var(--text-secondary)] tabular-nums order-1 md:order-none">
+                    {s.number}
+                  </span>
+                  <s.icon size={30} className="text-main" />
+                  <span className="codent-process-meta !pt-0 order-2 md:order-none">
+                    {s.meta}
+                  </span>
+                </div>
 
-              <div>
-                <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-main">
-                  {s.title}
-                </h3>
-                <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6] mt-1">
-                  {s.body}
-                </p>
-                <p className="text-[14.5px] text-main leading-[1.75] mt-3">
-                  {s.detail}
-                </p>
+                <div>
+                  <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-main">
+                    {s.title}
+                  </h3>
+                  <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6] mt-1">
+                    {s.body}
+                  </p>
+                  <p className="text-[14.5px] text-main leading-[1.75] mt-3">
+                    {s.detail}
+                  </p>
+                </div>
               </div>
-            </div>
+            </MagicCard>
           ))}
         </div>
 

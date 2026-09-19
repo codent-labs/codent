@@ -501,6 +501,8 @@
   right: 0;
   height: 3px;
   border-radius: 22px 22px 0 0;
+  /* Above MagicCard's face fill (z-20) and spotlight (z-30) layers. */
+  z-index: 50;
 }
 .codent-tile-accent-pink::before {
   background: linear-gradient(to right, #f7b2fb, #c084fc);
