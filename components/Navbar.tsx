@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Logo } from "./logo"
+import { ModeToggle } from "./mode-toggle"
 
 function ChevronArrow() {
   return (
@@ -30,7 +31,7 @@ const NAV_ITEMS = [
 //   return (
 //     <Link href="#" className="flex items-center gap-[9px]" aria-label="codent home">
 //       {/* eslint-disable-next-line @next/next/no-img-element */}
-//       <span className="text-[20px] font-bold tracking-[-0.3px] text-[#111]">codent lab</span>
+//       <span className="text-[20px] font-bold tracking-[-0.3px] text-main">codent lab</span>
 //     </Link>
 //   );
 // }
@@ -47,7 +48,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-[70] backdrop-saturate-[180%] backdrop-blur-[10px] bg-[rgba(245,245,245,0.7)]">
+      <nav className="sticky top-0 z-[70] backdrop-saturate-[180%] backdrop-blur-[10px] bg-background/70">
         <div className="max-w-[1100px] mx-auto px-10 py-6 flex items-center justify-between relative">
           {/* Dashed bottom border */}
           <div className="codent-dashed absolute start-10 end-10 bottom-0" />
@@ -59,13 +60,15 @@ export default function Navbar() {
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="text-[14px] font-normal text-[#1a1a1a] opacity-65 hover:opacity-100 transition-opacity"
+                  className="text-[14px] font-normal text-foreground opacity-65 hover:opacity-100 transition-opacity"
                 >
                   {item.label}
                 </a>
               </li>
             ))}
           </ul>
+
+          <ModeToggle />
 
           <a
             href="/contact"
@@ -85,13 +88,13 @@ export default function Navbar() {
             onClick={() => setMenuOpen((o) => !o)}
           >
             <span
-              className={`block w-6 h-[2px] bg-[#111] rounded-sm transition-transform duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
+              className={`block w-6 h-[2px] bg-foreground rounded-sm transition-transform duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
             />
             <span
-              className={`block w-6 h-[2px] bg-[#111] rounded-sm transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`}
+              className={`block w-6 h-[2px] bg-foreground rounded-sm transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`}
             />
             <span
-              className={`block w-6 h-[2px] bg-[#111] rounded-sm transition-transform duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+              className={`block w-6 h-[2px] bg-foreground rounded-sm transition-transform duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
             />
           </button>
         </div>
@@ -100,13 +103,13 @@ export default function Navbar() {
       {/* Mobile nav */}
       <div
         aria-hidden={!menuOpen}
-        className={`fixed inset-0 bg-[#F5F5F5] z-[60] flex flex-col px-8 pt-[90px] pb-10 transition-[transform,visibility] duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] ${menuOpen ? "translate-x-0 visible" : "translate-x-full invisible"}`}
+        className={`fixed inset-0 bg-background z-[60] flex flex-col px-8 pt-[90px] pb-10 transition-[transform,visibility] duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] ${menuOpen ? "translate-x-0 visible" : "translate-x-full invisible"}`}
       >
         {NAV_ITEMS.map((item) => (
           <a
             key={item.label}
             href={item.href}
-            className="text-[38px] font-black tracking-[-1.5px] text-[#0f0f0f] py-6 border-b border-dashed border-black/15"
+            className="text-[38px] font-black tracking-[-1.5px] text-foreground py-6 border-b border-dashed border-line"
             onClick={() => setMenuOpen(false)}
           >
             {item.label}

@@ -107,27 +107,27 @@ export default function ScrollTrack() {
                 name={s.icon}
                 className="codent-gradient-text text-[38px] leading-none"
               />
-              <span className="codent-tile-num text-[12px] font-semibold text-[#aaa] tabular-nums">
+              <span className="codent-tile-num text-[12px] font-semibold text-[var(--text-secondary)] tabular-nums">
                 0{i + 1}
               </span>
             </div>
 
             {/* Content */}
             <div className="codent-tile-body">
-              <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-[#0f0f0f]">
+              <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-main">
                 {s.title}
               </h3>
-              <p className="text-[14px] text-[#666] leading-[1.6] mt-2">
+              <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6] mt-2">
                 {s.body}
               </p>
             </div>
 
             {/* Footer */}
             <div className="codent-tile-footer">
-              <span className="text-[12.5px] text-[#555] font-medium">
+              <span className="text-[12.5px] text-[var(--text-secondary)] font-medium">
                 {s.meta}
               </span>
-              <span className="w-[30px] h-[30px] rounded-full bg-[#111] text-white inline-flex items-center justify-center">
+              <span className="w-[30px] h-[30px] rounded-full bg-foreground text-background inline-flex items-center justify-center">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M5 12h14M13 6l6 6-6 6"
@@ -154,7 +154,7 @@ export default function ScrollTrack() {
             style={{ width: `${progress * 100}%` }}
           />
         </div>
-        <p className="text-[11.5px] text-[#757575] mt-2 select-none">
+        <p className="text-[11.5px] text-[var(--text-secondary)] mt-2 select-none">
           Scroll to explore →
         </p>
       </div>

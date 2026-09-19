@@ -52,7 +52,7 @@ export default function Process() {
               {/* Number node */}
               <div className="codent-process-node-row">
                 <div className="codent-process-node">
-                  <span className="text-[12px] font-bold text-[#111] tabular-nums">0{i + 1}</span>
+                  <span className="text-[12px] font-bold text-main tabular-nums">0{i + 1}</span>
                 </div>
                 {i < steps.length - 1 && (
                   <div className="codent-process-connector" aria-hidden>
@@ -65,10 +65,10 @@ export default function Process() {
               {/* Card */}
               <div className="codent-card codent-process-card">
                 <Icon name={s.icon} className="codent-gradient-text text-[34px] leading-none" />
-                <h3 className="text-[17px] font-semibold tracking-[-0.3px] text-[#0f0f0f] mt-3">
+                <h3 className="text-[17px] font-semibold tracking-[-0.3px] text-main mt-3">
                   {s.title}
                 </h3>
-                <p className="text-[13px] text-[#666] leading-[1.55] mt-2">{s.body}</p>
+                <p className="text-[13px] text-[var(--text-secondary)] leading-[1.55] mt-2">{s.body}</p>
                 <span className="codent-process-meta">{s.meta}</span>
               </div>
             </div>

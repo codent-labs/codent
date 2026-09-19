@@ -80,7 +80,7 @@ export default function ProcessPage() {
               className="codent-card p-[26px] grid grid-cols-1 md:grid-cols-[80px_1fr] gap-4"
             >
               <div className="flex md:flex-col items-center md:items-start gap-3 md:gap-2">
-                <span className="text-[13px] font-semibold text-[#757575] tabular-nums order-1 md:order-none">
+                <span className="text-[13px] font-semibold text-[var(--text-secondary)] tabular-nums order-1 md:order-none">
                   {s.number}
                 </span>
                 <Icon
@@ -93,13 +93,13 @@ export default function ProcessPage() {
               </div>
 
               <div>
-                <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-[#0f0f0f]">
+                <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-main">
                   {s.title}
                 </h3>
-                <p className="text-[14px] text-[#666] leading-[1.6] mt-1">
+                <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6] mt-1">
                   {s.body}
                 </p>
-                <p className="text-[14.5px] text-[#333] leading-[1.75] mt-3">
+                <p className="text-[14.5px] text-main leading-[1.75] mt-3">
                   {s.detail}
                 </p>
               </div>

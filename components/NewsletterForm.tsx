@@ -26,7 +26,7 @@ export function NewsletterForm() {
           type="email"
           autoComplete="email"
           placeholder="you@company.com"
-          className="flex-1 min-w-[180px] rounded-[40px] border border-black/8 bg-white px-4 py-2.5 text-[13.5px] text-[#0f0f0f] placeholder:text-[#999] outline-none focus:border-[#786ef1] focus:ring-2 focus:ring-[#786ef1]/20"
+          className="flex-1 min-w-[180px] rounded-[40px] border border-border bg-card px-4 py-2.5 text-[13.5px] text-main placeholder:text-[var(--text-secondary)] outline-none focus:border-[#786ef1] focus:ring-2 focus:ring-[#786ef1]/20"
         />
         <button
           type="submit"
@@ -48,7 +48,7 @@ export function NewsletterForm() {
       {state.status === "unconfigured" && (
         <p
           role="status"
-          className="mt-2 text-[12.5px] text-[#0f0f0f] bg-[#f0ebff] px-3 py-2 rounded-[8px]"
+          className="mt-2 text-[12.5px] text-main bg-[#f0ebff] dark:bg-[#241e3d] px-3 py-2 rounded-[8px]"
         >
           {state.message}
         </p>

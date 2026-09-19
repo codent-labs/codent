@@ -38,7 +38,7 @@ export default function JournalPage() {
             </p>
             <a
               href="/feed.xml"
-              className="inline-flex items-center gap-2 text-[13px] font-medium text-[#1a1a1a] opacity-70 hover:opacity-100 transition-opacity"
+              className="inline-flex items-center gap-2 text-[13px] font-medium text-main opacity-70 hover:opacity-100 transition-opacity"
             >
               RSS feed
             </a>
@@ -52,24 +52,24 @@ export default function JournalPage() {
               href={`/journal/${post.slug}`}
               className="codent-card group p-[26px] block transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)]"
             >
-              <div className="flex items-center gap-3 text-[12px] text-[#757575] tabular-nums">
+              <div className="flex items-center gap-3 text-[12px] text-[var(--text-secondary)] tabular-nums">
                 <span>
                   <PostDate iso={post.date} />
                 </span>
                 <span className="codent-dashed !w-[24px]" aria-hidden />
                 <span>{post.readingMinutes} min read</span>
               </div>
-              <h2 className="mt-[12px] text-[22px] font-semibold tracking-[-0.5px] text-[#0f0f0f] leading-[1.25] max-w-[640px] group-hover:opacity-80 transition-opacity">
+              <h2 className="mt-[12px] text-[22px] font-semibold tracking-[-0.5px] text-main leading-[1.25] max-w-[640px] group-hover:opacity-80 transition-opacity">
                 {post.title}
               </h2>
-              <p className="mt-[8px] text-[14px] text-[#666] leading-[1.6] max-w-[640px]">
+              <p className="mt-[8px] text-[14px] text-[var(--text-secondary)] leading-[1.6] max-w-[640px]">
                 {post.description}
               </p>
             </Link>
           ))}
         </div>
 
-        <p className="mt-10 text-[13.5px] text-[#666]">
+        <p className="mt-10 text-[13.5px] text-[var(--text-secondary)]">
           Writing is how we argue with our own pricing. Reply anytime at{" "}
           <a
             href={`mailto:${SITE.email}`}

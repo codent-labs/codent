@@ -2,6 +2,8 @@ import { DM_Sans, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
+import { ThemeProvider } from "@/components/theme-provider";
+import { META_THEME_COLORS } from "@/hooks/use-meta-color";
 import { organizationJsonLd } from "@/lib/seo";
 import "./globals.css";
 
@@ -75,16 +77,28 @@ export default function codentLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${materialSymbols.variable} ${instrumentSerif.variable} min-h-screen`}
+        className={`${dmSans.variable} ${materialSymbols.variable} ${instrumentSerif.variable} min-h-screen bg-background`}
       >
-        <JsonLd data={organizationJsonLd} />
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-[#111] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm"
+        <meta
+          name="theme-color"
+          content={META_THEME_COLORS.light}
+          suppressHydrationWarning
+        />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          Skip to main content
-        </a>
-        {children}
+          <JsonLd data={organizationJsonLd} />
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:bg-[#111] focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm"
+          >
+            Skip to main content
+          </a>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
