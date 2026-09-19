@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Blocks, Code2, Palette, Rocket } from "lucide-react";
+import { JsonLd } from "@/components/JsonLd";
+import { social } from "@/lib/seo";
+import { SITE } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
     "Four practices, one lab: brand & identity, product design, engineering, and growth & launch — with fixed timelines and fixed-price engagements.",
   alternates: { canonical: "/services" },
+  ...social({
+    title: "Services — Codent Labs",
+    description:
+      "Four practices, one lab: brand & identity, product design, engineering, and growth & launch — with fixed timelines and fixed-price engagements.",
+    path: "/services",
+  }),
 };
 
 const practices = [
@@ -71,6 +80,22 @@ const practices = [
 export default function ServicesPage() {
   return (
     <section className="codent-section">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "OfferCatalog",
+          name: "Codent Labs services",
+          url: `${SITE.url}/services`,
+          itemListElement: practices.map((p) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: p.title,
+              description: p.body,
+            },
+          })),
+        }}
+      />
       <div className="codent-wrap">
         <div className="codent-section-head">
           <div>

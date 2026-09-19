@@ -90,7 +90,7 @@ export default function Footer() {
             </a>
             <a
               href="mailto:hello@codentlabs.com"
-              className="inline-flex items-center gap-2 hover:text-[#0f0f0f] transition-colors"
+              className="inline-flex items-center gap-2 py-[3px] hover:text-[#0f0f0f] transition-colors"
             >
               hello@codentlabs.com
             </a>

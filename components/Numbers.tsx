@@ -13,9 +13,9 @@ export default function Numbers() {
           {stats.map((s, i) => (
             <div key={i} className="relative p-[30px_26px]">
               {i > 0 && <div className="codent-dashed-v" />}
-              <div className="text-[#0f0f0f] leading-none text-[46px] font-medium tracking-[-2px]">
+              <div className="text-[#0f0f0f] leading-none text-[46px] font-medium tracking-[-2px] tabular-nums">
                 {s.n}
-                <sup className="text-[22px] font-medium text-[#0f0f0f] align-super ms-[2px] tracking-[-1px]">
+                <sup className="text-[22px] font-medium text-[#0f0f0f] align-super ms-[2px] tracking-[-1px] tabular-nums">
                   {s.sup}
                 </sup>
               </div>
