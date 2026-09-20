@@ -1,23 +1,28 @@
 import { Icon } from "./icon";
+import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Testimonial() {
   return (
     <section className="codent-section">
       <div className="codent-wrap">
         <div
-          className="bg-white rounded-[24px] p-[54px] border border-black/5 shadow-[0_4px_24px_rgba(0,0,0,0.05)] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-center relative overflow-hidden"
+          className="bg-card rounded-[24px] p-[54px] border border-border shadow-[0_4px_24px_rgba(0,0,0,0.05)] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-center relative overflow-hidden"
         >
           <Icon name="format_quote" className="codent-gradient-text absolute top-6 end-9 text-[90px] opacity-70 leading-none" />
 
           <div>
-            <blockquote className="text-[clamp(22px,2.4vw,30px)] font-medium tracking-[-0.6px] leading-[1.25] text-[#0f0f0f]">
+            <blockquote className="text-[clamp(22px,2.4vw,30px)] font-medium tracking-[-0.6px] leading-[1.25] text-main">
               They felt less like an agency and more like the two{" "}
-              <span className="bg-[#E0E2E7] px-2 py-0 rounded-[6px] font-semibold">
-                smartest
+              <span className="font-semibold">
+                <Highlighter color="#786EF1" strokeWidth={1.6} padding={4} iterations={2}>
+                  smartest
+                </Highlighter>
               </span>{" "}
               people on our team — who happened to also{" "}
-              <span className="bg-[#E0E2E7] px-2 py-0 rounded-[6px] font-semibold">
-                design
+              <span className="font-semibold">
+                <Highlighter color="#786EF1" strokeWidth={1.6} padding={4} iterations={2}>
+                  design
+                </Highlighter>
               </span>{" "}
               the whole thing.
             </blockquote>
@@ -27,10 +32,10 @@ export default function Testimonial() {
                 RM
               </div>
               <div>
-                <div className="text-[14px] font-semibold text-[#0f0f0f]">
+                <div className="text-[14px] font-semibold text-main">
                   Rosa Madrigal
                 </div>
-                <div className="text-[12.5px] text-[#666]">
+                <div className="text-[12.5px] text-[var(--text-secondary)]">
                   Head of Product · Halcyon
                 </div>
               </div>
@@ -38,32 +43,32 @@ export default function Testimonial() {
           </div>
 
           {/* Side card — featured Halcyon case metrics as a compact stat strip */}
-          <div className="bg-[#F5F5F5] rounded-[18px] p-6 flex flex-col gap-[14px]">
+          <div className="bg-page rounded-[18px] p-6 flex flex-col gap-[14px]">
             <div className="flex items-center justify-between">
-              <span className="text-[12px] text-[#666]">Project</span>
+              <span className="text-[12px] text-[var(--text-secondary)]">Project</span>
               <span className="text-[11px] font-semibold text-[#0b7536] bg-[#dff5e6] px-[10px] py-[3px] rounded-[40px]">
                 Live
               </span>
             </div>
-            <div className="text-[#0f0f0f] text-[32px] font-medium tracking-[-1.2px]">
+            <div className="text-main text-[32px] font-medium tracking-[-1.2px]">
               Halcyon 3.0
             </div>
-            <div className="text-[12px] text-[#666]">
+            <div className="text-[12px] text-[var(--text-secondary)]">
               Banking app · 9 months · Brand, product, engineering.
             </div>
 
             <div className="grid grid-cols-2 gap-[10px] mt-1">
-              <div className="bg-white border border-black/5 rounded-[14px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
-                <div className="text-[#0f0f0f] text-[30px] font-semibold tracking-[-1px] leading-none">
+              <div className="bg-card border border-border rounded-[14px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
+                <div className="text-main text-[30px] font-semibold tracking-[-1px] leading-none">
                   +34
                 </div>
-                <div className="text-[11.5px] text-[#666] mt-2">NPS lift</div>
+                <div className="text-[11.5px] text-[var(--text-secondary)] mt-2">NPS lift</div>
               </div>
-              <div className="bg-white border border-black/5 rounded-[14px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
-                <div className="text-[#0f0f0f] text-[30px] font-semibold tracking-[-1px] leading-none">
+              <div className="bg-card border border-border rounded-[14px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
+                <div className="text-main text-[30px] font-semibold tracking-[-1px] leading-none">
                   ×2.1
                 </div>
-                <div className="text-[11.5px] text-[#666] mt-2">Activation</div>
+                <div className="text-[11.5px] text-[var(--text-secondary)] mt-2">Activation</div>
               </div>
             </div>
           </div>

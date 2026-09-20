@@ -477,3 +477,50 @@
     @apply rounded-xl border-none bg-clip-padding shadow-2xl ring-4 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-800;
   }
 }
+
+/* Magic UI component animations (shimmer button, shiny text, meteors). */
+@theme inline {
+  --animate-shimmer-slide: shimmer-slide var(--speed, 3s) linear infinite;
+  --animate-spin-around: spin-around calc(var(--speed, 3s) * 2) infinite linear;
+  --animate-shiny-text: shiny-text var(--shiny-duration, 5s) ease-out infinite;
+  --animate-meteor: meteor 8s linear infinite;
+}
+
+@keyframes shimmer-slide {
+  to {
+    transform: translate(100%, -100%);
+  }
+}
+
+@keyframes spin-around {
+  from {
+    transform: translate(50%, 50%) rotate(0deg);
+  }
+  to {
+    transform: translate(50%, 50%) rotate(360deg);
+  }
+}
+
+@keyframes shiny-text {
+  0%,
+  10% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes meteor {
+  0% {
+    transform: rotate(var(--angle));
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--angle)) translateX(-500px);
+    opacity: 0;
+  }
+}

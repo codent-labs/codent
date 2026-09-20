@@ -13,7 +13,7 @@ export function Logo({ className }: CodentLabsLogoProps) {
       aria-label="Codent labs."
       className={`inline-block py-[2px] ${className ?? ""}`}
     >
-      <span className="font-bold tracking-[1px] leading-[1.08] text-[#0f0f0f]">
+      <span className="font-bold tracking-[1px] leading-[1.08] text-main">
         Codent labs.
       </span>
     </Link>

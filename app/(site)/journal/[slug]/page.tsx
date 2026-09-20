@@ -74,23 +74,23 @@ export default async function JournalPostPage({ params }: Props) {
       <div className="codent-wrap">
         <Link
           href="/journal"
-          className="inline-flex items-center gap-2 text-[13px] font-medium text-[#1a1a1a] opacity-60 hover:opacity-100 transition-opacity mb-10"
+          className="inline-flex items-center gap-2 text-[13px] font-medium text-main opacity-60 hover:opacity-100 transition-opacity mb-10"
         >
           ← Back to journal
         </Link>
 
         <div className="max-w-[680px]">
-          <div className="flex items-center gap-3 text-[12px] text-[#757575] tabular-nums">
+          <div className="flex items-center gap-3 text-[12px] text-[var(--text-secondary)] tabular-nums">
             <span>
               <PostDate iso={post.date} />
             </span>
             <span className="codent-dashed !w-[24px]" aria-hidden />
             <span>{post.readingMinutes} min read</span>
           </div>
-          <h1 className="mt-[16px] text-[clamp(30px,3.8vw,46px)] font-medium tracking-[-1.3px] leading-[1.08] text-[#0f0f0f]">
+          <h1 className="mt-[16px] text-[clamp(30px,3.8vw,46px)] font-medium tracking-[-1.3px] leading-[1.08] text-main">
             {post.title}
           </h1>
-          <p className="mt-[16px] text-[15px] text-[#666] leading-[1.7]">
+          <p className="mt-[16px] text-[15px] text-[var(--text-secondary)] leading-[1.7]">
             {post.description}
           </p>
         </div>
@@ -101,7 +101,7 @@ export default async function JournalPostPage({ params }: Props) {
           {post.content.map((paragraph, i) => (
             <p
               key={i}
-              className="text-[15.5px] text-[#2a2a2a] leading-[1.8]"
+              className="text-[15.5px] text-main leading-[1.8]"
             >
               {paragraph}
             </p>
@@ -110,11 +110,11 @@ export default async function JournalPostPage({ params }: Props) {
 
         <div className="codent-dashed my-10" />
 
-        <div className="bg-white rounded-[20px] border border-black/5 shadow-[0_2px_12px_rgba(0,0,0,0.04)] p-[28px] max-w-[680px]">
-          <p className="text-[14.5px] text-[#555] leading-[1.7]">
+        <div className="bg-card rounded-[20px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.04)] p-[28px] max-w-[680px]">
+          <p className="text-[14.5px] text-[var(--text-secondary)] leading-[1.7]">
             Like this? We write about scope, pricing and hand-offs whenever we
             learn something — roughly monthly. Tell us where{" "}
-            <Link href="/contact" className="font-semibold text-[#0f0f0f] underline underline-offset-2">
+            <Link href="/contact" className="font-semibold text-main underline underline-offset-2">
               you&apos;re stuck
             </Link>{" "}
             and we&apos;ll reply with a one-pager within 48 hours.

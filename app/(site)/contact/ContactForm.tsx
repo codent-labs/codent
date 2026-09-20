@@ -6,9 +6,9 @@ import { submitContact, type ContactState } from "./actions";
 const initialState: ContactState = { status: "idle" };
 
 const inputClasses =
-  "w-full rounded-[12px] bg-white border border-black/8 px-4 py-3 text-[14px] text-[#0f0f0f] placeholder:text-[#999] outline-none focus:border-[#786ef1] focus:ring-2 focus:ring-[#786ef1]/20 transition";
+  "w-full rounded-[12px] bg-card border border-border px-4 py-3 text-[14px] text-main placeholder:text-[var(--text-secondary)] outline-none focus:border-[#786ef1] focus:ring-2 focus:ring-[#786ef1]/20 transition";
 const labelClasses =
-  "block text-[12.5px] font-semibold text-[#0f0f0f] mb-[7px]";
+  "block text-[12.5px] font-semibold text-main mb-[7px]";
 
 export function ContactForm() {
   const [state, formAction, pending] = useActionState(
@@ -26,7 +26,7 @@ export function ContactForm() {
     <form
       action={formAction}
       noValidate
-      className="bg-white rounded-[22px] border border-black/5 shadow-[0_2px_14px_rgba(0,0,0,0.05)] p-[30px]"
+      className="bg-card rounded-[22px] border border-border shadow-[0_2px_14px_rgba(0,0,0,0.05)] p-[30px]"
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-[18px]">
         <div>
@@ -107,7 +107,7 @@ export function ContactForm() {
         </p>
       )}
       {state.status === "fallback" && (
-        <p role="status" className="mt-[16px] text-[13.5px] text-[#0f0f0f] bg-[#f0ebff] rounded-[10px] px-4 py-3">
+        <p role="status" className="mt-[16px] text-[13.5px] text-main bg-[#f0ebff] dark:bg-[#241e3d] rounded-[10px] px-4 py-3">
           {state.message}
         </p>
       )}

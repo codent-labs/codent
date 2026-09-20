@@ -52,14 +52,14 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="bg-white rounded-[24px] border border-black/5 shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-[30px]">
-          <p className="text-[clamp(17px,1.8vw,22px)] text-[#0f0f0f] leading-[1.6] font-medium tracking-[-0.4px] max-w-[760px]">
+        <div className="bg-card rounded-[24px] border border-border shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-[30px]">
+          <p className="text-[clamp(17px,1.8vw,22px)] text-main leading-[1.6] font-medium tracking-[-0.4px] max-w-[760px]">
             Codent Labs started in 2019 as a bet that a two-person studio could
             out-ship agencies ten times its size — by staying small, quoting
             fixed scope, and shipping work that earns a second project instead
             of a contract renewal.
           </p>
-          <p className="text-[15px] text-[#555] leading-[1.75] mt-[18px] max-w-[760px]">
+          <p className="text-[15px] text-[var(--text-secondary)] leading-[1.75] mt-[18px] max-w-[760px]">
             We&apos;ve since shipped 86+ projects across 14 industries — fintech,
             DTC, SaaS, healthcare and more — for teams like Halcyon, Sundae
             and Folio. 100% of our clients return within a year, and we&apos;d
@@ -70,26 +70,26 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px] mt-[14px]">
           {beliefs.map((b) => (
             <div key={b.title} className="codent-card p-[26px]">
-              <h3 className="text-[18px] font-semibold tracking-[-0.3px] text-[#0f0f0f]">
+              <h3 className="text-[18px] font-semibold tracking-[-0.3px] text-main">
                 {b.title}
               </h3>
-              <p className="text-[14px] text-[#555] leading-[1.65] mt-2">
+              <p className="text-[14px] text-[var(--text-secondary)] leading-[1.65] mt-2">
                 {b.body}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="mt-[14px] bg-white rounded-[24px] border border-black/5 shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-[30px] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 items-center">
+        <div className="mt-[14px] bg-card rounded-[24px] border border-border shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-[30px] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 items-center">
           <div>
-            <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-[#0f0f0f]">
+            <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-main">
               What clients say
             </h3>
-            <blockquote className="mt-[14px] text-[clamp(16px,1.7vw,21px)] text-[#0f0f0f] leading-[1.45] font-medium tracking-[-0.3px]">
+            <blockquote className="mt-[14px] text-[clamp(16px,1.7vw,21px)] text-main leading-[1.45] font-medium tracking-[-0.3px]">
               They&apos;re less an agency and more the two smartest people on
               the team — who happen to also design the whole thing.
             </blockquote>
-            <div className="mt-4 text-[13px] text-[#666]">
+            <div className="mt-4 text-[13px] text-[var(--text-secondary)]">
               Rosa Madrigal · Head of Product, Halcyon
             </div>
           </div>
@@ -102,18 +102,18 @@ export default function AboutPage() {
             ].map((s) => (
               <div
                 key={s.l}
-                className="bg-[#F5F5F5] rounded-[16px] p-[18px] text-center"
+                className="bg-page rounded-[16px] p-[18px] text-center"
               >
-                <div className="text-[24px] font-semibold tracking-[-1px] text-[#0f0f0f]">
+                <div className="text-[24px] font-semibold tracking-[-1px] text-main">
                   {s.v}
                 </div>
-                <div className="text-[11.5px] text-[#666] mt-1">{s.l}</div>
+                <div className="text-[11.5px] text-[var(--text-secondary)] mt-1">{s.l}</div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-[54px] bg-[#0f0f0f] text-white rounded-[24px] p-[30px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="mt-[54px] bg-[#0f0f0f] dark:bg-card text-white rounded-[24px] p-[30px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h3 className="text-[18px] font-semibold tracking-[-0.3px]">
               Careers? We&apos;re always half-light on senior people.
@@ -125,7 +125,7 @@ export default function AboutPage() {
           </div>
           <a
             href="mailto:hello@codentlabs.com?subject=Joining%20the%20lab"
-            className="codent-pill-dark lg !bg-white !text-[#111] shrink-0"
+            className="codent-pill-dark lg !bg-card !text-main dark:!bg-white dark:!text-[#111] shrink-0"
           >
             hello@codentlabs.com
           </a>

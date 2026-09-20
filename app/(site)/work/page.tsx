@@ -40,7 +40,7 @@ export default function WorkPage() {
             <Link
               key={c.slug}
               href={`/work/${c.slug}`}
-              className={`relative rounded-[22px] overflow-hidden min-h-[340px] flex flex-col justify-end p-[22px] border border-black/5 shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)] group ${i === 0 ? "row-span-2" : ""}`}
+              className={`relative rounded-[22px] overflow-hidden min-h-[340px] flex flex-col justify-end p-[22px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)] group ${i === 0 ? "row-span-2" : ""}`}
               style={{ background: c.bg }}
             >
               <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/55 to-transparent" />
