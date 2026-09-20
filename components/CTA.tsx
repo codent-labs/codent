@@ -1,7 +1,6 @@
 import Link from "next/link";
 
 import { Meteors } from "@/components/ui/meteors";
-import { SparklesText } from "@/components/ui/sparkles-text";
 
 function ChevronArrow() {
   return (
@@ -32,13 +31,6 @@ export default function CTA() {
             className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-12 items-end"
           >
             <div>
-              <SparklesText
-                as="span"
-                className="codent-eyebrow bg-white/[0.12] text-white"
-                sparklesCount={6}
-              >
-                let&apos;s build
-              </SparklesText>
               <h2 className="mt-[18px] text-[clamp(34px,4vw,54px)] font-medium tracking-[-1.6px] leading-[1.05]">
                 Got an idea
                 <br />
@@ -49,7 +41,7 @@ export default function CTA() {
               </h2>
               <p className="text-[15px] leading-[1.6] mt-[18px] max-w-[380px] text-white/70">
                 Tell us where you&apos;re stuck. We&apos;ll send back a
-                one-pager within 48 hours — what we&apos;d do, how long, and
+                one-pager within 48 hours - what we&apos;d do, how long, and
                 what it&apos;d cost. No deck, no follow-ups.
               </p>
             </div>
@@ -64,7 +56,7 @@ export default function CTA() {
                 >
                   <ChevronArrow />
                 </span>
-                Tell us where you&apos;re stuck
+                Start a project
               </Link>
               <a
                 href="mailto:hello@codentlabs.com"

@@ -8,10 +8,10 @@ export function GET(request: Request) {
 
   const title =
     searchParams.get("title") ??
-    "Codent Labs — Brand, Product & Engineering";
+    "Codent Labs - Brand, Product & Engineering";
   const description =
     searchParams.get("description") ??
-    "We partner with founders and product teams on brand, product and engineering — turning fuzzy bets into shipped work. Est. 2019.";
+    "We partner with founders and product teams on brand, product and engineering - turning fuzzy bets into shipped work. Est. 2019.";
 
   return new ImageResponse(
     <Simple

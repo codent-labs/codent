@@ -14,7 +14,7 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-// Display serif for headline accents (issue #48) — pairs with DM Sans.
+// Display serif for headline accents (issue #48) - pairs with DM Sans.
 const instrumentSerif = Instrument_Serif({
   weight: "400",
   style: ["normal", "italic"],
@@ -34,8 +34,8 @@ const materialSymbols = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.codentlabs.com"),
   title: {
-    default: "Codent Labs — Brand, Product & Engineering",
-    template: "%s — Codent Labs",
+    default: "Codent Labs - Brand, Product & Engineering",
+    template: "%s - Codent Labs",
   },
   description:
     "Codent Labs partners with founders and product teams on brand, product design, and engineering. 86+ projects shipped for teams like Halcyon, Sundae & Folio. Est. 2019.",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Codent Labs — Brand, Product & Engineering",
+    title: "Codent Labs - Brand, Product & Engineering",
     description:
-      "We partner with founders and product teams on brand, product and engineering — turning fuzzy bets into shipped work.",
+      "We partner with founders and product teams on brand, product and engineering - turning fuzzy bets into shipped work.",
     url: "https://www.codentlabs.com/",
     siteName: "Codent Labs",
     locale: "en_US",
@@ -56,13 +56,13 @@ export const metadata: Metadata = {
         url: "/og",
         width: 1200,
         height: 630,
-        alt: "Codent Labs — Brand, Product & Engineering",
+        alt: "Codent Labs - Brand, Product & Engineering",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Codent Labs — Brand, Product & Engineering",
+    title: "Codent Labs - Brand, Product & Engineering",
     description:
       "We partner with founders and product teams on brand, product and engineering.",
     images: ["/og"],

@@ -20,7 +20,7 @@ export async function subscribeNewsletter(
     return {
       status: "unconfigured",
       message:
-        "The newsletter isn't connected to a provider yet — email hello@codentlabs.com and we'll add you.",
+        "The newsletter isn't connected to a provider yet - email hello@codentlabs.com and we'll add you.",
     };
   }
 
@@ -33,13 +33,13 @@ export async function subscribeNewsletter(
     if (!res.ok) throw new Error(`Newsletter API responded ${res.status}`);
     return {
       status: "success",
-      message: "You're on the list — roughly once a month, no spam.",
+      message: "You're on the list - roughly once a month, no spam.",
     };
   } catch {
     return {
       status: "error",
       message:
-        "Couldn't subscribe right now — try hello@codentlabs.com instead.",
+        "Couldn't subscribe right now - try hello@codentlabs.com instead.",
     };
   }
 }

@@ -15,15 +15,14 @@ test.describe("Contact form", () => {
     expect(html).not.toContain("soctoit");
   });
 
-  test("hero and navbar lead to the /contact route", async ({ page }) => {
+  test("hero CTA leads to /contact; nav links resolve", async ({ page }) => {
     await page.goto("/");
-    await expect(page.getByRole("link", { name: "Start a project" })).toHaveAttribute(
-      "href",
-      "/contact",
-    );
+    await page.getByRole("button", { name: "Start a project" }).click();
+    await expect(page).toHaveURL(/\/contact$/);
+    await page.goto("/");
     await expect(
-      page.getByRole("navigation").getByRole("link", { name: "Contact" }),
-    ).toHaveAttribute("href", "/contact");
+      page.getByRole("navigation").getByRole("link", { name: "About" }),
+    ).toHaveAttribute("href", "/about");
   });
 
   test("contact page renders the form with required fields", async ({

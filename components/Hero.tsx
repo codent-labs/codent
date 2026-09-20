@@ -50,7 +50,7 @@ export default function Hero() {
           <span className="inline-flex items-center bg-muted text-[12.5px] font-semibold px-3 py-[2px] rounded-[6px] text-main">
             brand
           </span>
-          , product and engineering — turning fuzzy bets into shipped work that earns its keep, in{" "}
+          , product and engineering - turning fuzzy bets into shipped work that earns its keep, in{" "}
           <span className="inline-flex items-center bg-muted text-[12.5px] font-semibold px-3 py-[2px] rounded-[6px] text-main">
             weeks
           </span>

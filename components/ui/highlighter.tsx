@@ -27,7 +27,7 @@ interface HighlighterProps {
   isView?: boolean;
 }
 
-// Magic UI Highlighter — mimics a human-drawn marker stroke.
+// Magic UI Highlighter - mimics a human-drawn marker stroke.
 export function Highlighter({
   children,
   action = "highlight",
