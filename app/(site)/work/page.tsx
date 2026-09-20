@@ -7,12 +7,12 @@ import { social } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected case studies — Maru, Folio and Sundae. Brand, product and engineering for 86+ projects since 2019.",
+    "Selected case studies - Maru, Folio and Sundae. Brand, product and engineering for 86+ projects since 2019.",
   alternates: { canonical: "/work" },
   ...social({
-    title: "Work — Codent Labs",
+    title: "Work - Codent Labs",
     description:
-      "Selected case studies — Maru, Folio and Sundae. Brand, product and engineering for 86+ projects since 2019.",
+      "Selected case studies - Maru, Folio and Sundae. Brand, product and engineering for 86+ projects since 2019.",
     path: "/work",
   }),
 };
@@ -30,7 +30,7 @@ export default function WorkPage() {
             </h1>
           </div>
           <p className="codent-section-lede">
-            A few of the 86+ projects we&apos;ve shipped since 2019 — with the
+            A few of the 86+ projects we&apos;ve shipped since 2019 - with the
             numbers attached, because stats without denominators are vibes.
           </p>
         </div>

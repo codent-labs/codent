@@ -13,7 +13,7 @@ export default function Footer() {
           <div>
             <Logo/>
             <p className="text-[13.5px] text-[var(--text-secondary)] leading-[1.6] max-w-[300px] mt-[18px]">
-              A small lab for curious teams. Brand, product and engineering —
+              A small lab for curious teams. Brand, product and engineering -
               under one roof, since 2019.
             </p>
           </div>
@@ -70,7 +70,7 @@ export default function Footer() {
               Notes from the lab, roughly monthly.
             </h3>
             <p className="text-[13px] text-[var(--text-secondary)] mt-[6px] leading-[1.6]">
-              Scope, pricing and hand-offs — the stuff we learn by shipping
+              Scope, pricing and hand-offs - the stuff we learn by shipping
               for 86+ clients. No spam, unsubscribe anytime.
             </p>
           </div>
@@ -80,7 +80,7 @@ export default function Footer() {
         <div className="codent-dashed" />
 
         <div className="flex items-center justify-between pt-6 text-[12.5px] text-[var(--text-secondary)] gap-4 flex-wrap">
-          <span>© 2026 Codent lab — All rights reserved.</span>
+          <span>© 2026 Codent lab - All rights reserved.</span>
           <div className="flex items-center gap-5">
             <a
               href="/feed.xml"

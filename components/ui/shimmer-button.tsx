@@ -12,7 +12,7 @@ export interface ShimmerButtonProps extends ComponentPropsWithoutRef<"button"> {
   children?: React.ReactNode;
 }
 
-// Magic UI ShimmerButton — spark container uses % sizing instead of cqh
+// Magic UI ShimmerButton - spark container uses % sizing instead of cqh
 // (no container-size query needed at this repo's TP4 version).
 export const ShimmerButton = React.forwardRef<
   HTMLButtonElement,

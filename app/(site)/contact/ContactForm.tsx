@@ -73,7 +73,7 @@ export function ContactForm() {
           </option>
           <option value="As soon as possible">As soon as possible</option>
           <option value="This quarter">This quarter</option>
-          <option value="Next 3–6 months">Next 3–6 months</option>
+          <option value="Next 3-6 months">Next 3-6 months</option>
           <option value="Just exploring">Just exploring</option>
         </select>
       </div>

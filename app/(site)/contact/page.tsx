@@ -5,12 +5,12 @@ import { social } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Tell us where you're stuck. We'll send back a one-pager within 48 hours — what we'd do, how long, and what it'd cost.",
+    "Tell us where you're stuck. We'll send back a one-pager within 48 hours - what we'd do, how long, and what it'd cost.",
   alternates: { canonical: "/contact" },
   ...social({
-    title: "Contact — Codent Labs",
+    title: "Contact - Codent Labs",
     description:
-      "Tell us where you're stuck. We'll send back a one-pager within 48 hours — what we'd do, how long, and what it'd cost.",
+      "Tell us where you're stuck. We'll send back a one-pager within 48 hours - what we'd do, how long, and what it'd cost.",
     path: "/contact",
   }),
 };
@@ -41,7 +41,7 @@ export default function ContactPage() {
             </h1>
           </div>
           <p className="codent-section-lede">
-            We&apos;ll send back a one-pager within 48 hours — what we&apos;d
+            We&apos;ll send back a one-pager within 48 hours - what we&apos;d
             do, how long, and roughly what it&apos;d cost. No deck, no
             follow-ups.
           </p>

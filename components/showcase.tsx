@@ -33,7 +33,6 @@ export default function Showcase() {
       <div className="codent-wrap">
         <div className="codent-section-head">
           <div>
-            <span className="codent-eyebrow">showcase</span>
             <h2 className="mt-[18px]">
               Recent work we&apos;re{" "}
               <em className="italic font-light">quietly proud</em> of.
