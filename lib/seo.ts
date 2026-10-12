@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BUSINESS } from "@/lib/business";
 import { SITE } from "@/lib/posts";
 
 export type SocialOptions = {
@@ -38,23 +39,39 @@ export function social({
   };
 }
 
-/** Organization schema with the site's published rating claim, rendered on
- *  every page from the root layout (issue #63). */
+/**
+ * Organization schema, rendered on every page from the root layout.
+ *
+ * No `aggregateRating`: the previous value (4.9 / 86 reviews) was derived from
+ * project counts rather than genuine reviews of this business. Google's
+ * structured-data policy treats review markup that is not a true aggregate of
+ * published reviews as a violation, and it is a factual claim we cannot
+ * evidence. Only add it back if real, attributable reviews are published on the
+ * site and visible to visitors.
+ */
 export const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "@id": `${SITE.url}/#org`,
   name: SITE.name,
+  legalName: BUSINESS.legalName,
   url: SITE.url,
   logo: { "@type": "ImageObject", url: `${SITE.url}/logo.png` },
-  foundingDate: "2019",
+  foundingDate: String(BUSINESS.established),
   email: SITE.email,
-  telephone: "+91 8376045365",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    bestRating: "5",
-    reviewCount: "86",
+  telephone: BUSINESS.phone.replace(/\s/g, ""),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: `${BUSINESS.address.line1}, ${BUSINESS.address.line2}`,
+    addressLocality: BUSINESS.jurisdictionCity,
+    postalCode: BUSINESS.address.postalCode,
+    addressCountry: "IN",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer complaints",
+    email: BUSINESS.grievance.email,
+    availableLanguage: ["en"],
   },
 };
 

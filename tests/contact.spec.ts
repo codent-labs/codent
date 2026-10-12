@@ -17,11 +17,14 @@ test.describe("Contact form", () => {
 
   test("hero CTA leads to /contact; nav links resolve", async ({ page }) => {
     await page.goto("/");
+    // The cookie banner sits above the hero on first visit; dismiss it so the
+    // CTA underneath is clickable.
+    await page.getByRole("dialog").getByRole("button", { name: "Necessary only" }).click();
     await page.getByRole("button", { name: "Start a project" }).click();
     await expect(page).toHaveURL(/\/contact$/);
     await page.goto("/");
     await expect(
-      page.getByRole("navigation").getByRole("link", { name: "About" }),
+      page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "About" }),
     ).toHaveAttribute("href", "/about");
   });
 
@@ -64,10 +67,106 @@ test.describe("Contact form", () => {
     await page.getByLabel("Where are you stuck?").fill(
       "We have a prototype that keeps dying in production and no one can tell us why.",
     );
+    await page.getByLabel(/I agree that Codent Labs may store/).check();
     await page.getByRole("button", { name: "Send the one-pager request" }).click();
 
     await expect(page.getByRole("status")).toContainText(
       "email draft is open",
     );
+  });
+
+  // The consent box is the recorded lawful basis, so a submission without it
+  // must be rejected by the server action, not just by the browser.
+  // A hidden honeypot field: a real person never fills a field they cannot
+  // see, so anything in it is a bot. It must not be announced to a screen
+  // reader, nor reachable by keyboard.
+  test("honeypot is hidden from people but present in the DOM", async ({
+    page,
+  }) => {
+    await page.goto("/contact");
+    const trap = page.locator("#company_website");
+    await expect(trap).toHaveCount(1);
+    await expect(trap).toHaveAttribute("tabindex", "-1");
+    // aria-hidden sits on the wrapper, so assistive tech skips the whole thing.
+    await expect(trap.locator("xpath=..")).toHaveAttribute("aria-hidden", "true");
+
+    // Filling it and submitting reports success without contacting anyone,
+    // which is the whole point of a honeypot.
+    await trap.fill("https://spam.example");
+    await page.getByLabel("Your name").fill("Bot Person");
+    await page.getByLabel("Work email").fill("bot@spam.example");
+    await page.getByLabel("Where are you stuck?").fill(
+      "Buying backlinks for my very real consultancy website.",
+    );
+    await page.getByLabel(/I agree that Codent Labs may store/).check();
+    await page.getByRole("button", { name: "Send the one-pager request" }).click();
+
+    await expect(page.getByRole("status")).toContainText("within 48 hours");
+  });
+
+  test("a rejected timeline value is not accepted", async ({ page }) => {
+    await page.goto("/contact");
+    await page.getByLabel("Your name").fill("Jane Founder");
+    await page.getByLabel("Work email").fill("jane@startup.com");
+    await page.getByLabel("Where are you stuck?").fill(
+      "We have a prototype that keeps dying in production.",
+    );
+    await page.getByLabel(/I agree that Codent Labs may store/).check();
+
+    // Force an off-list value the select cannot produce on its own.
+    await page.locator("#timeline").evaluate((el: HTMLSelectElement) => {
+      const opt = document.createElement("option");
+      opt.value = "free-money-lol";
+      opt.textContent = "free money";
+      el.appendChild(opt);
+      el.value = "free-money-lol";
+    });
+    await page.getByRole("button", { name: "Send the one-pager request" }).click();
+    // Scope to the form: Next's route announcer is also an alert landmark.
+    await expect(page.locator("form").getByRole("alert")).toContainText(
+      "timeline",
+    );
+  });
+
+  test("submission without consent is rejected", async ({ page }) => {
+    await page.goto("/contact");
+    await page.getByLabel("Your name").fill("Jane Founder");
+    await page.getByLabel("Work email").fill("jane@startup.com");
+    await page.getByLabel("Where are you stuck?").fill(
+      "We have a prototype that keeps dying in production and no one can tell us why.",
+    );
+    await page.getByRole("button", { name: "Send the one-pager request" }).click();
+
+    await expect(
+      page.getByText("Please tick the box", { exact: false }),
+    ).toBeVisible();
+  });
+
+  test("consent checkbox starts unticked and is keyboard operable", async ({
+    page,
+  }) => {
+    await page.goto("/contact");
+    const box = page.getByLabel(/I agree that Codent Labs may store/);
+    await expect(box).not.toBeChecked();
+
+    await box.focus();
+    await expect(box).toBeFocused();
+    await page.keyboard.press("Space");
+    await expect(box).toBeChecked();
+  });
+
+  test("registered business details are published on the contact page", async ({
+    page,
+  }) => {
+    await page.goto("/contact");
+    // Scope to the page body: the footer repeats the entity name.
+    const main = page.locator("main");
+    await expect(
+      main.getByText("Codent Labs (sole proprietorship)"),
+    ).toBeVisible();
+    await expect(
+      main.getByText("A-220, First Floor, Double Storey"),
+    ).toBeVisible();
+    await expect(main.getByText("Kalkaji, New Delhi 110019")).toBeVisible();
   });
 });

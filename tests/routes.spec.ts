@@ -9,7 +9,7 @@ test.describe("Crawlable routes", () => {
   test("every header link resolves to a URL, not an anchor", async ({ page }) => {
     await page.goto("/");
     const navHrefs = await page
-      .getByRole("navigation")
+      .getByRole("navigation", { name: "Primary" })
       .getByRole("link")
       .evaluateAll((links) =>
         links

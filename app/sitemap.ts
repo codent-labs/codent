@@ -53,6 +53,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.9,
     },
+    // Legal pages. `yearly` because they change only when the policy text or
+    // the registered business details change.
+    {
+      url: `${BASE}/privacy`,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE}/cookies`,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE}/terms`,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
+      url: `${BASE}/refund-policy`,
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
     {
       url: `${BASE}/journal`,
       changeFrequency: "weekly",

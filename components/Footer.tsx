@@ -1,7 +1,11 @@
-import { Logo } from "./logo"
-import { NewsletterForm } from "./NewsletterForm"
+import Link from "next/link";
+import { Logo } from "./logo";
+import { NewsletterForm } from "./NewsletterForm";
+import { BUSINESS, BUSINESS_ADDRESS_ONE_LINE } from "@/lib/business";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="pt-[60px] pb-10 bg-transparent relative">
       <div className="codent-wrap">
@@ -12,13 +16,13 @@ export default function Footer() {
             <Logo/>
             <p className="text-[13.5px] text-[var(--text-secondary)] leading-[1.6] max-w-[300px] mt-[18px]">
               A small lab for curious teams. Brand, product and engineering -
-              under one roof, since 2019.
+              under one roof, since {BUSINESS.established}.
             </p>
           </div>
 
           {[
             {
-              title: "lab",
+              title: "Lab",
               links: [
                 { label: "About us", href: "/about" },
                 { label: "Process", href: "/process" },
@@ -38,8 +42,11 @@ export default function Footer() {
             {
               title: "Say hi",
               links: [
-                { label: "hello@codentlabs.com", href: "mailto:hello@codentlabs.com" },
-                { label: "+91 8376045365", href: "tel:+918376045365" },
+                {
+                  label: BUSINESS.email,
+                  href: `mailto:${BUSINESS.email}`,
+                },
+                { label: BUSINESS.phone, href: BUSINESS.phoneHref },
                 { label: "Contact", href: "/contact" },
               ],
             },
@@ -68,28 +75,56 @@ export default function Footer() {
               Notes from the lab, roughly monthly.
             </h3>
             <p className="text-[13px] text-[var(--text-secondary)] mt-[6px] leading-[1.6]">
-              Scope, pricing and hand-offs - the stuff we learn by shipping
-              for 86+ clients. No spam, unsubscribe anytime.
+              Scope, pricing and hand-offs - the stuff we learn by shipping.
+              No spam, unsubscribe anytime.
             </p>
           </div>
           <NewsletterForm />
         </div>
-        <div className="flex items-center justify-between pt-6 text-[12.5px] text-[var(--text-secondary)] gap-4 flex-wrap">
-          <span>© 2026 Codent lab - All rights reserved.</span>
-          <div className="flex items-center gap-5">
-            <a
-              href="/feed.xml"
-              className="inline-flex items-center gap-2 hover:text-main transition-colors"
+
+        {/* Registered business details. Publishing the seller name, postal
+            address and grievance contact is required under the Consumer
+            Protection Act 2019 and the rules made under the IT Act 2000. */}
+        <div className="pb-8 text-[12.5px] text-[var(--text-secondary)] leading-[1.7] max-w-[640px]">
+          <address className="not-italic">
+            {BUSINESS.legalName} · {BUSINESS_ADDRESS_ONE_LINE}
+          </address>
+          <br />
+          Grievances:{" "}
+          <a
+            href={`mailto:${BUSINESS.grievance.email}`}
+            className="text-main underline underline-offset-2 hover:opacity-100"
+          >
+            {BUSINESS.grievance.email}
+          </a>{" "}
+          · We reply within {BUSINESS.grievance.responseWindowDays} days.
+        </div>
+
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-6 border-t border-border text-[12.5px] text-[var(--text-secondary)] flex-wrap">
+          <span>
+            © {year} {BUSINESS.tradingName} - All rights reserved.
+          </span>
+
+          <nav aria-label="Legal" className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/privacy" className="hover:text-main transition-colors">
+              Privacy
+            </Link>
+            <Link href="/cookies" className="hover:text-main transition-colors">
+              Cookies
+            </Link>
+            <Link href="/terms" className="hover:text-main transition-colors">
+              Terms
+            </Link>
+            <Link
+              href="/refund-policy"
+              className="hover:text-main transition-colors"
             >
+              Refunds
+            </Link>
+            <a href="/feed.xml" className="hover:text-main transition-colors">
               RSS feed
             </a>
-            <a
-              href="mailto:hello@codentlabs.com"
-              className="inline-flex items-center gap-2 py-[3px] hover:text-main transition-colors"
-            >
-              hello@codentlabs.com
-            </a>
-          </div>
+          </nav>
         </div>
       </div>
     </footer>
