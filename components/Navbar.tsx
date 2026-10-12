@@ -45,11 +45,7 @@ export default function Navbar() {
     <>
       <nav className="sticky top-0 z-[70] backdrop-saturate-[180%] backdrop-blur-[10px] bg-background/70">
         <div className="max-w-[1100px] mx-auto px-10 py-6 flex items-center justify-between relative">
-          {/* Dashed bottom border */}
-          <div className="codent-dashed absolute start-10 end-10 bottom-0" />
-
           <Logo/>
-
           <ul className="hidden md:flex items-center gap-9 list-none">
             {NAV_ITEMS.map((item) => (
               <li key={item.label}>

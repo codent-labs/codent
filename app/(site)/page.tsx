@@ -12,7 +12,7 @@ export default function codentPage() {
   return (
     <>
       <Hero />
-      <LogosStrip />
+      {/* <LogosStrip /> */}
       <Services />
       <Showcase />
       <Numbers />

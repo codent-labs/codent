@@ -68,9 +68,7 @@ export default function ContactPage() {
                 ))}
               </ol>
             </div>
-
-            <div className="codent-dashed opacity-40" />
-
+            
             <div className="flex flex-col gap-[10px]">
               {contactDetails.map((c) => (
                 <a

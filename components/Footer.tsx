@@ -5,8 +5,6 @@ export default function Footer() {
   return (
     <footer className="pt-[60px] pb-10 bg-transparent relative">
       <div className="codent-wrap">
-        <div className="codent-dashed mb-12" />
-
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-8 pb-11"
         >
@@ -76,9 +74,6 @@ export default function Footer() {
           </div>
           <NewsletterForm />
         </div>
-
-        <div className="codent-dashed" />
-
         <div className="flex items-center justify-between pt-6 text-[12.5px] text-[var(--text-secondary)] gap-4 flex-wrap">
           <span>© 2026 Codent lab - All rights reserved.</span>
           <div className="flex items-center gap-5">

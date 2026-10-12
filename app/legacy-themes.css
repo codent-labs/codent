@@ -91,17 +91,6 @@
   padding: 0 40px;
 }
 
-.codent-dashed {
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    var(--line) 2px,
-    transparent 2px
-  );
-  background-size: 6px 1px;
-  background-repeat: repeat-x;
-}
-
 .codent-dashed-v {
   position: absolute;
   left: 0;
