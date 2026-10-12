@@ -28,7 +28,7 @@ export default function JournalPage() {
             <span className="codent-eyebrow">journal</span>
             <h1 className="mt-[18px]">
               Notes from{" "}
-              <em className="italic font-light">the lab.</em>
+              <em className="italic">the lab.</em>
             </h1>
           </div>
           <div className="flex flex-col gap-3 items-start">
@@ -56,7 +56,6 @@ export default function JournalPage() {
                 <span>
                   <PostDate iso={post.date} />
                 </span>
-                <span className="codent-dashed !w-[24px]" aria-hidden />
                 <span>{post.readingMinutes} min read</span>
               </div>
               <h2 className="mt-[12px] text-[22px] font-semibold tracking-[-0.5px] text-main leading-[1.25] max-w-[640px] group-hover:opacity-80 transition-opacity">

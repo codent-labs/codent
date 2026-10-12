@@ -1,30 +1,16 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 import { Meteors } from "@/components/ui/meteors";
-
-function ChevronArrow() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M5 12h14M13 6l6 6-6 6"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
 
 export default function CTA() {
   return (
     <section className="codent-section" id="contact">
       <div className="codent-wrap">
         <div
-          className="relative bg-[#0f0f0f] dark:bg-card text-white rounded-[28px] p-[64px_56px] overflow-hidden isolate"
+          className="relative bg-[#0f0f0f] dark:bg-card text-white rounded-[16px] p-[64px_56px] overflow-hidden isolate"
         >
-          <div className="codent-glow-purple absolute rounded-full -z-10" />
-          <div className="codent-glow-pink absolute rounded-full -z-10" />
+          <div className="codent-glow-accent absolute rounded-full -z-10" />
           <Meteors number={14} className="[--angle:200deg]" />
 
           <div
@@ -35,7 +21,7 @@ export default function CTA() {
                 Got an idea
                 <br />
                 that won&apos;t{" "}
-                <em className="italic font-light codent-gradient-text">
+                <em className="italic text-[var(--accent-indigo)]">
                   sit still?
                 </em>
               </h2>
@@ -51,10 +37,8 @@ export default function CTA() {
                 href="/contact"
                 className="inline-flex items-center gap-[12px] bg-white text-main dark:bg-white dark:text-[#111] text-[15px] font-medium rounded-[40px] py-[7px] pe-[22px] ps-[7px] transition-all hover:bg-accent"
               >
-                <span
-                  className="w-8 h-8 rounded-full bg-[#111] text-white inline-flex items-center justify-center"
-                >
-                  <ChevronArrow />
+                <span className="w-8 h-8 rounded-full bg-[#111] text-white inline-flex items-center justify-center">
+                  <ArrowRight className="size-4" />
                 </span>
                 Start a project
               </Link>
@@ -63,7 +47,7 @@ export default function CTA() {
                 className="inline-flex items-center gap-2 text-[13.5px] opacity-70 hover:opacity-100 transition-opacity text-white py-[3px]"
               >
                 or write to hello@codentlabs.com
-                <ChevronArrow />
+                <ArrowRight className="size-[14px]" />
               </a>
             </div>
           </div>

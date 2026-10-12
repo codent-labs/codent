@@ -1,3 +1,5 @@
+import { BUSINESS } from "@/lib/business";
+
 export type Post = {
   slug: string;
   title: string;
@@ -8,9 +10,9 @@ export type Post = {
 };
 
 export const SITE = {
-  name: "Codent Labs",
-  url: "https://www.codentlabs.com",
-  email: "hello@codentlabs.com",
+  name: BUSINESS.tradingName,
+  url: BUSINESS.siteUrl,
+  email: BUSINESS.email,
 };
 
 const posts: Post[] = [

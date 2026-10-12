@@ -29,9 +29,6 @@ const practices = [
     title: "Brand & Identity",
     body: "Logo systems, type, voice and the visual instincts that travel across every surface your product lives on.",
     meta: "6 weeks · 2 sprints",
-    accent: "codent-tile-accent-pink",
-    glowFrom: "#f7b2fb",
-    glowTo: "#c084fc",
     includes: [
       "Voice & positioning territory",
       "Logo system + mark variations",
@@ -45,8 +42,6 @@ const practices = [
     title: "Product Design",
     body: "From a fuzzy idea to a working interface - research, wireframes and hi-fi prototypes you can actually ship.",
     meta: "8-12 weeks",
-    glowFrom: "#786ef1",
-    glowTo: "#a78bfa",
     includes: [
       "User interviews and audit week",
       "Flows and wireframes",
@@ -60,8 +55,6 @@ const practices = [
     title: "Engineering",
     body: "Fast, friendly front-ends and back-ends. We hand off code your team will be glad to inherit on Monday.",
     meta: "Continuous",
-    glowFrom: "#5588fb",
-    glowTo: "#60a5fa",
     includes: [
       "React, Next.js and TypeScript",
       "Node + Postgres services",
@@ -75,8 +68,6 @@ const practices = [
     title: "Growth & Launch",
     body: "Strategy, positioning and the first 90 days - we help you find the audience that needs what you built.",
     meta: "4-6 weeks",
-    glowFrom: "#34d399",
-    glowTo: "#6ee7b7",
     includes: [
       "Positioning and messaging",
       "Launch plan for the first 90 days",
@@ -112,7 +103,7 @@ export default function ServicesPage() {
             <span className="codent-eyebrow">services</span>
             <h1 className="mt-[18px]">
               Four practices,{" "}
-              <em className="italic font-light">one lab.</em>
+              <em className="italic">one lab.</em>
             </h1>
           </div>
           <p className="codent-section-lede">
@@ -126,9 +117,9 @@ export default function ServicesPage() {
             <MagicCard
               key={p.title}
               mode="gradient"
-              className={`rounded-[22px] p-[26px]`}
-              gradientFrom={p.glowFrom}
-              gradientTo={p.glowTo}
+              className="rounded-[16px] p-[26px]"
+              gradientFrom="#786ef1"
+              gradientTo="#a5a0f7"
               gradientSize={300}
             >
               <div className="flex items-start justify-between">

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Icon } from "@/components/icon";
+import { ArrowUpRight } from "lucide-react";
 import { CompassIcon } from "@/components/ui/compass";
 import { MagicCard } from "@/components/ui/magic-card";
 import { MessageCircleIcon } from "@/components/ui/message-circle";
@@ -69,7 +69,7 @@ export default function ProcessPage() {
             <span className="codent-eyebrow">process</span>
             <h1 className="mt-[18px]">
               Four steps.{" "}
-              <em className="italic font-light">No mystery.</em>
+              <em className="italic">No mystery.</em>
             </h1>
           </div>
           <p className="codent-section-lede">
@@ -83,7 +83,7 @@ export default function ProcessPage() {
             <MagicCard
               key={s.title}
               mode="gradient"
-              className="rounded-[22px] p-[26px]"
+              className="rounded-[16px] p-[26px]"
               gradientFrom="#737373"
               gradientTo="#d4d4d4"
               gradientSize={280}
@@ -118,7 +118,7 @@ export default function ProcessPage() {
         <div className="mt-10">
           <Link href="/contact" className="codent-pill-dark lg">
             <span className="codent-arrow-circ lg">
-              <Icon name="north_east" className="text-[13px]" />
+              <ArrowUpRight className="size-[13px]" />
             </span>
             Start a project
           </Link>

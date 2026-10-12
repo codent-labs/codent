@@ -5,12 +5,12 @@ import { social } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 - 86+ projects, 100% of clients return.",
+    "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 - 86+ projects, most clients return.",
   alternates: { canonical: "/about" },
   ...social({
     title: "About - Codent Labs",
     description:
-      "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 - 86+ projects, 100% of clients return.",
+      "A deliberately small studio for curious teams. Brand, product and engineering under one roof since 2019 - 86+ projects, most clients return.",
     path: "/about",
   }),
 };
@@ -26,7 +26,7 @@ const beliefs = [
   },
   {
     title: "Stats need denominators",
-    body: "86 projects since 2019, 4.9/5 across those projects, 100% return within a year. Small numbers, verified by the clients whose logos you'll see on the homepage.",
+    body: "86 projects since 2019, 4.9/5 across those projects, most clients back within a year. Small numbers, verified by the clients whose logos you'll see on the homepage.",
   },
   {
     title: "Hand-offs are trust",
@@ -43,7 +43,7 @@ export default function AboutPage() {
             <span className="codent-eyebrow">about</span>
             <h1 className="mt-[18px]">
               A lab, not{" "}
-              <em className="italic font-light">a factory.</em>
+              <em className="italic">a factory.</em>
             </h1>
           </div>
           <p className="codent-section-lede">
@@ -52,7 +52,7 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="bg-card rounded-[24px] border border-border shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-[30px]">
+        <div className="bg-card rounded-[16px] border border-border shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-[30px]">
           <p className="text-[clamp(17px,1.8vw,22px)] text-main leading-[1.6] font-medium tracking-[-0.4px] max-w-[760px]">
             Codent Labs started in 2019 as a bet that a two-person studio could
             out-ship agencies ten times its size - by staying small, quoting
@@ -62,7 +62,7 @@ export default function AboutPage() {
           <p className="text-[15px] text-[var(--text-secondary)] leading-[1.75] mt-[18px] max-w-[760px]">
             We&apos;ve since shipped 86+ projects across 14 industries - fintech,
             DTC, SaaS, healthcare and more - for teams like Halcyon, Sundae
-            and Folio. 100% of our clients return within a year, and we&apos;d
+            and Folio. Most of our clients return within a year, and we&apos;d
             rather quote for the next project than upsell the current one.
           </p>
         </div>
@@ -80,7 +80,7 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <div className="mt-[14px] bg-card rounded-[24px] border border-border shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-[30px] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 items-center">
+        <div className="mt-[14px] bg-card rounded-[16px] border border-border shadow-[0_2px_14px_rgba(0,0,0,0.04)] p-[30px] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-10 items-center">
           <div>
             <h3 className="text-[20px] font-semibold tracking-[-0.4px] text-main">
               What clients say
@@ -98,7 +98,7 @@ export default function AboutPage() {
               { v: "86+", l: "projects shipped" },
               { v: "14", l: "industries served" },
               { v: "4.9/5", l: "avg across 86 projects" },
-              { v: "100%", l: "return within a year" },
+              { v: "9/10", l: "clients return within a year" },
             ].map((s) => (
               <div
                 key={s.l}
@@ -113,7 +113,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="mt-[54px] bg-[#0f0f0f] dark:bg-card text-white rounded-[24px] p-[30px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+        <div className="mt-[54px] bg-[#0f0f0f] dark:bg-card text-white rounded-[16px] p-[30px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
             <h3 className="text-[18px] font-semibold tracking-[-0.3px]">
               Careers? We&apos;re always half-light on senior people.

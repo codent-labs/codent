@@ -1,5 +1,4 @@
-import { DM_Sans, Instrument_Serif } from "next/font/google";
-import localFont from "next/font/local";
+import { DM_Sans } from "next/font/google";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -12,23 +11,6 @@ const dmSans = DM_Sans({
   axes: ["opsz"],
   variable: "--font-dm-sans",
   display: "swap",
-});
-
-// Display serif for headline accents (issue #48) - pairs with DM Sans.
-const instrumentSerif = Instrument_Serif({
-  weight: "400",
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
-  display: "swap",
-});
-
-// Material Symbols Rounded, subset to exactly the ~22 glyphs the site uses
-// (see issue #41) and served from this domain instead of fonts.googleapis.com.
-const materialSymbols = localFont({
-  src: "./fonts/material-symbols-rounded.woff2",
-  display: "swap",
-  variable: "--font-material-symbols",
 });
 
 export const metadata: Metadata = {
@@ -77,7 +59,7 @@ export default function codentLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${dmSans.variable} ${materialSymbols.variable} ${instrumentSerif.variable} min-h-screen bg-background`}
+        className={`${dmSans.variable} min-h-screen bg-background`}
       >
         <meta
           name="theme-color"

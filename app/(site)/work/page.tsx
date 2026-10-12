@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Icon } from "@/components/icon";
+import { ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/lib/cases";
 import { social } from "@/lib/seo";
 
@@ -22,13 +23,9 @@ export default function WorkPage() {
     <section className="codent-section">
       <div className="codent-wrap">
         <div className="codent-section-head">
-          <div>
-            <span className="codent-eyebrow">work</span>
-            <h1 className="mt-[18px]">
-              Case studies,{" "}
-              <em className="italic font-light">in the open.</em>
-            </h1>
-          </div>
+          <h1>
+            Case studies, <em className="italic">in the open.</em>
+          </h1>
           <p className="codent-section-lede">
             A few of the 86+ projects we&apos;ve shipped since 2019 - with the
             numbers attached, because stats without denominators are vibes.
@@ -40,10 +37,16 @@ export default function WorkPage() {
             <Link
               key={c.slug}
               href={`/work/${c.slug}`}
-              className={`relative rounded-[22px] overflow-hidden min-h-[340px] flex flex-col justify-end p-[22px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)] group ${i === 0 ? "row-span-2" : ""}`}
-              style={{ background: c.bg }}
+              className={`relative rounded-[16px] overflow-hidden min-h-[340px] flex flex-col justify-end p-[22px] border border-border shadow-[0_2px_12px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_14px_36px_rgba(0,0,0,0.08)] group ${i === 0 ? "row-span-2" : ""}`}
             >
-              <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/55 to-transparent" />
+              <Image
+                src={c.image}
+                alt=""
+                fill
+                sizes="(max-width: 768px) 100vw, 640px"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
               <div className="relative z-10 flex items-end justify-between gap-4 text-white">
                 <div>
                   <h3 className="text-[22px] font-semibold tracking-[-0.5px]">
@@ -53,7 +56,7 @@ export default function WorkPage() {
                     {c.tags.map((t) => (
                       <span
                         key={t}
-                        className="text-[11.5px] font-medium px-[10px] py-[3px] rounded-[40px] backdrop-blur-md bg-white/[0.18]"
+                        className="text-[11.5px] font-medium px-[10px] py-[3px] rounded-full backdrop-blur-md bg-white/[0.18]"
                       >
                         {t}
                       </span>
@@ -63,10 +66,9 @@ export default function WorkPage() {
                     {c.headline}
                   </p>
                 </div>
-                <Icon
-                  name="north_east"
-                  className="w-[38px] h-[38px] rounded-full bg-white text-[#111] inline-flex items-center justify-center text-[20px] transition-transform duration-300 group-hover:translate-x-[3px] rtl:group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] flex-shrink-0"
-                />
+                <span className="w-[38px] h-[38px] rounded-full bg-white text-[#111] inline-flex items-center justify-center transition-transform duration-300 group-hover:translate-x-[3px] rtl:group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] flex-shrink-0">
+                  <ArrowUpRight className="size-5" />
+                </span>
               </div>
             </Link>
           ))}

@@ -10,7 +10,9 @@ test.describe("Homepage", () => {
   });
 
   test("Navbar renders with navigation links", async ({ page }) => {
-    const nav = page.getByRole("navigation");
+    // The site now has two nav landmarks (primary + footer legal), so both are
+    // named; scope to the primary one rather than assuming a single nav.
+    const nav = page.getByRole("navigation", { name: "Primary" });
     await expect(nav).toBeVisible();
 
     const navLinks = nav.getByRole("link");
@@ -25,7 +27,7 @@ test.describe("Homepage", () => {
   // Regression for issues #24/#36: every nav link must resolve to a real
   // crawlable URL (previously #our-team / #news were dead anchors).
   test("Navbar links all resolve to real routes", async ({ page }) => {
-    const nav = page.getByRole("navigation");
+    const nav = page.getByRole("navigation", { name: "Primary" });
     const hrefs = await nav.getByRole("link").evaluateAll((links) =>
       links
         .map((a) => (a as HTMLAnchorElement).getAttribute("href"))
@@ -47,15 +49,8 @@ test.describe("Homepage", () => {
     // CTAs are router-navigating buttons, not links.
     await expect(hero.getByRole("button", { name: "Start a project" })).toBeVisible();
     await expect(hero.getByRole("button", { name: "See our work" })).toBeVisible();
-    await expect(hero.getByText("86 projects shipped")).toBeVisible();
-  });
-
-  test("LogosStrip renders trusted brands", async ({ page }) => {
-    const strip = page.getByText("Trusted by curious teams").locator("..");
-    // Marquee renders each brand repeat={3} times - any one is enough.
-    await expect(strip.getByText("Halcyon").first()).toBeVisible();
-    await expect(strip.getByText("Sundae").first()).toBeVisible();
-    await expect(strip.getByText("Folio").first()).toBeVisible();
+    // Social proof now lives just below the hero, not inside it.
+    await expect(page.getByText("86 projects shipped")).toBeVisible();
   });
 
   test("Services section renders all four services", async ({ page }) => {
@@ -104,7 +99,11 @@ test.describe("Homepage", () => {
 
   test("Footer renders with copyright and links", async ({ page }) => {
     const footer = page.locator("footer");
-    await expect(footer.getByText("© 2026 Codent lab")).toBeVisible();
+    // The year is now read from the clock rather than hard-coded, so assert
+    // the shape instead of a literal that goes stale every January.
+    await expect(
+      footer.getByText(new RegExp(`© ${new Date().getFullYear()} Codent Labs`)),
+    ).toBeVisible();
     await expect(footer.getByRole("link", { name: "About us" })).toBeVisible();
     await expect(footer.getByRole("link", { name: "RSS feed" })).toBeVisible();
     await expect(footer.getByRole("link", { name: "Case studies" })).toBeVisible();

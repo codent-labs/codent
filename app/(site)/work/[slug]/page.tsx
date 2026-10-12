@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Icon } from "@/components/icon";
+import { ArrowUpRight } from "lucide-react";
 import {
   caseStudies,
   getCaseStudy,
@@ -54,11 +55,15 @@ export default async function CaseStudyPage({ params }: Props) {
           ← All case studies
         </Link>
 
-        <div
-          className="rounded-[24px] border border-border overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)]"
-          style={{ background: study.bg }}
-        >
-          <div className="bg-gradient-to-t from-black/60 to-transparent p-[26px] md:p-[34px] text-white">
+        <div className="relative rounded-[16px] border border-border overflow-hidden shadow-[0_2px_12px_rgba(0,0,0,0.04)] min-h-[280px]">
+          <Image
+            src={study.image}
+            alt=""
+            fill
+            sizes="(max-width: 1180px) 100vw, 1100px"
+            className="object-cover"
+          />
+          <div className="relative z-10 bg-gradient-to-t from-black/70 via-black/30 to-transparent p-[26px] md:p-[34px] text-white">
             <div className="flex flex-wrap gap-[6px] mb-[16px]">
               {study.tags.map((t) => (
                 <span
@@ -149,7 +154,7 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="mt-[54px]">
           <Link href="/contact" className="codent-pill-dark lg">
             <span className="codent-arrow-circ lg">
-              <Icon name="north_east" className="text-[13px]" />
+              <ArrowUpRight className="size-[13px]" />
             </span>
             Start something like it
           </Link>

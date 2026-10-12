@@ -13,7 +13,7 @@ test.describe("Journal", () => {
   test("navbar and footer link to the journal", async ({ page }) => {
     await page.goto("/");
     await expect(
-      page.getByRole("navigation").getByRole("link", { name: "Journal" }),
+      page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Journal" }),
     ).toHaveAttribute("href", "/journal");
     await expect(page.locator("footer").getByRole("link", { name: "Journal" })).toHaveAttribute(
       "href",
@@ -82,7 +82,31 @@ test.describe("Journal", () => {
     await page.goto("/");
     const form = page.locator("footer").locator("form");
     await form.getByLabel("Email address").fill("jane@startup.com");
+    await form.getByLabel(/Email me the newsletter/).check();
     await form.getByRole("button", { name: "Subscribe" }).click();
     await expect(form.getByRole("status")).toContainText("isn't connected");
+  });
+
+  // Marketing opt-in is a separate permission from the contact form's, and the
+  // server action is the only enforcement that counts.
+  test("newsletter refuses to subscribe without consent", async ({ page }) => {
+    await page.goto("/");
+    const form = page.locator("footer").locator("form");
+    await form.getByLabel("Email address").fill("jane@startup.com");
+    await form.getByRole("button", { name: "Subscribe" }).click();
+    await expect(form.getByRole("alert")).toContainText(
+      "confirm you'd like the newsletter",
+    );
+  });
+
+  test("newsletter rejects an invalid address before calling the provider", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    const form = page.locator("footer").locator("form");
+    await form.getByLabel("Email address").fill("not-an-email");
+    await form.getByLabel(/Email me the newsletter/).check();
+    await form.getByRole("button", { name: "Subscribe" }).click();
+    await expect(form.getByRole("alert")).toContainText("valid email");
   });
 });

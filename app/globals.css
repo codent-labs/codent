@@ -45,7 +45,7 @@
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 2000px;
   --font-sans: var(--font-sans);
-  --font-heading: var(--font-instrument-serif);
+  --font-heading: var(--font-sans);
   --font-mono: var(--font-mono);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -94,10 +94,11 @@
   --color-code-number: var(--code-number);
   --color-selection: var(--selection);
   --color-selection-foreground: var(--selection-foreground);
+  --color-input-border: var(--input-border);
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.5rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0% 0 0);
   --card: oklch(1 0 0);
@@ -138,6 +139,12 @@
   --code-number: oklch(0.56 0 0);
   --selection: oklch(0% 0 0);
   --selection-foreground: oklch(1 0 0);
+  /* Form-control borders only. WCAG 1.4.11 requires 3:1 for the visual
+     boundary that identifies an interactive control, and --border
+     (oklch(0.922 0 0)) sits at 1.26:1 on white. This token is 3.23:1 on
+     white. Decorative dividers keep using --border; they carry no information
+     a user needs to perceive. */
+  --input-border: #8f8f8f;
 }
 
 .dark {
@@ -181,6 +188,8 @@
   --code-number: oklch(0.72 0 0);
   --selection: oklch(0.922 0 0);
   --selection-foreground: oklch(0.205 0 0);
+  /* 3.34:1 against --card (#1c1c1c); see the light-mode note above. */
+  --input-border: #6e6e6e;
 }
 
 @layer base {
@@ -205,14 +214,6 @@
   }
   .cn-font-heading {
     @apply font-heading;
-  }
-
-  /* Display serif on the italic headline accents (issue #48) */
-  h1 em,
-  h2 em,
-  .codent-section-head em {
-    font-family: var(--font-heading);
-    font-weight: 400;
   }
 
   [data-slot="layout"] {

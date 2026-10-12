@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import LogosStrip from "@/components/LogosStrip";
 import Services from "@/components/Services";
 import Showcase from "@/components/showcase";
 import Numbers from "@/components/Numbers";
@@ -12,7 +11,6 @@ export default function codentPage() {
   return (
     <>
       <Hero />
-      <LogosStrip />
       <Services />
       <Showcase />
       <Numbers />

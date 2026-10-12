@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "./ContactForm";
+import { BUSINESS } from "@/lib/business";
 import { social } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -18,13 +19,18 @@ export const metadata: Metadata = {
 const contactDetails = [
   {
     label: "Email",
-    value: "hello@codentlabs.com",
-    href: "mailto:hello@codentlabs.com",
+    value: BUSINESS.email,
+    href: `mailto:${BUSINESS.email}`,
   },
   {
     label: "Phone",
-    value: "+91 8376045365",
-    href: "tel:+918376045365",
+    value: BUSINESS.phone,
+    href: BUSINESS.phoneHref,
+  },
+  {
+    label: "Grievances",
+    value: BUSINESS.grievance.email,
+    href: `mailto:${BUSINESS.grievance.email}`,
   },
 ];
 
@@ -37,7 +43,7 @@ export default function ContactPage() {
             <span className="codent-eyebrow">let&apos;s build</span>
             <h1 className="mt-[18px]">
               Tell us where{" "}
-              <em className="italic font-light">you&apos;re stuck.</em>
+              <em className="italic">you&apos;re stuck.</em>
             </h1>
           </div>
           <p className="codent-section-lede">
@@ -50,7 +56,7 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-[14px] items-start">
           <ContactForm />
 
-          <aside className="bg-[#0f0f0f] dark:bg-card text-white rounded-[22px] p-[26px] flex flex-col gap-[22px]">
+          <aside className="bg-[#0f0f0f] dark:bg-card text-white rounded-[16px] p-[26px] flex flex-col gap-[22px]">
             <div>
               <h3 className="text-[15px] font-semibold">What happens next</h3>
               <ol className="mt-[14px] flex flex-col gap-[14px]">
@@ -68,22 +74,35 @@ export default function ContactPage() {
                 ))}
               </ol>
             </div>
-
-            <div className="codent-dashed opacity-40" />
-
+            
             <div className="flex flex-col gap-[10px]">
               {contactDetails.map((c) => (
                 <a
                   key={c.label}
                   href={c.href}
-                  className="flex items-center justify-between rounded-[14px] bg-white/[0.07] border border-white/10 px-4 py-3 hover:bg-white/[0.12] transition"
+                  className="flex items-center justify-between rounded-[16px] bg-white/[0.07] border border-white/10 px-4 py-3 hover:bg-white/[0.12] transition"
                 >
-                  <span className="text-[12.5px] text-white/60">
+                  <span className="text-[12.5px] text-white/70">
                     {c.label}
                   </span>
                   <span className="text-[13.5px] font-medium">{c.value}</span>
                 </a>
               ))}
+            </div>
+
+            {/* Registered entity and postal address. Required to be published
+                alongside a contact route for an Indian seller, and it gives a
+                visitor a way to serve formal notice by post. */}
+            <div className="text-[12.5px] text-white/75 leading-[1.65] pt-1">
+              <div className="font-semibold text-white">{BUSINESS.legalName}</div>
+              <address className="not-italic mt-1">
+                {BUSINESS.address.line1},<br />
+                {BUSINESS.address.line2} {BUSINESS.address.postalCode}
+              </address>
+              <div className="mt-2 text-white/70">
+                We respond to grievances within{" "}
+                {BUSINESS.grievance.responseWindowDays} days.
+              </div>
             </div>
           </aside>
         </div>
