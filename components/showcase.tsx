@@ -1,15 +1,16 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { BookOpen, ChevronRight, Rocket, Sun } from "lucide-react";
 
 import { caseStudies } from "@/lib/cases";
 import { BentoCard, BentoGrid } from "@/components/ui/bento-grid";
-import { Icon } from "@/components/icon";
 
-const GLYPHS: Record<string, string> = {
-  maru: "rocket_launch",
-  folio: "menu_book",
-  sundae: "sunny",
-};
+// Placeholder glyphs per case study, keyed by slug.
+const GLYPHS = {
+  maru: Rocket,
+  folio: BookOpen,
+  sundae: Sun,
+} as const;
 
 export default function Showcase() {
   const works = caseStudies.map((c) => ({
@@ -17,8 +18,8 @@ export default function Showcase() {
     description: c.headline,
     href: `/work/${c.slug}`,
     cta: "View case study",
-    bg: c.bg,
-    glyph: GLYPHS[c.slug] ?? "work",
+    image: c.image,
+    Icon: GLYPHS[c.slug as keyof typeof GLYPHS] ?? BookOpen,
   }));
 
   // Bento: one large feature tile (2/3 wide, 2 rows) + two stacked (1/3 each).
@@ -32,13 +33,10 @@ export default function Showcase() {
     <section id="showcase" className="codent-section">
       <div className="codent-wrap">
         <div className="codent-section-head">
-          <div>
-            <h2 className="mt-[18px]">
-              Recent work we&apos;re{" "}
-              <em className="italic font-light">quietly proud</em> of.
-            </h2>
-          </div>
-          <Link href="/work" className="codent-pill-light">
+          <h2>
+            Recent work we&apos;re <em className="italic">quietly proud</em> of.
+          </h2>
+          <Link href="/work" className="codent-pill-light mt-5">
             All case studies <ChevronRight className="size-3" />
           </Link>
         </div>
@@ -52,15 +50,17 @@ export default function Showcase() {
               href={w.href}
               cta={w.cta}
               className={spans[i]}
-              Icon={({ className }: { className?: string }) => (
-                <Icon name={w.glyph} className={className} />
-              )}
+              Icon={w.Icon}
               background={
-                <div
-                  className="absolute inset-0"
-                  style={{ background: w.bg }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="absolute inset-0">
+                  <Image
+                    src={w.image}
+                    alt=""
+                    fill
+                    sizes="(max-width: 768px) 100vw, 760px"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent" />
                 </div>
               }
             />

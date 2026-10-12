@@ -28,7 +28,7 @@ export default function JournalPage() {
             <span className="codent-eyebrow">journal</span>
             <h1 className="mt-[18px]">
               Notes from{" "}
-              <em className="italic font-light">the lab.</em>
+              <em className="italic">the lab.</em>
             </h1>
           </div>
           <div className="flex flex-col gap-3 items-start">

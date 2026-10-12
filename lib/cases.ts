@@ -5,6 +5,7 @@ export type CaseStudy = {
   industry: string;
   tags: string[];
   bg: string;
+  image: string;
   duration: string;
   role: string;
   headline: string;
@@ -23,6 +24,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Fintech",
     tags: ["fintech", "app"],
     bg: "linear-gradient(135deg,#FFE9D6 0%,#F7B2FB 60%,#786EF1 100%)",
+    image: "/work/maru.jpg",
     duration: "6 months",
     role: "Product design, engineering",
     headline:
@@ -51,6 +53,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Consumer / SaaS",
     tags: ["product", "brand"],
     bg: "linear-gradient(135deg,#DDF3FF 0%,#5588FB 100%)",
+    image: "/work/folio.jpg",
     duration: "4 months",
     role: "Brand, product design",
     headline:
@@ -79,6 +82,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "DTC / E-commerce",
     tags: ["brand", "ecomm"],
     bg: "linear-gradient(135deg,#FFF1B6 0%,#FF9A5E 100%)",
+    image: "/work/sundae.jpg",
     duration: "5 months",
     role: "Brand, growth, engineering",
     headline:

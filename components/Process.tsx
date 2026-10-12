@@ -40,7 +40,7 @@ export default function Process() {
             <span className="codent-eyebrow">how we work</span>
             <h2 className="mt-[18px]">
               Four steps.{" "}
-              <em className="italic font-light">No mystery.</em>
+              <em className="italic">No mystery.</em>
             </h2>
           </div>
           <p className="codent-section-lede">
@@ -69,7 +69,7 @@ export default function Process() {
               {/* Card */}
               <MagicCard
                 mode="gradient"
-                className="codent-process-card rounded-[22px]"
+                className="codent-process-card rounded-[16px]"
                 gradientSize={220}
               >
                 <div className="flex flex-1 flex-col">

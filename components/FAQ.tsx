@@ -1,15 +1,4 @@
-function PlusIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-      <path
-        d="M12 5v14M5 12h14"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
+import { Plus } from "lucide-react";
 
 const faqs = [
   {
@@ -47,13 +36,9 @@ export default function FAQ() {
     <section className="codent-section" id="faq">
       <div className="codent-wrap">
         <div className="codent-section-head">
-          <div>
-            <span className="codent-eyebrow">faq</span>
-            <h2 className="mt-[18px]">
-              Questions,{" "}
-              <em className="italic font-light">answered.</em>
-            </h2>
-          </div>
+          <h2>
+            Questions, <em className="italic">answered.</em>
+          </h2>
           <p className="codent-section-lede">
             The things clients ask before saying yes - pricing, timeline,
             scope, and who actually shows up.
@@ -71,7 +56,7 @@ export default function FAQ() {
                   {f.q}
                 </span>
                 <span className="w-[30px] h-[30px] rounded-full bg-foreground text-background inline-flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-open:rotate-45">
-                  <PlusIcon />
+                  <Plus className="size-3.5" />
                 </span>
               </summary>
               <p className="text-[14px] text-[var(--text-secondary)] leading-[1.6] mt-4 max-w-[620px]">

@@ -12,9 +12,8 @@
   --proofbar-bg: rgba(255, 255, 255, 0.75);
   --swatch-bg: #e0e2e7;
   --swatch-text: #555555;
-  --gradient-pink: #f7b2fb;
-  --gradient-purple: #786ef1;
-  --gradient-blue: #5588fb;
+  --accent-indigo: #786ef1;
+  --accent-soft: rgba(120, 110, 241, 0.14);
 }
 
 .dark {
@@ -30,6 +29,7 @@
   --proofbar-bg: rgba(28, 28, 28, 0.75);
   --swatch-bg: #2a2a2a;
   --swatch-text: #b8b8b8;
+  --accent-soft: rgba(120, 110, 241, 0.22);
 }
 
 @theme inline {
@@ -39,7 +39,7 @@
   --color-secondary: var(--text-secondary);
   --color-line: var(--line);
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --radius-card: 22px;
+  --radius-card: 16px;
   --radius-pill: 40px;
 }
 
@@ -116,20 +116,6 @@
   border-radius: 6px;
   padding: 3px 12px;
   letter-spacing: 0.01em;
-}
-
-.codent-gradient-text {
-  background: linear-gradient(
-    to bottom,
-    var(--gradient-pink) 50%,
-    var(--gradient-purple) 80%,
-    var(--gradient-blue) 100%
-  );
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff);
 }
 
 .codent-pill-dark {
@@ -221,12 +207,8 @@
 }
 
 .codent-section-head {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 40px;
+  display: block;
   margin-bottom: 46px;
-  flex-wrap: wrap;
 }
 
 .codent-section-head h2 {
@@ -252,36 +234,21 @@
 .codent-section-lede {
   color: var(--text-secondary);
   font-size: 15px;
-  max-width: 340px;
+  max-width: 62ch;
   line-height: 1.6;
+  margin-top: 16px;
 }
 
-/* Material Symbols Rounded icon font helper (self-hosted, issue #41) */
-.codent-icon {
-  font-family: var(--font-material-symbols);
-  font-variation-settings: "'FILL' 1";
-  line-height: 1;
-  user-select: none;
-  pointer-events: none;
-}
+/* Material Symbols icon helpers removed - icons are now lucide-react. */
 
-/* CTA section glow blobs */
-.codent-glow-purple {
-  inset: -30% -10% auto auto;
+/* CTA section glow blob (single accent) */
+.codent-glow-accent {
+  inset: -20% -10% auto auto;
   width: 520px;
   height: 520px;
-  background: radial-gradient(circle at 30% 30%, #786ef1, transparent 60%);
-  filter: blur(60px);
-  opacity: 0.8;
-}
-
-.codent-glow-pink {
-  inset: auto auto -40% -10%;
-  width: 520px;
-  height: 520px;
-  background: radial-gradient(circle at 70% 70%, #f7b2fb, transparent 60%);
-  filter: blur(60px);
-  opacity: 0.7;
+  background: radial-gradient(circle at 30% 30%, var(--accent-indigo), transparent 62%);
+  filter: blur(70px);
+  opacity: 0.55;
 }
 
 /* Hero proof bar (issue #39) */
@@ -351,32 +318,6 @@
 .codent-hero {
   min-height: calc(100vh - 84px);
   min-height: calc(100dvh - 84px);
-}
-
-/* Hero floating icon decorations */
-.codent-float-cloud {
-  font-size: 42px;
-  top: -18px;
-  left: -24px;
-  animation: codentFloat 5s ease-in-out 0.3s infinite;
-}
-
-.codent-float-star {
-  font-size: 32px;
-  bottom: -15px;
-  right: 20px;
-  animation: codentFloat 4.5s ease-in-out 1s infinite;
-}
-
-/* Float animation */
-@keyframes codentFloat {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0);
-  }
-  50% {
-    transform: translateY(-10px) rotate(3deg);
-  }
 }
 
 /* Reduced motion (issue #44, WCAG 2.3.3): collapse all animations and
@@ -476,34 +417,6 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 28px;
-}
-
-/* Tile top accent strips */
-.codent-tile-accent-pink::before,
-.codent-tile-accent-purple::before,
-.codent-tile-accent-blue::before,
-.codent-tile-accent-green::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  border-radius: 22px 22px 0 0;
-  /* Above MagicCard's face fill (z-20) and spotlight (z-30) layers. */
-  z-index: 50;
-}
-.codent-tile-accent-pink::before {
-  background: linear-gradient(to right, #f7b2fb, #c084fc);
-}
-.codent-tile-accent-purple::before {
-  background: linear-gradient(to right, #786ef1, #a78bfa);
-}
-.codent-tile-accent-blue::before {
-  background: linear-gradient(to right, #5588fb, #60a5fa);
-}
-.codent-tile-accent-green::before {
-  background: linear-gradient(to right, #34d399, #6ee7b7);
 }
 
 /* ===== Process timeline ===== */

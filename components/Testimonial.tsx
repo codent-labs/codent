@@ -1,4 +1,4 @@
-import { Icon } from "./icon";
+import { Quote } from "lucide-react";
 import { Highlighter } from "@/components/ui/highlighter";
 
 export default function Testimonial() {
@@ -6,9 +6,13 @@ export default function Testimonial() {
     <section className="codent-section">
       <div className="codent-wrap">
         <div
-          className="bg-card rounded-[24px] p-[54px] border border-border shadow-[0_4px_24px_rgba(0,0,0,0.05)] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-center relative overflow-hidden"
+          className="bg-card rounded-[16px] p-[54px] border border-border shadow-[0_4px_24px_rgba(0,0,0,0.05)] grid grid-cols-1 md:grid-cols-[1.5fr_1fr] gap-12 items-center relative overflow-hidden"
         >
-          <Icon name="format_quote" className="codent-gradient-text absolute top-6 end-9 text-[90px] opacity-70 leading-none" />
+          <Quote
+            aria-hidden
+            strokeWidth={1.5}
+            className="absolute top-6 end-9 size-[90px] text-[var(--accent-indigo)] opacity-20 leading-none"
+          />
 
           <div>
             <blockquote className="text-[clamp(22px,2.4vw,30px)] font-medium tracking-[-0.6px] leading-[1.25] text-main">
@@ -28,7 +32,7 @@ export default function Testimonial() {
             </blockquote>
 
             <div className="flex items-center gap-[14px] mt-7">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-[18px] bg-[linear-gradient(135deg,#F7B2FB,#786EF1_60%,#5588FB)]">
+              <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-[18px] bg-[#786ef1]">
                 RM
               </div>
               <div>
@@ -43,7 +47,7 @@ export default function Testimonial() {
           </div>
 
           {/* Side card - featured Halcyon case metrics as a compact stat strip */}
-          <div className="bg-page rounded-[18px] p-6 flex flex-col gap-[14px]">
+          <div className="bg-page rounded-[16px] p-6 flex flex-col gap-[14px]">
             <div className="flex items-center justify-between">
               <span className="text-[12px] text-[var(--text-secondary)]">Project</span>
               <span className="text-[11px] font-semibold text-[#0b7536] bg-[#dff5e6] px-[10px] py-[3px] rounded-[40px]">
@@ -58,13 +62,13 @@ export default function Testimonial() {
             </div>
 
             <div className="grid grid-cols-2 gap-[10px] mt-1">
-              <div className="bg-card border border-border rounded-[14px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
+              <div className="bg-card border border-border rounded-[16px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
                 <div className="text-main text-[30px] font-semibold tracking-[-1px] leading-none">
                   +34
                 </div>
                 <div className="text-[11.5px] text-[var(--text-secondary)] mt-2">NPS lift</div>
               </div>
-              <div className="bg-card border border-border rounded-[14px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
+              <div className="bg-card border border-border rounded-[16px] p-[14px] text-center shadow-[0_2px_10px_rgba(0,0,0,0.04)]">
                 <div className="text-main text-[30px] font-semibold tracking-[-1px] leading-none">
                   ×2.1
                 </div>
