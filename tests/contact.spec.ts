@@ -155,6 +155,27 @@ test.describe("Contact form", () => {
     await expect(box).toBeChecked();
   });
 
+  // The banner must not steal focus on first paint: a non-blocking notice that
+  // appears on load should not yank a keyboard user mid-page.
+  test("the consent banner does not take focus on page load", async ({
+    page,
+  }) => {
+    await page.goto("/contact");
+    await expect(page.getByRole("dialog")).toBeVisible();
+
+    const focused = await page.evaluate(
+      () => document.activeElement?.tagName ?? "",
+    );
+    expect(focused).not.toBe("DIV");
+
+    // Tab from the top still walks into the page (first stop is the skip
+    // link) rather than landing back on the banner.
+    await page.keyboard.press("Tab");
+    await expect
+      .poll(() => page.evaluate(() => document.activeElement?.tagName ?? ""))
+      .toBe("A");
+  });
+
   test("registered business details are published on the contact page", async ({
     page,
   }) => {

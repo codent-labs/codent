@@ -20,6 +20,12 @@ import { useConsent } from "@/hooks/use-consent";
  * `aria-modal` is deliberately not set: the page behind stays reachable, which
  * is how consent managers behave and avoids trapping a screen-reader user on a
  * notice that is not blocking anything.
+ *
+ * It does not take focus on first paint. A non-blocking notice that appears on
+ * load should not pull a keyboard user out of whatever they had reached; the
+ * panel is last in the DOM, so Tab reaches it naturally. Focus moves into the
+ * panel only when the visitor reopens it from the "Cookie choices" control,
+ * which is a deliberate act.
  */
 export function CookieConsent() {
   const { decided, grant, denyAll } = useConsent();
@@ -41,8 +47,11 @@ export function CookieConsent() {
   };
 
   useEffect(() => {
-    if (visible) panelRef.current?.focus();
-  }, [visible]);
+    // Only take focus when the visitor asked for this panel. Auto-focusing on
+    // first paint would yank a keyboard user away from whatever they had
+    // reached - the banner is non-blocking, so it should wait its turn.
+    if (reopened) panelRef.current?.focus();
+  }, [reopened]);
 
   useEffect(() => {
     if (!visible) return;
